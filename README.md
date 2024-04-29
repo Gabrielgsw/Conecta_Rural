@@ -3,10 +3,10 @@
 
 
 ## Integrantes do grupo 
- * ANTONIO CHAVES PATRIOTA - antoniochavesacp@gmail.com
- * DANIEL FEITOSA DE LIMA - danielfeitosalimaptf1@gmail.com
- * GABRIEL GERMANO DOS SANTOS WANDERLEY - ggermanow279@gmail.com
- * JUAN PABOLLO CORREIA DA SILVA - pabollo61@gmail.com
+ * Antônio Chaves Patriota - antoniochavesacp@gmail.com
+ * Daniel Feitosa de Lima - danielfeitosalimaptf1@gmail.com
+ * Gabriel Germano dos Santos Wanderley - ggermanow279@gmail.com
+ * Juan Pabollo Correia da Silva - pabollo61@gmail.com
 
 ## Descrição geral do projeto 
 
@@ -14,12 +14,11 @@ Conecta Rural é um sistema com o intuito de conectar os estudantes da UFRPE com
 
 ## Requisitos do projeto
 
- * **REQ1** - O sistema deve controlar o acesso através de login e senha. Os usuários do sistema serão do tipo empresa e aluno.
+ * **REQ1** - O sistema deve controlar o acesso através de login e senha. Os usuários do sistema serão do tipo empresa e estudante.
  * **REQ2** - O sistema deve permitir a busca de pessoas(estudantes), por parte da empresa.
  * **REQ3** - O sistema deve permitir o gerenciamento(CRUD) das vagas inseridas pelo usuário empresa.
  * **REQ4** - O sistema deve permitir que o usuário do tipo estudante possa visualizar e se candidatar às vagas oferecidas pelo usuário empresa.
- * **REQ5** - O sistema deve permitir o gerenciamento do perfil por empresas e estudantes.
- * **REQ6** - 
- * **REQ7** - O sistema deve permitir o gerenciamento (Create, Recover, Update e Delete - CRUD) de alunos e produtos e produtos e essa ação pode ser feita por funcionários comuns.
- * **REQ8** - O sistema deve permitir o gerenciamento (CRUD) de funcionários da empresa e essa ação somente poderá ser executada por usuários administradores. Usuários administradores também podem executar todas as funcionalidades que um funcionário comum pode executar.
-
+ * **REQ5** - O sistema deve permitir que o usuário empresa insira suas informações e possa gerenciá-las.
+ * **REQ6** - O sistema deve permitir que o usuário estudante insira suas informações bem como o gerenciamento delas(atualizar,excluir).
+ * **REQ7** - O sistema deve permitir que o usuário do tipo estudante possa verificar as suas candidaturas. 
+ * **REQ8** - O sistema deve permitir que o usuário do tipo empresa visualize os candidatos nas vagas oferecidas. 
