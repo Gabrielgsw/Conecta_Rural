@@ -1,4 +1,0 @@
-INDEX VERSION 1.134+C:\Users\jmxnt\OneDrive\Desktop\reps- conecta rural\.metadata\.plugins\org.eclipse.jdt.core
-1865797976.index
-3959137331.index
-1608550327.index
