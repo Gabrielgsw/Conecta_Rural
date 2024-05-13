@@ -1,4 +1,5 @@
 package com.conectarural.conecta_rural.Models;
+import java.io.File;
 
 public class Curriculo {
 
