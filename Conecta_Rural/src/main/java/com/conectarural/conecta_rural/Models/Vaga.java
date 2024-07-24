@@ -7,21 +7,27 @@ public class Vaga {
     private int quantidadeCandidatos;
     private double remuneracao;
     private int quantidadeVagas;
-    private String nomeEmpresa;
+    private Empresa empresa;
     private int codigoVaga;
+
+
+    private RegimeContratacao regimeContratacao;
+    private StatusVaga statusVaga;
 
     public Vaga() {
 
     }
 
-    public Vaga(String nomeVaga, String descricaoVaga, int quantidadeCandidatos, double remuneracao, int quantidadeVagas, String nomeEmpresa, int codigoVaga) {
+    public Vaga(String nomeVaga, String descricaoVaga, int quantidadeCandidatos, double remuneracao, int quantidadeVagas, Empresa empresa, int codigoVaga, RegimeContratacao regimeContratacao, StatusVaga statusVaga) {
         this.nomeVaga = nomeVaga;
         this.descricaoVaga = descricaoVaga;
         this.quantidadeCandidatos = quantidadeCandidatos;
         this.remuneracao = remuneracao;
         this.quantidadeVagas = quantidadeVagas;
-        this.nomeEmpresa = nomeEmpresa;
+        this.empresa = empresa;
         this.codigoVaga = codigoVaga;
+        this.regimeContratacao = regimeContratacao;
+        this.statusVaga = statusVaga;
     }
 
     public String getNomeVaga() { return nomeVaga; }
@@ -44,14 +50,21 @@ public class Vaga {
 
     public void setQuantidadeVagas(int quantidadeVagas) { this.quantidadeVagas = quantidadeVagas; }
 
-    public String getNomeEmpresa() { return nomeEmpresa; }
+    public Empresa getEmpresa() { return empresa; }
 
-    public void setNomeEmpresa(String nomeEmpresa) { this.nomeEmpresa = nomeEmpresa; }
+    public void setEmpresa(String nomeEmpresa) { this.empresa = empresa; }
 
     public int getCodigoVaga() { return codigoVaga; }
 
     public void setCodigoVaga(int codigoVaga) { this.codigoVaga = codigoVaga; }
 
+    public RegimeContratacao getRegimeContratacao() {
+        return regimeContratacao;
+    }
+
+    public void setRegimeContratacao(RegimeContratacao regimeContratacao) {
+        this.regimeContratacao = regimeContratacao;
+    }
 
     @Override
     public String toString(){
@@ -61,7 +74,7 @@ public class Vaga {
                 ", quantidadeCandidatos='" + quantidadeCandidatos + '\'' +
                 ", remuneracao='" + remuneracao + '\'' +
                 ", quantidadeVagas='" + quantidadeVagas + '\'' +
-                ", nomeEmpresa='" + nomeEmpresa + '\'' +
+                ", nomeEmpresa='" + empresa + '\'' +
                 ", codigoVaga='" + codigoVaga + '\'' +
                 '}';
     }

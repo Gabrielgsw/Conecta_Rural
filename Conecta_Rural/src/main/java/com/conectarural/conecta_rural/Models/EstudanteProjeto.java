@@ -1,15 +1,15 @@
 package com.conectarural.conecta_rural.Models;
 
-public class estudanteProjeto {
+public class EstudanteProjeto {
 
     private String projetoNome;
     private String projetoDescricao;
     private String projetoLink;
 
-    public estudanteProjeto(){
+    public EstudanteProjeto(){
     }
 
-    public estudanteProjeto(String NomeProjeto, String Projetodescricao, String Projetolink){
+    public EstudanteProjeto(String NomeProjeto, String Projetodescricao, String Projetolink){
         this.projetoNome= NomeProjeto;
         this.projetoDescricao= Projetodescricao;
         this.projetoLink = Projetolink;

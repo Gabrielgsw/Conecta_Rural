@@ -6,15 +6,17 @@ public class Curriculo {
     private String resumo;
     private Integer periodoAtual;
     private File curriculoArquivo;
-    private estudanteProjeto projeto;
+    private EstudanteProjeto projeto;
+    private Curso curso;
 
     public Curriculo(){
     }
     
-    public Curriculo(String resumo, Integer periodoAtual, estudanteProjeto projeto){
+    public Curriculo(String resumo, Integer periodoAtual, EstudanteProjeto projeto,Curso curso){
         this.resumo = resumo;
         this.periodoAtual = periodoAtual;
         this.projeto = projeto;
+        this.curso=curso;
     }
     
     public String getResumo() {
@@ -33,11 +35,11 @@ public class Curriculo {
         this.periodoAtual = periodoAtual;
     }
 
-    public estudanteProjeto getProjeto() {
+    public EstudanteProjeto getProjeto() {
         return projeto;
     }
 
-    public void setProjeto(estudanteProjeto projeto){
+    public void setProjeto(EstudanteProjeto projeto){
         this.projeto = projeto;  
     }       
     
@@ -45,9 +47,18 @@ public class Curriculo {
         return curriculoArquivo;
     }
     public void setCurriculoArquivo(File curriculoArquivo){
+
         this.curriculoArquivo = curriculoArquivo;
     }
-    
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
     @Override
     public String toString() {
         return "Curriculo{" +
