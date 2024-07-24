@@ -28,4 +28,8 @@ Conecta Rural é um sistema com o intuito de conectar os estudantes da UFRPE com
   * **MVP1 - Cadastros** - [REQ1]: cadastros básicos de todas as entidades
   * **MVP2 - Busca** - [REQ2,REQ4]: buscas de estudantes e vagas
   * **MVP3 - Gerenciamento** - [REQ3,REQ5,REQ6]: gerenciamento de informações por parte de cada perfil e vagas
-  * **MVP4 - Visualização** - [REQ4,REQ7,REQ8]: visualização de informações pertinentes(vagas,candiadatos,currículos) 
+  * **MVP4 - Visualização** - [REQ4,REQ7,REQ8]: visualização de informações pertinentes(vagas,candiadatos,currículos)
+
+  ## UML
+
+![alt text](https://github.com/Gabrielgsw/Conecta_Rural/blob/main/Conecta_Rural_UML.jpg?raw=true)
