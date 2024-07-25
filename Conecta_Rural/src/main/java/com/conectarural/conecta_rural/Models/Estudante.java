@@ -2,15 +2,17 @@ package com.conectarural.conecta_rural.Models;
 
 import java.time.LocalDate;
 
-public class Estudante {
+public class Estudante extends Usuario {
     private Long cpf;
     private LocalDate dataNascimento;
     private Curriculo curriculoEstudante;
 
     public Estudante() {
+        super();
     }
 
-    public Estudante(Long cpf, LocalDate dataNascimento, Curriculo curriculoEstudante) {
+    public Estudante(String nome, String email, Long telefone, String endereco, String senha, Long cpf, LocalDate dataNascimento, Curriculo curriculoEstudante) {
+        super(nome, email, telefone, endereco, senha);
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.curriculoEstudante = curriculoEstudante;
@@ -36,4 +38,6 @@ public class Estudante {
                 ", curriculoEstudante=" + curriculoEstudante +
                 '}';
     }
+
+
 }

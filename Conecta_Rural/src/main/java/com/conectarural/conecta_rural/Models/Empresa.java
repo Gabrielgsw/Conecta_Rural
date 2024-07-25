@@ -1,6 +1,6 @@
 package com.conectarural.conecta_rural.Models;
 
-public class Empresa {
+public class Empresa extends Usuario{
 
     private String cnpj;
     private Integer quantidadeFuncionarios;
@@ -8,9 +8,12 @@ public class Empresa {
     private String descricao;
 
     public Empresa() {
+        super();
+
     }
 
-    public Empresa(String cnpj, Integer quantidadeFuncionarios, String areaAtuacao, String descricao) {
+    public Empresa(String nome, String email, Long telefone, String endereco, String senha, String cnpj, Integer quantidadeFuncionarios, String areaAtuacao, String descricao) {
+        super(nome, email, telefone, endereco, senha);
         this.cnpj = cnpj;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.areaAtuacao = areaAtuacao;
