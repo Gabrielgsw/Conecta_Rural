@@ -2,7 +2,7 @@ package com.conectarural.conecta_rural.Models;
 
 import java.time.LocalDateTime;
 
-public abstract class Ativdade {
+public abstract class Atividade {
 
     private String nome;
     private String resumo;
@@ -10,7 +10,7 @@ public abstract class Ativdade {
     private String tecnologias;
     private LocalDateTime data;
 
-    public Ativdade(String nome, String resumo, String area, String tecnologias, LocalDateTime data) {
+    public Atividade(String nome, String resumo, String area, String tecnologias, LocalDateTime data) {
         this.nome = nome;
         this.resumo = resumo;
         this.area = area;
