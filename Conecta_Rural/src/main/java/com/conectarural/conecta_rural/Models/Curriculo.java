@@ -1,22 +1,24 @@
 package com.conectarural.conecta_rural.Models;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Curriculo {
 
     private String resumo;
     private Integer periodoAtual;
     private File curriculoArquivo;
-    private EstudanteProjeto projeto;
     private Curso curso;
+    private List<Atividade> atividades;
 
     public Curriculo(){
     }
     
-    public Curriculo(String resumo, Integer periodoAtual, EstudanteProjeto projeto,Curso curso){
+    public Curriculo(String resumo, Integer periodoAtual,Curso curso){
         this.resumo = resumo;
         this.periodoAtual = periodoAtual;
-        this.projeto = projeto;
         this.curso=curso;
+        this.atividades = new ArrayList<>();
     }
     
     public String getResumo() {
@@ -35,14 +37,6 @@ public class Curriculo {
         this.periodoAtual = periodoAtual;
     }
 
-    public EstudanteProjeto getProjeto() {
-        return projeto;
-    }
-
-    public void setProjeto(EstudanteProjeto projeto){
-        this.projeto = projeto;  
-    }       
-    
     public File getCurriculoArquivo() {
         return curriculoArquivo;
     }
