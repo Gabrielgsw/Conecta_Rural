@@ -1,4 +1,4 @@
 package com.conectarural.conecta_rural.dados;
 
-public class CandidaturasRepositor {
+public class CandidaturasRepository {
 }
