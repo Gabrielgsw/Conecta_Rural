@@ -1,5 +1,8 @@
 package com.conectarural.conecta_rural.Models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Vaga {
 
     private String nomeVaga;
@@ -9,6 +12,7 @@ public class Vaga {
     private int quantidadeVagas;
     private Empresa empresa;
     private int codigoVaga;
+    private List<Candidatura> candidaturas;
 
 
     private RegimeContratacao regimeContratacao;
@@ -28,6 +32,7 @@ public class Vaga {
         this.codigoVaga = codigoVaga;
         this.regimeContratacao = regimeContratacao;
         this.statusVaga = statusVaga;
+        this.candidaturas = new ArrayList<>();
     }
 
     public String getNomeVaga() { return nomeVaga; }
@@ -50,6 +55,10 @@ public class Vaga {
 
     public void setQuantidadeVagas(int quantidadeVagas) { this.quantidadeVagas = quantidadeVagas; }
 
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
+
     public Empresa getEmpresa() { return empresa; }
 
     public void setEmpresa(String nomeEmpresa) { this.empresa = empresa; }
@@ -62,8 +71,24 @@ public class Vaga {
         return regimeContratacao;
     }
 
+    public StatusVaga getStatusVaga() {
+        return statusVaga;
+    }
+
+    public void setStatusVaga(StatusVaga statusVaga) {
+        this.statusVaga = statusVaga;
+    }
+
     public void setRegimeContratacao(RegimeContratacao regimeContratacao) {
         this.regimeContratacao = regimeContratacao;
+    }
+
+    public List<Candidatura> getCandidaturas() {
+        return candidaturas;
+    }
+
+    public void setCandidaturas(List<Candidatura> candidaturas) {
+        this.candidaturas = candidaturas;
     }
 
     @Override

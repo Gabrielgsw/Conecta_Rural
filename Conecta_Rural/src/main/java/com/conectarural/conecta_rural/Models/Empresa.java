@@ -1,11 +1,14 @@
 package com.conectarural.conecta_rural.Models;
 
+import java.util.List;
+
 public class Empresa extends Usuario{
 
     private String cnpj;
     private Integer quantidadeFuncionarios;
     private String areaAtuacao;
     private String descricao;
+    private List<Vaga> vagas;
 
     public Empresa() {
         super();
