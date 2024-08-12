@@ -1,5 +1,7 @@
 package com.conectarural.conecta_rural.dados;
 
+import com.conectarural.conecta_rural.Exceptions.ElementoNaoExistenteException;
+import com.conectarural.conecta_rural.Exceptions.ElementosNaoIguaisException;
 import com.conectarural.conecta_rural.Models.Usuario;
 import java.util.List;
 import java.util.ArrayList;
@@ -19,24 +21,26 @@ public class UsuarioRepository implements IRepository<Usuario>{
     }
 
     //remover
-    public void remover(Usuario U){
+    public void remover(Usuario U) throws ElementoNaoExistenteException {
         int indice=procurarIndice(U);
         if(indice>=0){
             //remove o usuraios e realoca todos os outros
             this.usuarios.remove(indice);
         }else{
             //objeto não encontrado
+            throw new ElementoNaoExistenteException();
         }
     }
 
     //atualizar
-    public void atualizar(Usuario Antigo,Usuario Novo){
+    public void atualizar(Usuario Antigo,Usuario Novo)throws ElementoNaoExistenteException {
         int indice=procurarIndice(Antigo);
 
         if(indice>=0){
             this.usuarios.set(indice, Novo);
         }else{
             //usuario não existente
+            throw new ElementoNaoExistenteException();
         }
     }
 
