@@ -1,6 +1,6 @@
 package com.conectarural.conecta_rural.dados;
 import com.conectarural.conecta_rural.Models.Vaga;
-
+import com.conectarural.conecta_rural.Exceptions.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class VagasRepository implements IRepository<Vaga> {
     }
 
 
-    public void adicionar(Vaga v) {
+    public void adicionar(Vaga v) throws ElementoNaoExistenteException {
 
         boolean existe = listaDeVagas.contains(v);
         //verifica se a vaga ja existe na lista
@@ -23,6 +23,7 @@ public class VagasRepository implements IRepository<Vaga> {
         }
         else{
             //VagaJaExistenteException
+            throw new ElementoNaoExistenteException();
         }
 
     }
@@ -40,7 +41,7 @@ public class VagasRepository implements IRepository<Vaga> {
     }
 
 
-    public void remover(Vaga v) {
+    public void remover(Vaga v) throws ElementoNaoExistenteException {
 
         boolean existe = false;
 
@@ -58,12 +59,13 @@ public class VagasRepository implements IRepository<Vaga> {
         }
         else{
             //VagaNaoExistenteException
+            throw new ElementoNaoExistenteException();
         }
 
     }
 
 
-    public void atualizar(Vaga antigo, Vaga novo) {
+    public void atualizar(Vaga antigo, Vaga novo) throws ElementoNaoExistenteException, ElementosNaoIguaisException {
 
         if (antigo.getCodigoVaga() == novo.getCodigoVaga()) {
             //as duas vagas sao iguais
@@ -84,12 +86,13 @@ public class VagasRepository implements IRepository<Vaga> {
             else{
 
                 //VagaNaoExistenteException
+                throw new ElementoNaoExistenteException();
 
             }
         } else {
 
             //as duas vagas nao sao iguais, levantar exception
-
+            throw new ElementosNaoIguaisException();
         }
 
     }
