@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class UsuarioRepository implements IRepository<Usuario>{
     private List<Usuario> usuarios;
 
-
     //construtor público
     public UsuarioRepository(int tamanho){
         this.usuarios = new ArrayList<>();
@@ -17,9 +16,7 @@ public class UsuarioRepository implements IRepository<Usuario>{
     //adcionar
     public void adicionar(Usuario U) {
         this.usuarios.add(U);
-        System.out.println("Um novo usuario chamado " + U.getNome() + " foi adicionado.");
     }
-
 
     //remover
     public void remover(Usuario U){
@@ -27,9 +24,8 @@ public class UsuarioRepository implements IRepository<Usuario>{
         if(indice>=0){
             //remove o usuraios e realoca todos os outros
             this.usuarios.remove(indice);
-            System.out.println("Conta removida." );
         }else{
-            System.out.println("Essa conta não existe." );
+            //objeto não encontrado
         }
     }
 
@@ -39,14 +35,12 @@ public class UsuarioRepository implements IRepository<Usuario>{
 
         if(indice>=0){
             this.usuarios.set(indice, Novo);
-            System.out.println("O usuário "+Antigo.getNome()+" foi susbstituido pelo novo usuário"+ Novo.getNome());
         }else{
-            System.out.println("Este usuário não existe." );
+            //usuario não existente
         }
     }
 
     // Implementação do método listar
-
     public List<Usuario> listar() {
         // Cria uma lista para retornar
         List<Usuario> listaUsuarios = new ArrayList<>();
@@ -57,7 +51,6 @@ public class UsuarioRepository implements IRepository<Usuario>{
         // Retorna a lista de usuários
         return listaUsuarios;
     }
-
 
     //método auxiliar de buscar índice de um obejto
     private int procurarIndice(Usuario U) {
@@ -70,5 +63,4 @@ public class UsuarioRepository implements IRepository<Usuario>{
         }
         return -1;  // Retorna -1 se não encontrar o usuário
     }
-
 }
