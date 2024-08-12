@@ -2,6 +2,7 @@ package com.conectarural.conecta_rural.Models;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Vaga {
 
@@ -105,5 +106,10 @@ public class Vaga {
     }
 
 
+    public boolean equals(Vaga o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        return codigoVaga == ((Vaga) o).codigoVaga;
+    }
 
 }

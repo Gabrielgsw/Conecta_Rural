@@ -4,7 +4,7 @@ import com.conectarural.conecta_rural.Models.Usuario;
 import java.util.List;
 import java.util.ArrayList;
 
-public abstract class UsuarioRepository implements IRepository<Usuario>{
+public class UsuarioRepository implements IRepository<Usuario>{
     private List<Usuario> usuarios;
 
 
@@ -47,7 +47,7 @@ public abstract class UsuarioRepository implements IRepository<Usuario>{
 
     // Implementação do método listar
 
-    public List<Usuario> lista() {
+    public List<Usuario> listar() {
         // Cria uma lista para retornar
         List<Usuario> listaUsuarios = new ArrayList<>();
         // Adiciona os usuários que já foram adicionados ao arrayList
