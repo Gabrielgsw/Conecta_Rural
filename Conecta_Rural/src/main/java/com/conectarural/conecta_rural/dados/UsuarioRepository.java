@@ -10,7 +10,7 @@ public class UsuarioRepository implements IRepository<Usuario>{
     private List<Usuario> usuarios;
 
     //construtor público
-    public UsuarioRepository(int tamanho){
+    public UsuarioRepository(){
         this.usuarios = new ArrayList<>();
     }
 
