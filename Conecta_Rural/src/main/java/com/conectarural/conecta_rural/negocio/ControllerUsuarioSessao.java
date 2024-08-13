@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ControllerUsuarioSessao {
 
-    private IRepository<Usuario> repositorioUsuario
+    private IRepository<Usuario> repositorioUsuario;
 
     private Usuario usuarioLogado;
     private static ControllerUsuarioSessao instance;
