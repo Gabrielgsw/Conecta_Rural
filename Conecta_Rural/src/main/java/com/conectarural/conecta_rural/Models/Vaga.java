@@ -14,8 +14,6 @@ public class Vaga {
     private Empresa empresa;
     private int codigoVaga;
     private List<Candidatura> candidaturas;
-
-
     private RegimeContratacao regimeContratacao;
     private StatusVaga statusVaga;
 

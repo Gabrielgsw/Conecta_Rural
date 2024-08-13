@@ -3,6 +3,7 @@ import com.conectarural.conecta_rural.Models.Vaga;
 import com.conectarural.conecta_rural.Exceptions.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class VagasRepository implements IRepository<Vaga> {
 
@@ -22,7 +23,7 @@ public class VagasRepository implements IRepository<Vaga> {
             listaDeVagas.add(v);
         }
         else{
-            //VagaJaExistenteException
+
             throw new ElementoNaoExistenteException();
         }
 
@@ -58,7 +59,7 @@ public class VagasRepository implements IRepository<Vaga> {
             listaDeVagas.remove(v);
         }
         else{
-            //VagaNaoExistenteException
+
             throw new ElementoNaoExistenteException();
         }
 
@@ -85,13 +86,13 @@ public class VagasRepository implements IRepository<Vaga> {
             }
             else{
 
-                //VagaNaoExistenteException
+
                 throw new ElementoNaoExistenteException();
 
             }
         } else {
 
-            //as duas vagas nao sao iguais, levantar exception
+
             throw new ElementosNaoIguaisException();
         }
 

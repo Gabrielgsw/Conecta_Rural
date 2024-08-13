@@ -13,4 +13,13 @@ public enum StatusVaga {
     public String toString() {
         return this.statusVaga;
     }
+
+
+    public String getStatusVaga() {
+        return statusVaga;
+    }
+
+    public void setStatusVaga(String statusVaga) {
+        this.statusVaga = statusVaga;
+    }
 }
