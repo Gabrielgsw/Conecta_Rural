@@ -1,6 +1,6 @@
 package com.conectarural.conecta_rural.negocio;
 
-import com.conectarural.conecta_rural.Exceptions.*;
+import  com.conectarural.conecta_rural.Exceptions.*;
 import com.conectarural.conecta_rural.Models.Usuario;
 import com.conectarural.conecta_rural.dados.IRepository;
 import com.conectarural.conecta_rural.dados.UsuarioRepository;

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 
-public abstract class CandidaturasRepository implements IRepository<Candidatura> {
+public class CandidaturasRepository implements IRepository<Candidatura> {
 
     private List<Candidatura> listaDeCandidaturas;
 
