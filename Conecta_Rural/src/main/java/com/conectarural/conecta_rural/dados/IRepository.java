@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface IRepository<T> {
 
-    void adicionar(T t) throws ElementoNaoExistenteException;
+    void adicionar(T t) throws ElementoJaExistenteException;
 
     List<T> listar();
 

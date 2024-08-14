@@ -14,7 +14,7 @@ public class VagasRepository implements IRepository<Vaga> {
     }
 
 
-    public void adicionar(Vaga v) throws ElementoNaoExistenteException {
+    public void adicionar(Vaga v) throws ElementoJaExistenteException {
 
         boolean existe = listaDeVagas.contains(v);
         //verifica se a vaga ja existe na lista
@@ -24,7 +24,7 @@ public class VagasRepository implements IRepository<Vaga> {
         }
         else{
 
-            throw new ElementoNaoExistenteException();
+            throw new ElementoJaExistenteException();
         }
 
     }

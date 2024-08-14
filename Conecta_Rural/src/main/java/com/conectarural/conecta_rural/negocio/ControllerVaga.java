@@ -1,6 +1,7 @@
 package com.conectarural.conecta_rural.negocio;
 import com.conectarural.conecta_rural.Exceptions.ElementoNaoExistenteException;
 import com.conectarural.conecta_rural.Exceptions.ElementosNaoIguaisException;
+import com.conectarural.conecta_rural.Exceptions.ElementoJaExistenteException;
 import com.conectarural.conecta_rural.Models.StatusVaga;
 import com.conectarural.conecta_rural.dados.VagasRepository;
 import com.conectarural.conecta_rural.Models.Vaga;
@@ -26,7 +27,7 @@ public class ControllerVaga {
         return instance;
     }
 
-    public void cadastrarVaga(Vaga vaga) throws ElementoNaoExistenteException {
+    public void cadastrarVaga(Vaga vaga) throws ElementoJaExistenteException {
 
         repositorioVaga.adicionar(vaga);
 
