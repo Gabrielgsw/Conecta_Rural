@@ -1,4 +1,5 @@
 package com.conectarural.conecta_rural.dados;
+import com.conectarural.conecta_rural.Exceptions.ElementoJaExistenteException;
 import com.conectarural.conecta_rural.Exceptions.ElementoNaoExistenteException;
 import com.conectarural.conecta_rural.Exceptions.ElementosNaoIguaisException;
 import com.conectarural.conecta_rural.Models.Candidatura;
@@ -15,12 +16,16 @@ public abstract class CandidaturasRepository implements IRepository<Candidatura>
     }
 
 
-    public void adicionar(Candidatura c) throws ElementoNaoExistenteException {
+    public void adicionar(Candidatura c) throws ElementoJaExistenteException {
 
-        if (!listaDeCandidaturas.contains(c)) {
+        boolean existe = listaDeCandidaturas.contains(c);
+
+        if(!existe){
             listaDeCandidaturas.add(c);
-        } else {
-            throw new ElementoNaoExistenteException();
+        }
+        else{
+
+            throw new ElementoJaExistenteException();
         }
     }
 
