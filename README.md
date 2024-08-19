@@ -32,7 +32,7 @@ Conecta Rural é um sistema com o intuito de conectar os estudantes da UFRPE com
 
   ## UML
 
-![alt text](https://github.com/Gabrielgsw/Conecta_Rural/blob/main/Conecta_Rural/Conecta_Rural_UML_2.jpg)
+![alt text](https://github.com/Gabrielgsw/Conecta_Rural/blob/main/Conecta_Rural/Conecta_Rural_UML.jpg)
 
 ## Modelo navegacional
 ![alt text](https://github.com/Gabrielgsw/Conecta_Rural/blob/main/Conecta_Rural/ModeloNavegacional.jpg)
