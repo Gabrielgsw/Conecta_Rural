@@ -1,7 +1,7 @@
 package com.conectarural.conecta_rural.negocio;
 
-import com.conectarural.conecta_rural.Exceptions.FalhaLoginException;
-import com.conectarural.conecta_rural.Models.*;
+import com.conectarural.conecta_rural.exceptions.FalhaLoginException;
+import com.conectarural.conecta_rural.models.*;
 import com.conectarural.conecta_rural.dados.*;
 
 import java.util.List;

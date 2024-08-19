@@ -1,11 +1,11 @@
 package com.conectarural.conecta_rural.negocio;
 
-import  com.conectarural.conecta_rural.Exceptions.*;
-import com.conectarural.conecta_rural.Models.Usuario;
+import  com.conectarural.conecta_rural.exceptions.*;
+import com.conectarural.conecta_rural.models.Usuario;
 import com.conectarural.conecta_rural.dados.IRepository;
 import com.conectarural.conecta_rural.dados.UsuarioRepository;
 import java.util.ArrayList;
-import com.conectarural.conecta_rural.Models.*;
+import com.conectarural.conecta_rural.models.*;
 import java.util.List;
 
 public class ControllerUsuario {

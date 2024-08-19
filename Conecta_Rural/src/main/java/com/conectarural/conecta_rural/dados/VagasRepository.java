@@ -1,9 +1,8 @@
 package com.conectarural.conecta_rural.dados;
-import com.conectarural.conecta_rural.Models.Vaga;
-import com.conectarural.conecta_rural.Exceptions.*;
+import com.conectarural.conecta_rural.models.Vaga;
+import com.conectarural.conecta_rural.exceptions.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class VagasRepository implements IRepository<Vaga> {
 

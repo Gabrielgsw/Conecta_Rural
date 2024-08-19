@@ -1,8 +1,8 @@
 package com.conectarural.conecta_rural.negocio;
 
-import com.conectarural.conecta_rural.Exceptions.*;
+import com.conectarural.conecta_rural.exceptions.*;
 
-import com.conectarural.conecta_rural.Models.*;
+import com.conectarural.conecta_rural.models.*;
 
 import com.conectarural.conecta_rural.dados.CandidaturasRepository;
 
@@ -39,10 +39,14 @@ public class ControllerCandidatura {
         return candidaturas;
     }
 
-    public void candidatar(Estudante e, Vaga v) throws ElementoJaExistenteException {
+    public void candidatar(Estudante e, Vaga v,FiltroVaga filtroVaga) throws ElementoJaExistenteException, FalhaCandidaturaException {
+        if((filtroVaga.filtrarVaga(e,v) == -1) || (!v.getDescricaoVaga().contains(e.getCurriculoEstudante().getCurso().toString())) ){
+            throw new FalhaCandidaturaException();
+        }
         LocalDateTime dataCandidatura = LocalDateTime.now();
         Candidatura candidatura = new Candidatura(e, dataCandidatura, v);
         repositorioCandidatura.adicionar(candidatura);
+
     }
 
     public List<Candidatura> candidaturasPorVaga(Vaga v) throws ElementoJaExistenteException {

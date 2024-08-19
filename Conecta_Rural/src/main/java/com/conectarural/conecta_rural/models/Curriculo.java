@@ -1,4 +1,4 @@
-package com.conectarural.conecta_rural.Models;
+package com.conectarural.conecta_rural.models;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;

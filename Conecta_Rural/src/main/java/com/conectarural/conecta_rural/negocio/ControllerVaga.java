@@ -1,10 +1,10 @@
 package com.conectarural.conecta_rural.negocio;
-import com.conectarural.conecta_rural.Exceptions.ElementoNaoExistenteException;
-import com.conectarural.conecta_rural.Exceptions.ElementosNaoIguaisException;
-import com.conectarural.conecta_rural.Exceptions.ElementoJaExistenteException;
-import com.conectarural.conecta_rural.Models.StatusVaga;
+import com.conectarural.conecta_rural.exceptions.ElementoNaoExistenteException;
+import com.conectarural.conecta_rural.exceptions.ElementosNaoIguaisException;
+import com.conectarural.conecta_rural.exceptions.ElementoJaExistenteException;
+import com.conectarural.conecta_rural.models.StatusVaga;
 import com.conectarural.conecta_rural.dados.VagasRepository;
-import com.conectarural.conecta_rural.Models.Vaga;
+import com.conectarural.conecta_rural.models.Vaga;
 import com.conectarural.conecta_rural.dados.IRepository;
 
 import java.util.ArrayList;

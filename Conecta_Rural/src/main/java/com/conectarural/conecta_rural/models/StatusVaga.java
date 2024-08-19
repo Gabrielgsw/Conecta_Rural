@@ -1,4 +1,4 @@
-package com.conectarural.conecta_rural.Models;
+package com.conectarural.conecta_rural.models;
 
 public enum StatusVaga {
     Aberta("Aberta"),EmAndamento("Em andamento"), Encerrada("Encerrada");

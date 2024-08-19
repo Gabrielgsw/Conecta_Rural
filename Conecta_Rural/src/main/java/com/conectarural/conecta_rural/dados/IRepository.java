@@ -1,6 +1,5 @@
 package com.conectarural.conecta_rural.dados;
-import com.conectarural.conecta_rural.Models.Vaga;
-import com.conectarural.conecta_rural.Exceptions.*;
+import com.conectarural.conecta_rural.exceptions.*;
 import java.util.List;
 
 public interface IRepository<T> {

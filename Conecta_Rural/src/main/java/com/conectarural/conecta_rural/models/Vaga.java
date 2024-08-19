@@ -1,8 +1,7 @@
-package com.conectarural.conecta_rural.Models;
+package com.conectarural.conecta_rural.models;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class Vaga {
 

@@ -1,4 +1,4 @@
-package com.conectarural.conecta_rural.Exceptions;
+package com.conectarural.conecta_rural.exceptions;
 
 public class FalhaLoginException extends Exception {
     public FalhaLoginException() {

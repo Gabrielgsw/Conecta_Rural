@@ -1,4 +1,4 @@
-package com.conectarural.conecta_rural.Models;
+package com.conectarural.conecta_rural.models;
 
 public enum RegimeContratacao {
     CLT("CLT"), Estagio("Estágio"), PessoaJuridica("Pessoa Jurídica"), Temporario("Temporário"), Freelancer("Freelancer");

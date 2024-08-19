@@ -1,8 +1,8 @@
 package com.conectarural.conecta_rural.dados;
-import com.conectarural.conecta_rural.Exceptions.ElementoJaExistenteException;
-import com.conectarural.conecta_rural.Exceptions.ElementoNaoExistenteException;
-import com.conectarural.conecta_rural.Exceptions.ElementosNaoIguaisException;
-import com.conectarural.conecta_rural.Models.Candidatura;
+import com.conectarural.conecta_rural.exceptions.ElementoJaExistenteException;
+import com.conectarural.conecta_rural.exceptions.ElementoNaoExistenteException;
+import com.conectarural.conecta_rural.exceptions.ElementosNaoIguaisException;
+import com.conectarural.conecta_rural.models.Candidatura;
 import java.util.List;
 import java.util.ArrayList;
 
