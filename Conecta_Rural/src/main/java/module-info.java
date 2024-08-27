@@ -9,4 +9,6 @@ module com.conectarural.conecta_rural {
 
     opens com.conectarural.conecta_rural to javafx.fxml;
     exports com.conectarural.conecta_rural;
+    opens com.conectarural.conecta_rural.gui to javafx.fxml;
+    exports com.conectarural.conecta_rural.gui;
 }
