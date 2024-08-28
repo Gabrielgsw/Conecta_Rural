@@ -1,4 +1,4 @@
-package com.conectarural.conecta_rural.gui;
+package com.conectarural.conecta_rural;
 
 
 import javafx.fxml.FXML;

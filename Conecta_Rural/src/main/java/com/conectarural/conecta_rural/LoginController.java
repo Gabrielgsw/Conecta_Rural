@@ -1,10 +1,8 @@
-package com.conectarural.conecta_rural.gui;
+package com.conectarural.conecta_rural;
 
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
