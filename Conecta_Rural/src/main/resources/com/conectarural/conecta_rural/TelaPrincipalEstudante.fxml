@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.conectarural.conecta_rural.PrincipalEstudanteController">
+  <content>
+    <AnchorPane fx:id="TelaEstudante" minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="598.0">
+         <children>
+            <Button fx:id="botaoBuscarVagas" layoutX="330.0" layoutY="123.0" mnemonicParsing="false" onAction="#acaoBotaoBuscarVagas" text="Buscar vagas" />
+            <Button fx:id="botaoVerPerfil" layoutX="330.0" layoutY="81.0" mnemonicParsing="false" onAction="#acaoBotaoVerPerfil" text="Visualizar seu perfil" />
+            <Button fx:id="botaoCandidaturas" layoutX="332.0" layoutY="165.0" mnemonicParsing="false" onAction="#acaoBotaoCandidaturas" text="Visualizar suas candidaturas" />
+            <Button fx:id="botaoSairEstudante" layoutX="332.0" layoutY="300.0" mnemonicParsing="false" onAction="#acaoBotaoSairEstudante" text="Sair da conta" />
+            <Label layoutX="330.0" layoutY="55.0" text="Escolha uma das opcções a seguir:" />
+            <ImageView fx:id="fotoPerfil" fitHeight="135.0" fitWidth="138.0" layoutX="72.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../../Imagens/foto,anonima,PNG.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="botaoVerVagasAbertas" layoutX="332.0" layoutY="208.0" mnemonicParsing="false" onAction="#acaoBotaoVerVagasAbertas" text="Visualizar vagas abertas" />
+            <Label layoutX="34.0" layoutY="47.0" text="Bem-vindo, a sua página de estudante! " />
+            <Label fx:id="nomeEstudante" layoutX="96.0" layoutY="241.0" text="nome Estudante" />
+            <Label alignment="CENTER" layoutX="328.0" layoutY="258.0" prefHeight="17.0" prefWidth="188.0" text="Caso não deseje fazer nada, pode " />
+            <Label layoutX="330.0" layoutY="275.0" text="deslogar de sua conta com este botão:" />
+         </children></AnchorPane>
+  </content>
+</ScrollPane>
