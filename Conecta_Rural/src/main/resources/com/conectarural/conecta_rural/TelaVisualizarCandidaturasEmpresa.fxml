@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
@@ -22,14 +21,14 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <TableView layoutX="14.0" layoutY="-86.0" prefHeight="238.0" prefWidth="569.0">
+            <TableView fx:id="tableCandidaturas" layoutX="14.0" layoutY="-86.0" prefHeight="238.0" prefWidth="569.0">
               <columns>
-                <TableColumn prefWidth="199.0" text="Candidato" />
-                <TableColumn prefWidth="127.0" text="Código vaga" />
-                  <TableColumn prefWidth="241.0" text="Data da candidatura" />
+                <TableColumn fx:id="candidatoColumn" prefWidth="199.0" text="Candidato" />
+                <TableColumn fx:id="codigoVagacolumn" prefWidth="127.0" text="Código vaga" />
+                  <TableColumn fx:id="dataCandidaturacolumn" prefWidth="241.0" text="Data da candidatura" />
               </columns>
             </TableView>
-            <Button layoutX="14.0" layoutY="161.0" mnemonicParsing="false" text="Voltar" />
+            <Button fx:id="voltarTelaBTaction" layoutX="14.0" layoutY="161.0" mnemonicParsing="false" onAction="#onvoltarTelaBTaction" text="Voltar" />
          </children>
       </AnchorPane>
    </children>

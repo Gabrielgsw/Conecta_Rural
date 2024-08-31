@@ -29,8 +29,8 @@
                   <TableColumn prefWidth="141.0" text="Quantidade de vagas" />
               </columns>
             </TableView>
-            <Button layoutX="14.0" layoutY="121.0" mnemonicParsing="false" text="Voltar" />
-            <Button layoutX="510.0" layoutY="121.0" mnemonicParsing="false" text="Editar vagas" />
+            <Button fx:id="voltarTelaBT" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#onvoltarTelaBTaction" text="Voltar" />
+            <Button fx:id="editarVagasBT" layoutX="510.0" layoutY="121.0" mnemonicParsing="false" onAction="#oneditarVagasBTaction" text="Editar vagas" />
          </children>
       </AnchorPane>
    </children>

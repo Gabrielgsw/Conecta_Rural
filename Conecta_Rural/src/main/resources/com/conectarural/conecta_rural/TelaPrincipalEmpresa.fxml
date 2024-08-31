@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.TelaPrincipalEmpresa">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.PrincipalEmpresaController">
    <children>
       <AnchorPane prefHeight="194.0" prefWidth="600.0">
          <children>
