@@ -1,6 +1,5 @@
-package com.conectarural.conecta_rural.negocio;
+package com.conectarural.conecta_rural;
 
-import com.conectarural.conecta_rural.HelloApplication;
 import com.conectarural.conecta_rural.models.Empresa;
 import com.conectarural.conecta_rural.models.Vaga;
 import javafx.event.ActionEvent;
