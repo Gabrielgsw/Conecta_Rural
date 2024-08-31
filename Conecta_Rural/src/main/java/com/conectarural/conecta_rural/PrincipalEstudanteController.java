@@ -3,6 +3,7 @@ package com.conectarural.conecta_rural;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,6 +16,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class PrincipalEstudanteController {
+
+    @FXML
+    private Stage stage;
+
+    @FXML
+    private Scene scene;
 
     @FXML
     private AnchorPane TelaEstudante;
@@ -43,51 +50,51 @@ public class PrincipalEstudanteController {
     @FXML
     void acaoBotaoBuscarVagas(ActionEvent event) throws IOException {
         System.out.println("acaoBotaoBuscarVagas");
-        Parent parent = FXMLLoader.load(getClass().getResource("TelaBuscarVagas.fxml"));
-        Scene mscene = new Scene(parent, 600, 400 );
-        Stage nstage = new Stage();
-        nstage.setScene(mscene);
-        nstage.show();
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaBuscarVagas.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void acaoBotaoCandidaturas(ActionEvent event) throws IOException{
         System.out.println("acaoBotaoCandidaturas");
-        Parent parent = FXMLLoader.load(getClass().getResource("VisualizarCandidaturas.fxml"));
-        Scene mscene = new Scene(parent, 600, 400 );
-        Stage nstage = new Stage();
-        nstage.setScene(mscene);
-        nstage.show();
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("VisualizarCandidaturas.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void acaoBotaoSairEstudante(ActionEvent event) throws IOException{
         System.out.println("acaoBotaoSairEstudante");
-        Parent parent = FXMLLoader.load(getClass().getResource("EscolherPerfil.fxml"));
-        Scene mscene = new Scene(parent, 600, 400 );
-        Stage nstage = new Stage();
-        nstage.setScene(mscene);
-        nstage.show();
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("EscolherPerfil.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void acaoBotaoVerPerfil(ActionEvent event) throws IOException{
         System.out.println("acaoBotaoVerPerfil");
-        Parent parent = FXMLLoader.load(getClass().getResource("PerfilEstudante.fxml"));
-        Scene mscene = new Scene(parent, 600, 400 );
-        Stage nstage = new Stage();
-        nstage.setScene(mscene);
-        nstage.show();
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("PerfilEstudante.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
     void acaoBotaoVerVagasAbertas(ActionEvent event) throws IOException{
         System.out.println("acaoBotaoVerVagasAbertas");
-        Parent parent = FXMLLoader.load(getClass().getResource("TelaVisualizarVagasAbertas.fxml"));
-        Scene mscene = new Scene(parent, 600, 400 );
-        Stage nstage = new Stage();
-        nstage.setScene(mscene);
-        nstage.show();
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("acaoBotaoVerVagasAbertas.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 

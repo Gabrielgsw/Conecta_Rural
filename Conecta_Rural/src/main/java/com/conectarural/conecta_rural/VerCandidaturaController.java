@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -20,6 +21,11 @@ import java.time.format.DateTimeFormatter;
 
 public class VerCandidaturaController {
 
+    @FXML
+    private Stage stage;
+
+    @FXML
+    private Scene scene;
 
     @FXML
     private TableView<Candidatura> tabelaCandidatura;
@@ -59,11 +65,11 @@ public class VerCandidaturaController {
     @FXML
     void acaoBotaoVoltar(ActionEvent event)throws IOException {
         System.out.println("acaoBotaoVoltar");
-        Parent parent = FXMLLoader.load(getClass().getResource("TelaPrincipalEstudante.fxml"));
-        Scene mscene = new Scene(parent, 600, 400 );
-        Stage nstage = new Stage();
-        nstage.setScene(mscene);
-        nstage.show();
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaPrincipalEstudante.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }
