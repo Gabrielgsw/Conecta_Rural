@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.TelaPerfilEmpresa">
+<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.PerfilEmpresaController">
    <children>
       <AnchorPane prefHeight="137.0" prefWidth="600.0">
          <children>
