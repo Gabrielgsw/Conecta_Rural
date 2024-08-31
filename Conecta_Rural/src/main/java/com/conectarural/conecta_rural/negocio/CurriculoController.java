@@ -32,6 +32,9 @@ public class CurriculoController {
     private Button BotaoVoltar;
 
     @FXML
+    private ImageView imagemEstudanteCurriculo;
+
+    @FXML
     private AnchorPane curriculoAnchorPane;
 
     @FXML
