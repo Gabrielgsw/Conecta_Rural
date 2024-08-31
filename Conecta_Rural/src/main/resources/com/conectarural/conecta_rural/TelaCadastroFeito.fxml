@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.conectarural.conecta_rural.CadastroFeitoController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="333.0" prefWidth="584.0">
+         <children>
+            <Label layoutX="126.0" layoutY="125.0" text="Você se tornou um dos candidatos para a vaga desta empresa!" />
+            <Label layoutX="145.0" layoutY="142.0" text="Fique atento agora para qualquer novidade sobre a sua" />
+            <Label layoutX="159.0" layoutY="158.0" text="candidatura, na aba &quot;Visualizar suas candidaturas&quot;." />
+            <Button fx:id="botaoRetorno" layoutX="227.0" layoutY="198.0" mnemonicParsing="false" onAction="#acaoBotaoRetorno" text="Clique aqui pra voltar" />
+            <Label layoutX="192.0" layoutY="61.0" text="CONCLUÍDO!">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+  </content>
+</ScrollPane>
