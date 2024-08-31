@@ -8,7 +8,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.PerfilEmpresaController">
    <children>
       <AnchorPane prefHeight="137.0" prefWidth="600.0">
@@ -32,7 +31,7 @@
             <Label alignment="CENTER_RIGHT" layoutX="16.0" layoutY="38.0" prefHeight="24.0" prefWidth="154.0" text="Descrição da Empresa:" />
             <Label fx:id="numeroFuncionariosLabel" layoutX="201.0" layoutY="2.0" prefHeight="24.0" prefWidth="154.0" text="numeroFuncionarios" />
             <TextArea fx:id="descricaoEmpresaArea" layoutX="200.0" layoutY="36.0" prefHeight="185.0" prefWidth="200.0" />
-            <Button fx:id="voltarTelaPrincipalBtn" layoutX="431.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="Voltar à página anterior" />
+            <Button fx:id="voltarTelaPrincipalBtn" layoutX="431.0" layoutY="187.0" mnemonicParsing="false" onAction="#onvoltarTelaPrincipalBtn" prefHeight="25.0" prefWidth="143.0" text="Voltar à página anterior" />
             <Button fx:id="editarPerfilBtn" layoutX="431.0" layoutY="136.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="143.0" text="Editar Perfil" />
          </children>
       </AnchorPane>

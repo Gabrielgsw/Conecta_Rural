@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.EscolherPerfilController">
+    <children>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
+                <Label layoutX="9.0" layoutY="100.0" text="Escolha o seu perfil:" textFill="DODGERBLUE">
+                    <font>
+                        <Font size="67.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <Button fx:id="btnEstudante" layoutX="218.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBTEstudanteaction" text="Sou estudante" textFill="#030303" />
+                <Button fx:id="btnEmpresa" layoutX="222.0" layoutY="54.0" mnemonicParsing="false" onAction="#onBTEmpresaaction" text="Sou empresa" />
+            </children>
+        </AnchorPane>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
+    </children>
+</VBox>
