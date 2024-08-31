@@ -11,7 +11,7 @@
 
 <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.PerfilEstudanteController">
   <content>
-    <AnchorPane fx:id="perfilEstudante" minHeight="0.0" minWidth="0.0" prefHeight="437.0" prefWidth="539.0">
+    <AnchorPane fx:id="perfilEstudante" minHeight="0.0" minWidth="0.0" prefHeight="376.0" prefWidth="539.0">
          <children>
             <Label alignment="CENTER_RIGHT" layoutX="230.0" layoutY="66.0" prefHeight="17.0" prefWidth="69.0" text="Nome:" />
             <Label alignment="CENTER_RIGHT" layoutX="255.0" layoutY="254.0" prefHeight="17.0" prefWidth="47.0" text="Email:" />
@@ -25,19 +25,22 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="137.0" layoutX="43.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="137.0" layoutX="44.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../../../Imagens/foto,anonima,PNG.jpg" />
+                  <Image url="@../../../../../../imagens/fotoAnonima.jpg" />
                </image>
             </ImageView>
-            <TextField layoutX="308.0" layoutY="62.0" prefHeight="0.0" prefWidth="149.0" />
-            <TextField layoutX="308.0" layoutY="96.0" prefHeight="5.0" prefWidth="149.0" />
-            <TextField layoutX="308.0" layoutY="124.0" prefHeight="7.0" prefWidth="149.0" />
-            <TextField layoutX="308.0" layoutY="155.0" />
-            <TextField layoutX="308.0" layoutY="187.0" />
-            <TextField layoutX="308.0" layoutY="219.0" />
-            <TextField layoutX="308.0" layoutY="250.0" />
+            <TextField fx:id="nomeEstudante" layoutX="308.0" layoutY="62.0" prefHeight="0.0" prefWidth="149.0" />
+            <TextField fx:id="idadeEstudante" layoutX="308.0" layoutY="96.0" prefHeight="5.0" prefWidth="149.0" />
+            <TextField fx:id="CPFestudante" layoutX="308.0" layoutY="124.0" prefHeight="7.0" prefWidth="149.0" />
+            <TextField fx:id="cursoEstudante" layoutX="308.0" layoutY="155.0" />
+            <TextField fx:id="periodoEstudante" layoutX="308.0" layoutY="187.0" />
+            <TextField fx:id="telefoneEstudante" layoutX="308.0" layoutY="219.0" />
+            <TextField fx:id="emailEstudante" layoutX="308.0" layoutY="250.0" />
             <Button fx:id="botaoVoltar" layoutX="46.0" layoutY="250.0" mnemonicParsing="false" onAction="#acaoBotaoVoltar" text="Voltar pra tela anteior" />
+            <Label alignment="CENTER_RIGHT" layoutX="163.0" layoutY="285.0" prefHeight="17.0" prefWidth="139.0" text="Clique aqui para ver o " />
+            <Label layoutX="180.0" layoutY="302.0" text="o currículo deste perfil:" />
+            <Button fx:id="botaoCurriculo" layoutX="308.0" layoutY="298.0" mnemonicParsing="false" onAction="#acaoBotaoCurriculo" text="Curriculo" />
          </children></AnchorPane>
   </content>
 </ScrollPane>
