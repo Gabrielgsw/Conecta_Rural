@@ -1,6 +1,5 @@
 package com.conectarural.conecta_rural;
 
-import com.conectarural.conecta_rural.models.RegimeContratacao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +20,12 @@ public class CadastrarVagasController {
 
     @FXML
     private Button cadastrarVagaBtn;
+
+    @FXML
+    private Button voltarBtn;
+
+    @FXML
+    private Button voltarTelaBT;
 
     @FXML
     private TextField codigoVagaField;
@@ -55,18 +60,45 @@ public class CadastrarVagasController {
     private TextField valorRemuneracaoField;
 
     @FXML
-    public void onCadastroarVagaBtnaction(ActionEvent event) throws IOException {
+    public void onCadastrarVagaBtnaction(ActionEvent event) throws IOException {
        /* Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaCadastrarVagas.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();*/
 
-        int codigoVaga = Integer.parseInt(codigoVagaField.getText());
+        /*int codigoVaga = Integer.parseInt(codigoVagaField.getText());
         String descricaoVaga = descricaoVagaArea.getText();
         String nomeDaVaga = nomeDaVagaField.getText();
-        String numeroDeVaga = numeroDeVagasField.getText();
+        String numeroDeVaga = numeroDeVagasField.getText();*/
+
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaVagaCadastrada.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
 
     }
+
+    public void onvoltarTelaBTaction(ActionEvent event) throws IOException{
+
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaCadastrarVagas.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    public void onvoltarBtn(ActionEvent event) throws IOException{
+
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaPrincipalEmpresa.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
 }

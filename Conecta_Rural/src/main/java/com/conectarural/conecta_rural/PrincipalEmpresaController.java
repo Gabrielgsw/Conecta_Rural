@@ -21,6 +21,9 @@ public class PrincipalEmpresaController {
     private Scene scene;
 
     @FXML
+    private Button visualizarCandidaturas;
+
+    @FXML
     private Button buscarEstudantesBtn;
 
     @FXML
@@ -42,7 +45,7 @@ public class PrincipalEmpresaController {
     public void onCadastrarNovaVagaBtnBtnAction(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaCadastrarVagas.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -52,8 +55,8 @@ public class PrincipalEmpresaController {
     @FXML
     public void onBuscarEstudantesBtnAction(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaBuscarEstudante.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaBuscarEstudantes.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -64,7 +67,7 @@ public class PrincipalEmpresaController {
     public void onPaginaAnteriorBtnAction(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("Login.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -74,8 +77,8 @@ public class PrincipalEmpresaController {
     @FXML
     public void onVisualizarMinhasVagasBtnAction(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaVisualizarCandidaturasEmpresa.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaVisualizarVagasAbertas.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -86,7 +89,18 @@ public class PrincipalEmpresaController {
     public void onMeuPerfilBtnAction(ActionEvent event) throws IOException {
 
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaPerfilEmpresa.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+
+    }
+
+    @FXML
+    public void onVisualizarCandidaturasBtnAction(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaVisualizarCandidaturasEmpresa.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

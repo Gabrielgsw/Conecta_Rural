@@ -7,7 +7,6 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.PrincipalEmpresaController">
    <children>
       <AnchorPane prefHeight="194.0" prefWidth="600.0">
@@ -23,16 +22,17 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="meuPerfilBtn" layoutX="425.0" layoutY="114.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="148.0" text="Meu Perfil" />
+            <Button fx:id="meuPerfilBtn" layoutX="425.0" layoutY="110.0" mnemonicParsing="false" onAction="#onMeuPerfilBtnAction" prefHeight="25.0" prefWidth="148.0" text="Meu Perfil" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="216.0" prefWidth="600.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="30.0" layoutY="226.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-            <Button fx:id="visualizarMinhasVagasBtn" layoutX="425.0" layoutY="47.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="148.0" text="Visualizar Minhas Vagas" />
-            <Button fx:id="paginaAnteriorBtn" layoutX="425.0" layoutY="127.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="148.0" text="Página Anterior" />
-            <Button fx:id="buscarEstudantesBtn" layoutX="425.0" layoutY="9.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="148.0" text="Buscar Estudantes" />
-            <Button fx:id="cadastrarNovaVagaBtn" layoutX="425.0" layoutY="-70.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="148.0" text="Cadastrar Nova Vaga" />
+            <Button fx:id="visualizarMinhasVagasBtn" layoutX="425.0" layoutY="47.0" mnemonicParsing="false" onAction="#onVisualizarMinhasVagasBtnAction" prefHeight="25.0" prefWidth="148.0" text="Visualizar Minhas Vagas" />
+            <Button fx:id="paginaAnteriorBtn" layoutX="425.0" layoutY="127.0" mnemonicParsing="false" onAction="#onPaginaAnteriorBtnAction" prefHeight="25.0" prefWidth="148.0" text="Página Anterior" />
+            <Button fx:id="buscarEstudantesBtn" layoutX="425.0" layoutY="9.0" mnemonicParsing="false" onAction="#onBuscarEstudantesBtnAction" prefHeight="25.0" prefWidth="148.0" text="Buscar Estudantes" />
+            <Button fx:id="cadastrarNovaVagaBtn" layoutX="425.0" layoutY="-70.0" mnemonicParsing="false" onAction="#onCadastrarNovaVagaBtnBtnAction" prefHeight="30.0" prefWidth="148.0" text="Cadastrar Nova Vaga" />
+            <Button fx:id="visualizarCandidaturasBtn" layoutX="425.0" layoutY="84.0" mnemonicParsing="false" onAction="#onVisualizarCandidaturasBtnAction" prefHeight="25.0" prefWidth="148.0" text="Visualizar Candidaturas" />
          </children>
       </AnchorPane>
    </children>
