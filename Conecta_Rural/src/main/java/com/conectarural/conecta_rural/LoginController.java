@@ -1,6 +1,7 @@
 package com.conectarural.conecta_rural;
 
 
+import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
@@ -28,6 +29,8 @@ public class LoginController {
     private TextField emailField;
     @FXML
     private TextField senhaField;
+
+    static private ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
 
     @FXML
     public void onCadastroBTaction(ActionEvent event) throws IOException {

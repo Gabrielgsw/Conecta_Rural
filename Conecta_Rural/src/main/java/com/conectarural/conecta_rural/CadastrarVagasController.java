@@ -67,12 +67,23 @@ public class CadastrarVagasController {
     @FXML
     private TextField valorRemuneracaoField;
 
-
+    @FXML
+    private ChoiceBox<RegimeContratacao> regimeContratacao;
 
     ControllerUsuarioSessao controllerUsuarioSessao = ControllerUsuarioSessao.getInstance();
     ControllerVaga controllerVaga = ControllerVaga.getInstance();
     ControllerUsuario controllerUsuario = ControllerUsuario.getInstance();
 
+    @FXML
+    public void initialize(){
+        regimeContratacao.getItems().add(RegimeContratacao.Estagio);
+        regimeContratacao.getItems().add(RegimeContratacao.Freelancer);
+        regimeContratacao.getItems().add(RegimeContratacao.CLT);
+        regimeContratacao.getItems().add(RegimeContratacao.PessoaJuridica);
+        regimeContratacao.getItems().add(RegimeContratacao.Temporario);
+
+
+    }
 
     @FXML
     public void onCadastrarVagaBtnaction(ActionEvent event) throws IOException, ElementoJaExistenteException {
@@ -82,15 +93,17 @@ public class CadastrarVagasController {
         stage.setScene(scene);
         stage.show();*/
 
+
         int codigoVaga = Integer.parseInt(codigoVagaField.getText());
         String descricaoVaga = descricaoVagaArea.getText();
         String nomeDaVaga = nomeDaVagaField.getText();
         String numeroDeVaga = numeroDeVagasField.getText();
         Double remuneracao = Double.parseDouble(valorRemuneracaoField.getText());
+        RegimeContratacao rg = regimeContratacao.getSelectionModel().getSelectedItem();
         //RegimeContratacao rg = null;
         //var rg = RegimeContratacao.valueOf(regimeContratacaoMenu.getText());
 
-        Vaga vaga = new Vaga(nomeDaVaga,descricaoVaga,0,remuneracao,1,new Empresa("Teste","teste@gmail.com",32423423L,"Rua Manoel de Medeiros","teste123","12321-2121",20,"Tecnologia","teste"),codigoVaga,RegimeContratacao.Estagio,StatusVaga.Aberta);
+        Vaga vaga = new Vaga(nomeDaVaga,descricaoVaga,0,remuneracao,1,new Empresa("Teste","teste@gmail.com",32423423L,"Rua Manoel de Medeiros","teste123","12321-2121",20,"Tecnologia","teste"),codigoVaga,rg,StatusVaga.Aberta);
 
         //Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaVagaCadastrada.fxml"));
         //stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -105,6 +118,14 @@ public class CadastrarVagasController {
         alert.setHeaderText("Sua vaga foi criada com as informações preenchidas.");
         alert.setContentText("confirmation");
         alert.show();
+
+        codigoVagaField.setText("");
+        numeroDeVagasField.setText("");
+        descricaoVagaArea.setText("");
+        nomeDaVagaField.setText("");
+        valorRemuneracaoField.setText("");
+        //regimeContratacao.getItems().clear();
+
 
 
     }

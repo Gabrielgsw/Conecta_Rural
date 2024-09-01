@@ -16,7 +16,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Button>
-            <TableView fx:id="table" layoutX="-2.0" layoutY="108.0" prefHeight="200.0" prefWidth="600.0" />
+            <TableView fx:id="table" layoutX="-2.0" layoutY="108.0" onMouseClicked="#clickItem" prefHeight="200.0" prefWidth="600.0" />
             <Label layoutX="46.0" layoutY="40.0" prefHeight="30.0" prefWidth="169.0" text="Buscar vagas">
                <font>
                   <Font name="System Bold Italic" size="25.0" />
