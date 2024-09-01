@@ -27,6 +27,7 @@
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Button>
+            <Button fx:id="candidatarBT" layoutX="256.0" layoutY="362.0" mnemonicParsing="false" onAction="#oncandidatarBTaction" text="Candidatar" />
          </children>
       </AnchorPane>
    </children>
