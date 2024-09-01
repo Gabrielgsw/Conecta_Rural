@@ -3,6 +3,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -38,20 +39,13 @@
                         <Glow />
                     </effect>
                 </TextField>
-                <TextField fx:id="senhaField" layoutX="200.0" layoutY="35.0" text="Senha">
-                    <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                    </cursor>
-                    <effect>
-                        <Glow />
-                    </effect>
-                </TextField>
                 <Button fx:id="entrarBT" layoutX="238.0" layoutY="67.0" mnemonicParsing="false" onAction="#onentrarBTaction" prefHeight="25.0" prefWidth="73.0" text="Entrar">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
                 <Label layoutX="381.0" layoutY="140.0" text="Ainda não tem conta?" />
+            <PasswordField fx:id="senhaField" layoutX="200.0" layoutY="34.0" />
             </children>
         </AnchorPane>
     </children>

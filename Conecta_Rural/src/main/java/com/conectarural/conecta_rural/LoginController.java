@@ -1,6 +1,9 @@
 package com.conectarural.conecta_rural;
 
 
+import com.conectarural.conecta_rural.exceptions.ElementoJaExistenteException;
+import com.conectarural.conecta_rural.models.Usuario;
+import com.conectarural.conecta_rural.negocio.ControllerUsuario;
 import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -28,9 +32,10 @@ public class LoginController {
     @FXML
     private TextField emailField;
     @FXML
-    private TextField senhaField;
+    private PasswordField senhaField;
 
-    static private ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
+     ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
+     ControllerUsuario controllerUsuario = ControllerUsuario.getInstance();
 
     @FXML
     public void onCadastroBTaction(ActionEvent event) throws IOException {
@@ -47,7 +52,15 @@ public class LoginController {
     }
 
     @FXML
-    public void onentrarBTaction(ActionEvent event) throws IOException {
+    public void onentrarBTaction(ActionEvent event) throws IOException, ElementoJaExistenteException {
+
+        for(Usuario u : controllerUsuario.listar()){
+            if(u.getEmail().equals(emailField.getText()) && u.getSenha().equals(senhaField.getText())){
+                controladorSessao.setUsuarioLogado(u);
+                //controllerUsuario.adicionar(u);
+            }
+        }
+
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("EscolherPerfil.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

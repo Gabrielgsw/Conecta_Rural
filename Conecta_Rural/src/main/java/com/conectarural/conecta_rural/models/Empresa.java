@@ -15,12 +15,18 @@ public class Empresa extends Usuario{
 
     }
 
-    public Empresa(String nome, String email, Long telefone, String endereco, String senha, String cnpj, Integer quantidadeFuncionarios, String areaAtuacao, String descricao) {
+    public Empresa(String nome, String email, String telefone, String endereco, String senha, String cnpj, Integer quantidadeFuncionarios, String areaAtuacao, String descricao) {
         super(nome, email, telefone, endereco, senha);
         this.cnpj = cnpj;
         this.quantidadeFuncionarios = quantidadeFuncionarios;
         this.areaAtuacao = areaAtuacao;
         this.descricao = descricao;
+    }
+
+    //construtor para cadastro
+    public Empresa(String nome, String email, String telefone, String endereco, String senha,String cnpj) {
+        super(nome, email, telefone, endereco, senha);
+        this.cnpj=cnpj;
     }
 
     public String getCnpj() { return cnpj; }

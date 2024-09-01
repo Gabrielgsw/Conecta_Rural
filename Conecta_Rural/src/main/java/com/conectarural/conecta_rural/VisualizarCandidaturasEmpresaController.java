@@ -1,6 +1,10 @@
 package com.conectarural.conecta_rural;
 
 import com.conectarural.conecta_rural.models.*;
+import com.conectarural.conecta_rural.negocio.ControllerCandidatura;
+import com.conectarural.conecta_rural.negocio.ControllerUsuario;
+import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
+import com.conectarural.conecta_rural.negocio.ControllerVaga;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,6 +32,11 @@ public class VisualizarCandidaturasEmpresaController {
     @FXML
     private TableView<Candidatura> tableCandidaturas;
 
+    ControllerUsuarioSessao controllerUsuarioSessao = ControllerUsuarioSessao.getInstance();
+    ControllerVaga controllerVaga = ControllerVaga.getInstance();
+    ControllerUsuario controllerUsuario = ControllerUsuario.getInstance();
+    ControllerCandidatura controllerCandidatura = ControllerCandidatura.getInstance();
+
     @FXML
     public void onvoltarTelaBTaction(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaPrincipalEmpresa.fxml"));
@@ -50,8 +59,11 @@ public class VisualizarCandidaturasEmpresaController {
 
 
         tableCandidaturas.getColumns().addAll(colCandidato, colCodigo, colVaga);
-        Empresa e2 = new Empresa("Teste","teste@gmail.com",32423423L,"Rua Manoel de Medeiros","teste123","12321-2121",20,"Tecnologia","teste");
-        Estudante e1 = new Estudante("Gabriel","ggermanow279@gmail.com", 8123L,"Rua das mocas,77","teste",11357L, LocalDate.of(2003,01,26),new Curriculo("Teste descrição",3, Curso.CienciaDaComputacao));
+        Empresa e2 = new Empresa("Teste","teste@gmail.com","32423423","Rua Manoel de Medeiros","teste123","12321-2121",20,"Tecnologia","teste");
+        Estudante e1 = new Estudante("Gabriel","ggermanow279@gmail.com", "8123","Rua das mocas,77","teste","11357", LocalDate.of(2003,01,26),new Curriculo("Teste descrição",3, Curso.CienciaDaComputacao));
         tableCandidaturas.getItems().add(new Candidatura(e1, LocalDateTime.now(),new Vaga("Estágio em Desenvolvimento de sistemas","teste",0,1250D,2,e2,001,RegimeContratacao.Estagio,StatusVaga.Aberta)));
+        for(Candidatura c : controllerCandidatura.Listar()){
+            tableCandidaturas.getItems().add(c);
+        }
     }
 }

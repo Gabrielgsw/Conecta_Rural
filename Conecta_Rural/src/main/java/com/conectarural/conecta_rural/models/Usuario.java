@@ -6,14 +6,14 @@ public abstract class Usuario {
 
     private String nome;
     private String email;
-    private Long telefone;
+    private String telefone;
     private String endereco;
     private String senha;
 
     public Usuario() {
     }
 
-    public Usuario(String nome, String email, Long telefone, String endereco, String senha){
+    public Usuario(String nome, String email, String telefone, String endereco, String senha){
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -29,11 +29,11 @@ public abstract class Usuario {
         this.nome = nome;
     }
 
-    public Long getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Long telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 

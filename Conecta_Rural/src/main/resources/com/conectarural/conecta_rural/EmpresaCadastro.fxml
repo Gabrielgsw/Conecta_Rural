@@ -2,50 +2,43 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.CadastroController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.CadastroController">
     <children>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
                 <Label layoutX="148.0" layoutY="71.0" text="Nome:" />
                 <Label layoutX="150.0" layoutY="105.0" text="Email:" />
-                <TextField layoutX="205.0" layoutY="67.0" />
-                <TextField layoutX="205.0" layoutY="101.0" />
+                <TextField fx:id="nameField" layoutX="205.0" layoutY="67.0" />
+                <TextField fx:id="emailField" layoutX="205.0" layoutY="101.0" />
                 <Label layoutX="152.0" layoutY="141.0" text="Cnpj:" />
                 <Label layoutX="147.0" layoutY="178.0" text="Telefone:" />
-                <TextField layoutX="205.0" layoutY="137.0" />
-                <TextField layoutX="205.0" layoutY="174.0" />
+                <TextField fx:id="cnpjField" layoutX="205.0" layoutY="137.0" />
+                <TextField fx:id="telefoneField" layoutX="205.0" layoutY="174.0" />
                 <Label layoutX="152.0" layoutY="42.0" text="Perfil:" />
-                <MenuButton contentDisplay="BOTTOM" layoutX="220.0" layoutY="38.0" mnemonicParsing="false" text="MenuButton">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Empresa" />
-                        <MenuItem mnemonicParsing="false" text="Estudante" />
-                    </items>
-                </MenuButton>
+            <ChoiceBox fx:id="escolhaPerfil" layoutX="205.0" layoutY="38.0" prefWidth="150.0" />
             </children>
         </AnchorPane>
         <AnchorPane prefHeight="200.0" prefWidth="200.0">
             <children>
                 <Label layoutX="143.0" layoutY="12.0" text="Endereço:" />
-                <TextField layoutX="205.0" layoutY="8.0" />
+                <TextField fx:id="enderecoField" layoutX="205.0" layoutY="8.0" />
                 <Label layoutX="143.0" layoutY="45.0" text="Senha:" />
-                <TextField layoutX="205.0" layoutY="41.0" />
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="165.0" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
                 <Button fx:id="cadastrarBT" layoutX="240.0" layoutY="88.0" mnemonicParsing="false" onAction="#cadastrarOnAction" text="Cadastrar">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <PasswordField layoutX="205.0" layoutY="41.0" />
+            <PasswordField fx:id="passwordField" layoutX="205.0" layoutY="41.0" />
             </children>
         </AnchorPane>
     </children>
