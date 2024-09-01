@@ -8,7 +8,7 @@ public class Vaga {
     private String nomeVaga;
     private String descricaoVaga;
     private int quantidadeCandidatos;
-    private double remuneracao;
+    private Double remuneracao;
     private int quantidadeVagas;
     private Empresa empresa;
     private int codigoVaga;
@@ -20,7 +20,7 @@ public class Vaga {
 
     }
 
-    public Vaga(String nomeVaga, String descricaoVaga, int quantidadeCandidatos, double remuneracao, int quantidadeVagas, Empresa empresa, int codigoVaga, RegimeContratacao regimeContratacao, StatusVaga statusVaga) {
+    public Vaga(String nomeVaga, String descricaoVaga, int quantidadeCandidatos, Double remuneracao, int quantidadeVagas, Empresa empresa, int codigoVaga, RegimeContratacao regimeContratacao, StatusVaga statusVaga) {
         this.nomeVaga = nomeVaga;
         this.descricaoVaga = descricaoVaga;
         this.quantidadeCandidatos = quantidadeCandidatos;
@@ -53,7 +53,7 @@ public class Vaga {
 
     public void setQuantidadeCandidatos(int quantidadeCandidatos) { this.quantidadeCandidatos = quantidadeCandidatos; }
 
-    public double getRemuneracao() { return remuneracao; }
+    public Double getRemuneracao() { return remuneracao; }
 
     public void setRemuneracao(double remuneracao) { this.remuneracao = remuneracao; }
 
