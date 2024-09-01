@@ -51,7 +51,7 @@ public class CurriculoController {
     private TextField atividadesEstudanteCurriculo;
 
     @FXML
-    void acaoBotaoGerarCurriculo(ActionEvent event) throws IOException {
+    public void acaoBotaoGerarCurriculo(ActionEvent event) throws IOException {
         System.out.println("acaoBotaoGerarCurriculo");
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaCurriculo.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -61,7 +61,7 @@ public class CurriculoController {
     }
 
     @FXML
-    void acaoBotaoVoltar(ActionEvent event) throws IOException{
+    public void acaoBotaoVoltar(ActionEvent event) throws IOException{
         System.out.println("acaoBotaoVoltar");
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaPerfilEstudante.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

@@ -54,7 +54,7 @@ public class BuscarVagasController {
     private AnchorPane BuscarVagasAnchorPane;
 
     @FXML
-    void acaoBotaoBuscarVagas(ActionEvent event) throws IOException {
+    public void acaoBotaoBuscarVagas(ActionEvent event) throws IOException {
         System.out.println("acaoBotaoBuscarVagas");
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaBuscarVagas.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -63,7 +63,8 @@ public class BuscarVagasController {
         stage.show();
     }
 
-    void acaoBotaoVoltar(ActionEvent event) throws IOException{
+    @FXML
+    public void acaoBotaoVoltar(ActionEvent event) throws IOException{
         System.out.println("acaoBotaoVoltar");
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaPrincipalEstudante.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
