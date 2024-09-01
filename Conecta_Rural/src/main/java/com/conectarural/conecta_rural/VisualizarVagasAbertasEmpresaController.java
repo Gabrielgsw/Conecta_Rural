@@ -1,9 +1,10 @@
 package com.conectarural.conecta_rural;
 
-import com.conectarural.conecta_rural.models.Vaga;
+import com.conectarural.conecta_rural.models.*;
 import com.conectarural.conecta_rural.negocio.ControllerUsuario;
 import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
 import com.conectarural.conecta_rural.negocio.ControllerVaga;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class VisualizarVagasAbertasEmpresaController {
 
@@ -29,44 +31,33 @@ public class VisualizarVagasAbertasEmpresaController {
     @FXML
     private Button voltarTelaBT;
     @FXML
-    private TableView<Vaga> tabelaVagas;
-    @FXML
-    private TableColumn<Vaga, Integer> codigoColumn;
-    @FXML
-    private TableColumn<Vaga, String> nomeColumn;
-    @FXML
-    private TableColumn<Vaga, Integer> candidatadosColumn;
-    @FXML
-    private TableColumn<Vaga, Integer> quantidadeColumn;
-    @FXML
-    private Button buscarVagasBT;
+    private TableView<Vaga> tableVagas;
+
 
     ControllerUsuarioSessao controllerUsuarioSessao = ControllerUsuarioSessao.getInstance();
     ControllerVaga controllerVaga = ControllerVaga.getInstance();
     ControllerUsuario controllerUsuario = ControllerUsuario.getInstance();
 
     @FXML
-    public void onbuscarVagasBTaction(ActionEvent event) throws IOException {
-        tabelaVagas = new TableView<>();
-        codigoColumn = new TableColumn<Vaga,Integer>("Código");
-        codigoColumn.setCellValueFactory(new PropertyValueFactory<>("codigo"));
-        nomeColumn = new TableColumn<>("nome");
-        nomeColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
-        candidatadosColumn = new TableColumn<>("candidatados");
-        candidatadosColumn.setCellValueFactory(new PropertyValueFactory<>("candidatados"));
-        quantidadeColumn = new TableColumn<>("quantidade");
-        quantidadeColumn.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
-        tabelaVagas.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        tabelaVagas.getColumns().add(codigoColumn);
-        tabelaVagas.getColumns().add(nomeColumn);
-        tabelaVagas.getColumns().add(candidatadosColumn);
-        tabelaVagas.getColumns().add(quantidadeColumn);
+    public void initialize() throws IOException {
+        TableColumn<Vaga, String> colCodigo = new TableColumn<>("Código");
+        colCodigo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCodigoVaga().toString()));
 
+        TableColumn<Vaga,String> colNome= new TableColumn<>("Nome");
+        colNome.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNomeVaga()));
 
-       // for(Vaga v : controllerVaga.listar()){
-     //       tabelaVagas.getItems().add(v);
-        //}
-        tabelaVagas.getItems().add(new Vaga(1111,"teste",0,1));
+        TableColumn<Vaga, String> colCandidatados = new TableColumn<>("Candidatados");
+        colCandidatados.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getQuantidadeCandidatos().toString()));
+        TableColumn<Vaga, String> colQuantidade= new TableColumn<>("Quantidade");
+        colQuantidade.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getQuantidadeVagas().toString()));
+
+        tableVagas.getColumns().addAll(colCodigo,colNome,colCandidatados,colQuantidade);
+        Estudante e1 = new Estudante("Gabriel","ggermanow279@gmail.com", 8123L,"Rua das mocas,77","teste",11357L, LocalDate.of(2003,01,26),new Curriculo("Teste descrição",3, Curso.CienciaDaComputacao));
+        Empresa e2 = new Empresa("Teste","teste@gmail.com",32423423L,"Rua Manoel de Medeiros","teste123","12321-2121",20,"Tecnologia","teste");
+        tableVagas.getItems().add(new Vaga("Estágio em Desenvolvimento de sistemas","teste",0,1250D,2,e2,001, RegimeContratacao.Estagio, StatusVaga.Aberta));
+        //Empresa e2 = new Empresa("Teste","teste@gmail.com",32423423L,"Rua Manoel de Medeiros","teste123","12321-2121",20,"Tecnologia","teste");
+        //Estudante e1 = new Estudante("Gabriel","ggermanow279@gmail.com", 8123L,"Rua das mocas,77","teste",11357L, LocalDate.of(2003,01,26),new Curriculo("Teste descrição",3, Curso.CienciaDaComputacao));
+        //tabelaCandidatura.getItems().add(new Candidatura(e1,LocalDateTime.now(),new Vaga("Estágio em Desenvolvimento de sistemas","teste",0,1250,2,e2,001,RegimeContratacao.Estagio,StatusVaga.Aberta)));
     }
 
 

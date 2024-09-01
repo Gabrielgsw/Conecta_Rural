@@ -38,7 +38,7 @@ public class VerCandidaturaController {
     @FXML void initialize(){
         //coluna data
         TableColumn<Candidatura,String> colData= new TableColumn<>("Data");
-        colData.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDataCandidatura().format(DateTimeFormatter.ofPattern("mm-dd-yyyy")).toString()));
+        colData.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDataCandidatura().format(DateTimeFormatter.ofPattern("dd-MM-YYYY")).toString()));
         //colData.setCellFactory(column -> new TableCell<Candidatura, LocalDateTime>() //{
            // private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM");
 

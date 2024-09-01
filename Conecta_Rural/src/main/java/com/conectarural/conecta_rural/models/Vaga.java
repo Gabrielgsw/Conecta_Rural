@@ -7,11 +7,11 @@ public class Vaga {
 
     private String nomeVaga;
     private String descricaoVaga;
-    private int quantidadeCandidatos;
+    private Integer quantidadeCandidatos;
     private Double remuneracao;
-    private int quantidadeVagas;
+    private Integer quantidadeVagas;
     private Empresa empresa;
-    private int codigoVaga;
+    private Integer codigoVaga;
     private List<Candidatura> candidaturas;
     private RegimeContratacao regimeContratacao;
     private StatusVaga statusVaga;
@@ -20,7 +20,7 @@ public class Vaga {
 
     }
 
-    public Vaga(String nomeVaga, String descricaoVaga, int quantidadeCandidatos, Double remuneracao, int quantidadeVagas, Empresa empresa, int codigoVaga, RegimeContratacao regimeContratacao, StatusVaga statusVaga) {
+    public Vaga(String nomeVaga, String descricaoVaga, Integer quantidadeCandidatos, Double remuneracao, Integer quantidadeVagas, Empresa empresa, Integer codigoVaga, RegimeContratacao regimeContratacao, StatusVaga statusVaga) {
         this.nomeVaga = nomeVaga;
         this.descricaoVaga = descricaoVaga;
         this.quantidadeCandidatos = quantidadeCandidatos;
@@ -49,7 +49,7 @@ public class Vaga {
 
     public void setDescricaoVaga(String descricaoVaga) { this.descricaoVaga = descricaoVaga; }
 
-    public int getQuantidadeCandidatos() { return quantidadeCandidatos; }
+    public Integer getQuantidadeCandidatos() { return quantidadeCandidatos; }
 
     public void setQuantidadeCandidatos(int quantidadeCandidatos) { this.quantidadeCandidatos = quantidadeCandidatos; }
 
@@ -57,7 +57,7 @@ public class Vaga {
 
     public void setRemuneracao(double remuneracao) { this.remuneracao = remuneracao; }
 
-    public int getQuantidadeVagas() { return quantidadeVagas; }
+    public Integer getQuantidadeVagas() { return quantidadeVagas; }
 
     public void setQuantidadeVagas(int quantidadeVagas) { this.quantidadeVagas = quantidadeVagas; }
 
@@ -69,7 +69,7 @@ public class Vaga {
 
     public void setEmpresa(String nomeEmpresa) { this.empresa = empresa; }
 
-    public int getCodigoVaga() { return codigoVaga; }
+    public Integer getCodigoVaga() { return codigoVaga; }
 
     public void setCodigoVaga(int codigoVaga) { this.codigoVaga = codigoVaga; }
 
