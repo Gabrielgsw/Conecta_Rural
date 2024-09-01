@@ -33,6 +33,14 @@ public class Vaga {
         this.candidaturas = new ArrayList<>();
     }
 
+    //construtor para table
+    public Vaga(int codigoVaga,String nomeVaga,int quantidadeCandidatos,int quantidadeVagas) {
+        this.codigoVaga = codigoVaga;
+        this.nomeVaga = nomeVaga;
+        this.quantidadeCandidatos = quantidadeCandidatos;
+        this.quantidadeVagas = quantidadeVagas;
+    }
+
     public String getNomeVaga() { return nomeVaga; }
 
     public void setNomeVaga(String nomeVaga) { this.nomeVaga = nomeVaga; }

@@ -2,15 +2,13 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.ControllerEditarVaga">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -21,20 +19,13 @@
             </Label>
             <Label layoutX="127.0" layoutY="116.0" text="Digite o código da vaga: " />
             <TextField layoutX="271.0" layoutY="112.0" />
-            <Button layoutX="445.0" layoutY="112.0" mnemonicParsing="false" text="Buscar" />
+            <Button fx:id="buscarVagaBT" layoutX="445.0" layoutY="112.0" mnemonicParsing="false" onAction="#onbuscarVagaBTaction" text="Buscar" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <TableView layoutX="7.0" layoutY="-35.0" prefHeight="200.0" prefWidth="586.0">
-              <columns>
-                <TableColumn prefWidth="241.0" text="Nome" />
-                <TableColumn prefWidth="84.0" text="Remuneração" />
-                  <TableColumn minWidth="0.0" prefWidth="55.0" text="Quantidade de vagas" />
-                  <TableColumn prefWidth="205.0" text="Descrição" />
-              </columns>
-            </TableView>
-            <Button layoutX="14.0" layoutY="174.0" mnemonicParsing="false" text="Voltar" />
+            <TableView fx:id="tableVagas" layoutX="7.0" layoutY="-35.0" prefHeight="200.0" prefWidth="586.0" />
+            <Button fx:id="voltarTelaBT" layoutX="14.0" layoutY="174.0" mnemonicParsing="false" onAction="#onvoltarTelaBTaction" text="Voltar" />
          </children>
       </AnchorPane>
    </children>

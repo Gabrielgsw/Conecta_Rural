@@ -1,6 +1,6 @@
 package com.conectarural.conecta_rural;
 
-import com.conectarural.conecta_rural.models.Candidatura;
+import com.conectarural.conecta_rural.models.*;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +15,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -60,6 +61,9 @@ public class VerCandidaturaController {
         colStatus.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getVaga().getStatusVaga().toString()));
 
         tabelaCandidatura.getColumns().addAll(colData,colEmpresa,colCandidatura,colStatus);
+        //Empresa e2 = new Empresa("Teste","teste@gmail.com",32423423L,"Rua Manoel de Medeiros","teste123","12321-2121",20,"Tecnologia","teste");
+        //Estudante e1 = new Estudante("Gabriel","ggermanow279@gmail.com", 8123L,"Rua das mocas,77","teste",11357L, LocalDate.of(2003,01,26),new Curriculo("Teste descrição",3, Curso.CienciaDaComputacao));
+        //tabelaCandidatura.getItems().add(new Candidatura(e1,LocalDateTime.now(),new Vaga("Estágio em Desenvolvimento de sistemas","teste",0,1250,2,e2,001,RegimeContratacao.Estagio,StatusVaga.Aberta)));
     }
 
     @FXML

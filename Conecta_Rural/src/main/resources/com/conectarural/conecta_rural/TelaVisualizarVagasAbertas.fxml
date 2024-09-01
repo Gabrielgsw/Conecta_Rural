@@ -17,16 +17,18 @@
                   <Font size="25.0" />
                </font>
             </Label>
+            <Button fx:id="voltarTelaBT1" layoutX="24.0" layoutY="131.0" mnemonicParsing="false" onAction="#onvoltarTelaBTaction" text="Voltar" />
+            <Button fx:id="buscarVagasBT" layoutX="354.0" layoutY="47.0" mnemonicParsing="false" onAction="#onbuscarVagasBTaction" text="Buscar" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <TableView layoutY="-86.0" prefHeight="200.0" prefWidth="600.0">
+            <TableView fx:id="tableVagas" layoutY="-86.0" prefHeight="200.0" prefWidth="600.0">
               <columns>
-                <TableColumn prefWidth="63.0" text="Código" />
-                <TableColumn prefWidth="306.0" text="Nome" />
-                  <TableColumn prefWidth="88.0" text="Candidatatos" />
-                  <TableColumn prefWidth="141.0" text="Quantidade de vagas" />
+                <TableColumn fx:id="codigoColumn" prefWidth="63.0" text="Código" />
+                <TableColumn fx:id="nomeColumn" prefWidth="306.0" text="Nome" />
+                  <TableColumn fx:id="candidatadosColumn" prefWidth="88.0" text="Candidatados" />
+                  <TableColumn fx:id="quantidadeColumn" prefWidth="141.0" text="Quantidade de vagas" />
               </columns>
             </TableView>
             <Button fx:id="voltarTelaBT" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#onvoltarTelaBTaction" text="Voltar" />

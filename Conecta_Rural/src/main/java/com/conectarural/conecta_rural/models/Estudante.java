@@ -7,6 +7,7 @@ public class Estudante extends Usuario {
     private LocalDate dataNascimento;
     private Curriculo curriculoEstudante;
 
+
     public Estudante() {
         super();
     }
@@ -16,7 +17,10 @@ public class Estudante extends Usuario {
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.curriculoEstudante = curriculoEstudante;
+
     }
+
+
 
     public Long getCpf() { return cpf; }
 
