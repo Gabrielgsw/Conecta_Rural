@@ -63,7 +63,7 @@ public class CurriculoController {
     @FXML
     public void acaoBotaoVoltar(ActionEvent event) throws IOException{
         System.out.println("acaoBotaoVoltar");
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaPerfilEstudante.fxml"));
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("PerfilEstudante.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
