@@ -8,9 +8,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class PerfilEstudanteController {
@@ -20,6 +21,9 @@ public class PerfilEstudanteController {
 
     @FXML
     private Scene scene;
+
+    @FXML
+    private ImageView fotoGenerica;
 
     @FXML
     private TextField CPFestudante;
@@ -51,6 +55,12 @@ public class PerfilEstudanteController {
     @FXML
     private TextField telefoneEstudante;
 
+    Image image= new Image(getClass().getResourceAsStream("fotoAnonima.jpg"));
+
+    public void displayImage(){
+        fotoGenerica.setImage(image);
+    }
+
     @FXML
     void acaoBotaoCurriculo(ActionEvent event) throws IOException {
         System.out.println("acaoBotaoCurriculo");
@@ -70,5 +80,4 @@ public class PerfilEstudanteController {
         stage.setScene(scene);
         stage.show();
     }
-
 }

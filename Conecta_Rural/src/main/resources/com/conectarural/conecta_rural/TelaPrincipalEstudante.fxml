@@ -19,7 +19,7 @@
             <Label layoutX="330.0" layoutY="55.0" text="Escolha uma das opcções a seguir:" />
             <ImageView fx:id="fotoPerfil" fitHeight="135.0" fitWidth="138.0" layoutX="72.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../imagens/fotoAnonima.jpg" />
+                  <Image url="@fotoAnonima.jpg" />
                </image>
             </ImageView>
             <Button fx:id="botaoVerVagasAbertas" layoutX="332.0" layoutY="208.0" mnemonicParsing="false" onAction="#acaoBotaoVerVagasAbertas" text="Visualizar vagas abertas" />

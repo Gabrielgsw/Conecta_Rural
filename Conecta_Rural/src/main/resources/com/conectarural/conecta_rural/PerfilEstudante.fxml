@@ -27,7 +27,7 @@
             </Label>
             <ImageView fitHeight="150.0" fitWidth="137.0" layoutX="44.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../imagens/fotoAnonima.jpg" />
+                  <Image url="@fotoAnonima.jpg" />
                </image>
             </ImageView>
             <TextField fx:id="nomeEstudante" layoutX="308.0" layoutY="62.0" prefHeight="0.0" prefWidth="149.0" />
