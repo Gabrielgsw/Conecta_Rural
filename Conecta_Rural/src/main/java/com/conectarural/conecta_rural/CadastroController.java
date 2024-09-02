@@ -77,23 +77,27 @@ public class CadastroController {
         String password = passwordField.getText();
         String escolha = escolhaPerfil.getSelectionModel().getSelectedItem();
 
+        Usuario usuarioLogado;
+
         if(escolha.equals("Estudante")){
             Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj);
             //controladorSessao.setUsuarioLogado(estudante);
             controladorUsuario.adicionar(estudante);
+            usuarioLogado = estudante;
         }else{
             Empresa empresa = new Empresa(nome,email,telefone,endereco,password,cnpj);
             //controladorSessao.setUsuarioLogado(empresa);
             controladorUsuario.adicionar(empresa);
+            usuarioLogado = empresa;
         }
 
+        controladorSessao.setUsuarioLogado(usuarioLogado);
 
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("CadastroRealizado.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
     }
 
     @FXML

@@ -61,6 +61,13 @@ public class PerfilEstudanteController {
         fotoGenerica.setImage(image);
     }
 
+    public void setDadosEstudante(String nome, String email, String telefone, String Cnpj) {
+        nomeEstudante.setText(nome);
+        emailEstudante.setText(email);
+        telefoneEstudante.setText(telefone);
+        CPFestudante.setText(Cnpj);
+    }
+
     @FXML
     void acaoBotaoCurriculo(ActionEvent event) throws IOException {
         System.out.println("acaoBotaoCurriculo");

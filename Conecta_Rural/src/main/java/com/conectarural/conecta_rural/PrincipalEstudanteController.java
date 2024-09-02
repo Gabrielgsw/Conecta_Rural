@@ -1,5 +1,11 @@
 package com.conectarural.conecta_rural;
 
+import com.conectarural.conecta_rural.exceptions.ElementoJaExistenteException;
+import com.conectarural.conecta_rural.models.Empresa;
+import com.conectarural.conecta_rural.models.Estudante;
+import com.conectarural.conecta_rural.models.Usuario;
+import com.conectarural.conecta_rural.negocio.ControllerUsuario;
+import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,6 +57,9 @@ public class PrincipalEstudanteController {
     @FXML
     private ImageView fotoGenerica;
 
+    ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
+
+
     Image image= new Image(getClass().getResourceAsStream("fotoAnonima.jpg"));
 
     public void displayImage(){
@@ -88,14 +97,23 @@ public class PrincipalEstudanteController {
     }
 
     @FXML
-    void acaoBotaoVerPerfil(ActionEvent event) throws IOException{
+    void acaoBotaoVerPerfil(ActionEvent event) throws IOException {
         System.out.println("acaoBotaoVerPerfil");
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("PerfilEstudante.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("PerfilEstudante.fxml"));
+        Parent root = loader.load();
+        PerfilEstudanteController perfilEstudanteController = loader.getController();
+        Usuario usuarioLogado = controladorSessao.getUsuarioLogado();
+
+        if (usuarioLogado instanceof Estudante) {
+            Estudante estudante = (Estudante) usuarioLogado;
+            perfilEstudanteController.setDadosEstudante(estudante.getNome(), estudante.getEmail(), estudante.getTelefone(),estudante.getCpf());
+        }
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
 
     @FXML
     void acaoBotaoVerVagasAbertas(ActionEvent event) throws IOException{

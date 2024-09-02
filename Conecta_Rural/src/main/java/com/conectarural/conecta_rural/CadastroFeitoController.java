@@ -22,13 +22,15 @@ public class CadastroFeitoController {
     private Button botaoRetorno;
 
     @FXML
-    void acaoBotaoRetorno(ActionEvent event) throws IOException  {
+    void acaoBotaoRetorno(ActionEvent event) throws IOException {
         System.out.println("acaoBotaoRetorno");
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaBuscarVagas.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("Login.fxml"));
+        Parent root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
 
 }
