@@ -103,7 +103,7 @@ public class CadastrarVagasController {
         //RegimeContratacao rg = null;
         //var rg = RegimeContratacao.valueOf(regimeContratacaoMenu.getText());
 
-        Vaga vaga = new Vaga(nomeDaVaga,descricaoVaga,0,remuneracao,1,new Empresa("Teste","teste@gmail.com","32423423","Rua Manoel de Medeiros","teste123","12321-2121",20,"Tecnologia","teste"),codigoVaga,rg,StatusVaga.Aberta);
+        Vaga vaga = new Vaga(nomeDaVaga,descricaoVaga,0,remuneracao,1,new Empresa("Teste","teste@gmail.com","32423423","Rua Manoel de Medeiros","teste123","12321-2121","20","Tecnologia","teste"),codigoVaga,rg,StatusVaga.Aberta);
 
         //Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaVagaCadastrada.fxml"));
         //stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
