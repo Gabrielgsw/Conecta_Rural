@@ -1,6 +1,7 @@
 package com.conectarural.conecta_rural;
 
 import com.conectarural.conecta_rural.exceptions.ElementoNaoExistenteException;
+import com.conectarural.conecta_rural.exceptions.ElementosNaoIguaisException;
 import com.conectarural.conecta_rural.models.*;
 import com.conectarural.conecta_rural.negocio.ControllerCandidatura;
 import com.conectarural.conecta_rural.negocio.ControllerUsuario;
@@ -18,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -40,6 +42,7 @@ public class VisualizarVagasAbertasEmpresaController {
     private Button removerVagaBT;
 
 
+
     ControllerUsuarioSessao controllerUsuarioSessao = ControllerUsuarioSessao.getInstance();
     ControllerVaga controllerVaga = ControllerVaga.getInstance();
     ControllerUsuario controllerUsuario = ControllerUsuario.getInstance();
@@ -47,16 +50,20 @@ public class VisualizarVagasAbertasEmpresaController {
 
     @FXML
     public void initialize() throws IOException {
+        tableVagas.setEditable(true);
         TableColumn<Vaga, String> colCodigo = new TableColumn<>("Código");
         colCodigo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCodigoVaga().toString()));
+        colCodigo.setCellFactory(TextFieldTableCell.<Vaga>forTableColumn());
 
         TableColumn<Vaga,String> colNome= new TableColumn<>("Nome");
         colNome.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNomeVaga()));
-
+        colNome.setCellFactory(TextFieldTableCell.<Vaga>forTableColumn());
         TableColumn<Vaga, String> colCandidatados = new TableColumn<>("Candidatados");
         colCandidatados.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getQuantidadeCandidatos().toString()));
+        colCandidatados.setCellFactory(TextFieldTableCell.<Vaga>forTableColumn());
         TableColumn<Vaga, String> colQuantidade= new TableColumn<>("Quantidade");
         colQuantidade.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getQuantidadeVagas().toString()));
+        colQuantidade.setCellFactory(TextFieldTableCell.<Vaga>forTableColumn());
 
         tableVagas.getColumns().addAll(colCodigo,colNome,colCandidatados,colQuantidade);
         Estudante e1 = new Estudante("Gabriel","ggermanow279@gmail.com", "8123","Rua das mocas,77","teste","11357", LocalDate.of(2003,01,26),new Curriculo("Teste descrição",3, Curso.CienciaDaComputacao));
@@ -67,6 +74,7 @@ public class VisualizarVagasAbertasEmpresaController {
         //tabelaCandidatura.getItems().add(new Candidatura(e1,LocalDateTime.now(),new Vaga("Estágio em Desenvolvimento de sistemas","teste",0,1250,2,e2,001,RegimeContratacao.Estagio,StatusVaga.Aberta)));
         for(Vaga v : controllerVaga.listarVagasAbertas()){
             tableVagas.getItems().add(v);
+
         }
     }
 
@@ -105,12 +113,25 @@ public class VisualizarVagasAbertasEmpresaController {
     }
 
     @FXML
-    public void oneditarVagasBTaction(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaEditarVagasAbertas.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void oneditarVagasBTaction(ActionEvent event) throws IOException, ElementoNaoExistenteException, ElementosNaoIguaisException {
+        //Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaEditarVagasAbertas.fxml"));
+        //stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        //scene = new Scene(root);
+        //stage.setScene(scene);
+        //stage.show();
+        Vaga v = tableVagas.getSelectionModel().getSelectedItem();
+
+        for(Vaga vaga : controllerVaga.listar()){
+            if(vaga.getCodigoVaga() == v.getCodigoVaga()){
+                controllerVaga.atualizarVaga(vaga,v);
+            }
+        }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Vaga editada com sucesso!");
+        alert.setHeaderText("Vaga editada.");
+        alert.setContentText("confirmation");
+        alert.show();
     }
 
 }
