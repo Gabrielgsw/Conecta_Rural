@@ -61,6 +61,7 @@ public class PerfilEstudanteController {
         fotoGenerica.setImage(image);
     }
 
+    //recebendod
     public void setDadosEstudante(String nome, String email, String telefone, String Cnpj) {
         nomeEstudante.setText(nome);
         emailEstudante.setText(email);
