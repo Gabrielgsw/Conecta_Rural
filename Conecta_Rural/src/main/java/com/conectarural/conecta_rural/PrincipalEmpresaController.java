@@ -64,7 +64,7 @@ public class PrincipalEmpresaController {
     @FXML
     public void initialize(){
 
-        nomeDaEmpresaLabel.setText(e1.getNome());
+        //nomeDaEmpresaLabel.setText(e1.getNome());
 
     }
 
