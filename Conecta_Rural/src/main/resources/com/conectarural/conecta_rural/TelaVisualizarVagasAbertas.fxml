@@ -24,6 +24,7 @@
             <TableView fx:id="tableVagas" layoutY="-86.0" prefHeight="200.0" prefWidth="600.0" />
             <Button fx:id="voltarTelaBT" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#onvoltarTelaBTaction" text="Voltar" />
             <Button fx:id="editarVagasBT" layoutX="510.0" layoutY="121.0" mnemonicParsing="false" onAction="#oneditarVagasBTaction" text="Editar vagas" />
+            <Button fx:id="removerVagaBT" layoutX="254.0" layoutY="118.0" mnemonicParsing="false" onAction="#onremoverVagaBTaction" text="Remover" />
          </children>
       </AnchorPane>
    </children>

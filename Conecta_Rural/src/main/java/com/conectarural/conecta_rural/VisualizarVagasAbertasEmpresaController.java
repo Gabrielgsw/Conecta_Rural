@@ -1,6 +1,8 @@
 package com.conectarural.conecta_rural;
 
+import com.conectarural.conecta_rural.exceptions.ElementoNaoExistenteException;
 import com.conectarural.conecta_rural.models.*;
+import com.conectarural.conecta_rural.negocio.ControllerCandidatura;
 import com.conectarural.conecta_rural.negocio.ControllerUsuario;
 import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
 import com.conectarural.conecta_rural.negocio.ControllerVaga;
@@ -11,10 +13,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -32,11 +36,14 @@ public class VisualizarVagasAbertasEmpresaController {
     private Button voltarTelaBT;
     @FXML
     private TableView<Vaga> tableVagas;
+    @FXML
+    private Button removerVagaBT;
 
 
     ControllerUsuarioSessao controllerUsuarioSessao = ControllerUsuarioSessao.getInstance();
     ControllerVaga controllerVaga = ControllerVaga.getInstance();
     ControllerUsuario controllerUsuario = ControllerUsuario.getInstance();
+    ControllerCandidatura controllerCandidatura = ControllerCandidatura.getInstance();
 
     @FXML
     public void initialize() throws IOException {
@@ -62,6 +69,30 @@ public class VisualizarVagasAbertasEmpresaController {
             tableVagas.getItems().add(v);
         }
     }
+
+    Vaga vaga;
+    @FXML
+    public void clickItem(MouseEvent event) {
+        if (event.getClickCount() == 2){
+            System.out.println(tableVagas.getSelectionModel().getSelectedItem());
+            vaga = tableVagas.getSelectionModel().getSelectedItem();
+        }
+    }
+
+    @FXML
+    public void onremoverVagaBTaction(ActionEvent event) throws IOException, ElementoNaoExistenteException {
+
+        for(Vaga v : controllerVaga.listar()){
+            controllerVaga.excluirVaga(v);
+        }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Vaga removida com sucesso!");
+        alert.setHeaderText("Vaga removida.");
+        alert.setContentText("confirmation");
+        alert.show();
+    }
+
 
 
     @FXML
