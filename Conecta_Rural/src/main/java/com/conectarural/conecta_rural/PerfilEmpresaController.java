@@ -54,8 +54,8 @@ public class PerfilEmpresaController {
 
         cnjpEmpresaLabel.setText(e1.getCnpj());
         numeroFuncionariosLabel.setText(e1.getQuantidadeFuncionarios());
-        descricaoEmpresaArea.setText(e1.getAreaAtuacao());
-        areaEmpresaLabel.setText(e1.getDescricao());
+        descricaoEmpresaArea.setText(e1.getDescricao());
+        areaEmpresaLabel.setText(e1.getAreaAtuacao());
 
     }
 
