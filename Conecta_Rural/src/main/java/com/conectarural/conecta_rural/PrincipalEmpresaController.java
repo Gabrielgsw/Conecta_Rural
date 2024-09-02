@@ -1,5 +1,8 @@
 package com.conectarural.conecta_rural;
 
+import com.conectarural.conecta_rural.models.Empresa;
+import com.conectarural.conecta_rural.models.Usuario;
+import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -48,8 +51,21 @@ public class PrincipalEmpresaController {
 
     Image image= new Image(getClass().getResourceAsStream("fotoAnonima.jpg"));
 
+    ControllerUsuarioSessao controllerUsuarioSessao = ControllerUsuarioSessao.getInstance();
+
+    Usuario u = controllerUsuarioSessao.getUsuarioLogado();
+
+    Empresa e1 = (Empresa) u;
+
     public void displayImage(){
         fotoGenerica.setImage(image);
+    }
+
+    @FXML
+    public void initialize(){
+
+        nomeDaEmpresaLabel.setText(e1.getNome());
+
     }
 
     @FXML

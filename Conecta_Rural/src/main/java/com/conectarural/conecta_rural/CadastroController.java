@@ -16,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -49,6 +50,12 @@ public class CadastroController {
     @FXML
     private PasswordField passwordField;
     @FXML
+    private TextField areaDaEmpresaField;
+    @FXML
+    private TextArea descricaoArea;
+    @FXML
+    private TextField quantidadeDeFuncionariosField;
+    @FXML
     private ChoiceBox<String> escolhaPerfil = new ChoiceBox<>();
 
     ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
@@ -76,6 +83,10 @@ public class CadastroController {
         String endereco = enderecoField.getText();
         String password = passwordField.getText();
         String escolha = escolhaPerfil.getSelectionModel().getSelectedItem();
+        String quantidadeFuncionarios = quantidadeDeFuncionariosField.getText();
+        String areaDaEmpresa = areaDaEmpresaField.getText();
+        String descricao = descricaoArea.getText();
+
 
         Usuario usuarioLogado;
 
@@ -85,7 +96,7 @@ public class CadastroController {
             controladorUsuario.adicionar(estudante);
             usuarioLogado = estudante;
         }else{
-            Empresa empresa = new Empresa(nome,email,telefone,endereco,password,cnpj);
+            Empresa empresa = new Empresa(nome,email,telefone,endereco,password,cnpj, quantidadeFuncionarios, areaDaEmpresa, descricao);
             //controladorSessao.setUsuarioLogado(empresa);
             controladorUsuario.adicionar(empresa);
             usuarioLogado = empresa;
