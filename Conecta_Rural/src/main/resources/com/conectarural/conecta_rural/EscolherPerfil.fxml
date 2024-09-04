@@ -23,6 +23,7 @@
             <children>
                 <Button fx:id="btnEstudante" layoutX="218.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBTEstudanteaction" text="Sou estudante" textFill="#030303" />
                 <Button fx:id="btnEmpresa" layoutX="222.0" layoutY="54.0" mnemonicParsing="false" onAction="#onBTEmpresaaction" text="Sou empresa" />
+            <Button fx:id="voltarBT" layoutX="540.0" layoutY="127.0" mnemonicParsing="false" onAction="#onVoltarBTaction" text="Voltar" />
             </children>
         </AnchorPane>
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />

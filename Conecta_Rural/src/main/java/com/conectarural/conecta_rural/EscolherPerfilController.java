@@ -21,6 +21,17 @@ public class EscolherPerfilController {
     private Button btnEmpresa;
     @FXML
     private Button btnEstudante;
+    @FXML
+    private Button voltarBT;
+
+    @FXML
+    public void onVoltarBTaction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("Login.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @FXML
     public void onBTEstudanteaction(ActionEvent event) throws IOException {

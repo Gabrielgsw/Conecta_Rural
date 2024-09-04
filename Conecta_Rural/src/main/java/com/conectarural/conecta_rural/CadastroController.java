@@ -57,6 +57,17 @@ public class CadastroController {
     private TextField quantidadeDeFuncionariosField;
     @FXML
     private ChoiceBox<String> escolhaPerfil = new ChoiceBox<>();
+    @FXML
+    private Button voltarBT;
+
+    @FXML
+    public void onvoltarBTaction(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("Login.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
     ControllerUsuario controladorUsuario = ControllerUsuario.getInstance();

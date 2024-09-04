@@ -89,7 +89,7 @@ public class PrincipalEstudanteController {
     @FXML
     void acaoBotaoSairEstudante(ActionEvent event) throws IOException{
         System.out.println("acaoBotaoSairEstudante");
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("EscolherPerfil.fxml"));
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
