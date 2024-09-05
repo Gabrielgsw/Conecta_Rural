@@ -15,7 +15,7 @@ public class ControllerUsuarioSessao {
 
     public ControllerUsuarioSessao() {
         usuarioLogado = null;
-        repositorioUsuario = new UsuarioRepository();
+        //repositorioUsuario = new UsuarioRepository();
     }
 
     public static ControllerUsuarioSessao getInstance() {
@@ -26,9 +26,9 @@ public class ControllerUsuarioSessao {
     }
 
     public void realizarLogin(String email, String senha) throws FalhaLoginException {
-        ControllerUsuarioSessao controllerUsuarioSessao = ControllerUsuarioSessao.getInstance();
+        ControllerUsuario controllerUsuario = ControllerUsuario.getInstance();
         Usuario user = null;
-        for(Usuario u : controllerUsuarioSessao.listar()){
+        for(Usuario u : controllerUsuario.listar()){
             if(email.equals(u.getEmail()) && senha.equals(u.getSenha())){
                 user = u;
                 System.out.println("teste usuário logado");
@@ -53,6 +53,14 @@ public class ControllerUsuarioSessao {
     }
     public void setUsuarioLogado(Usuario usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
+    }
+
+    public String getTipoUsuario(){
+        if(getUsuarioLogado() instanceof Empresa){
+            return "Empresa";
+        } else{
+            return "Estudante";
+        }
     }
 
 

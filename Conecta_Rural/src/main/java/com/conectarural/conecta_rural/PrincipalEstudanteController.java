@@ -78,6 +78,7 @@ public class PrincipalEstudanteController {
 
     @FXML
     void acaoBotaoCandidaturas(ActionEvent event) throws IOException{
+        controladorSessao.setUsuarioLogado(null);
         System.out.println("acaoBotaoCandidaturas");
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("VisualizarCandidaturas.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

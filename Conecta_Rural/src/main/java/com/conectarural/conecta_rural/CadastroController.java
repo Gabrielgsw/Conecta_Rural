@@ -103,12 +103,12 @@ public class CadastroController {
 
         if(escolha.equals("Estudante")){
             Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj);
-            //controladorSessao.setUsuarioLogado(estudante);
+            controladorSessao.setUsuarioLogado(estudante);
             controladorUsuario.adicionar(estudante);
             usuarioLogado = estudante;
         }else{
             Empresa empresa = new Empresa(nome,email,telefone,endereco,password,cnpj, quantidadeFuncionarios, areaDaEmpresa, descricao);
-            //controladorSessao.setUsuarioLogado(empresa);
+            controladorSessao.setUsuarioLogado(empresa);
             controladorUsuario.adicionar(empresa);
             usuarioLogado = empresa;
         }

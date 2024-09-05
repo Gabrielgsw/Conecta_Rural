@@ -92,7 +92,7 @@ public class PrincipalEmpresaController {
 
     @FXML
     public void onPaginaAnteriorBtnAction(ActionEvent event) throws IOException {
-
+        controllerUsuarioSessao.setUsuarioLogado(null);
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
