@@ -85,8 +85,8 @@ public class CadastrarVagasController {
 
     }
 
-    @FXML
-    public void onCadastrarVagaBtnaction(ActionEvent event) throws IOException, ElementoJaExistenteException {
+    //@FXML
+    private void criarVaga() throws ElementoJaExistenteException {
        /* Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaCadastrarVagas.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -105,19 +105,46 @@ public class CadastrarVagasController {
 
         Vaga vaga = new Vaga(nomeDaVaga,descricaoVaga,0,remuneracao,1,new Empresa("Teste","teste@gmail.com","32423423","Rua Manoel de Medeiros","teste123","12321-2121","20","Tecnologia","teste"),codigoVaga,rg,StatusVaga.Aberta);
 
+
+        if(!controllerVaga.listar().isEmpty()){
+            for(Vaga v : controllerVaga.listar()){
+                if(v.equals(vaga) || v.getCodigoVaga() == vaga.getCodigoVaga()){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Erro na criação da vaga");
+                    alert.setHeaderText("Existem campos inválidos.");
+                    alert.setContentText("Vaga já existente!");
+                    alert.show();
+                    break;
+                }else{
+                    controllerVaga.cadastrarVaga(vaga);
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Vaga criada com sucesso!");
+                    alert.setHeaderText("Sua vaga foi criada com as informações preenchidas.");
+                    alert.setContentText("confirmation");
+                    alert.show();
+                    break;
+                }
+
+            }
+        }else{
+            controllerVaga.cadastrarVaga(vaga);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Vaga criada com sucesso!");
+            alert.setHeaderText("Sua vaga foi criada com as informações preenchidas.");
+            alert.setContentText("confirmation");
+            alert.show();
+        }
+
+
         //Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaVagaCadastrada.fxml"));
         //stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         //scene = new Scene(root);
         //stage.setScene(scene);
         //stage.show();
 
-        controllerVaga.cadastrarVaga(vaga);
 
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Vaga criada com sucesso!");
-        alert.setHeaderText("Sua vaga foi criada com as informações preenchidas.");
-        alert.setContentText("confirmation");
-        alert.show();
 
         codigoVagaField.setText("");
         numeroDeVagasField.setText("");
@@ -128,6 +155,39 @@ public class CadastrarVagasController {
 
 
 
+    }
+
+    private boolean verificar(){
+        String erro = "";
+
+        if(codigoVagaField.getText() == null || codigoVagaField.getText().length() == 0)
+            erro += "Código Inválido!\n";
+        if(nomeDaVagaField.getText() == null || nomeDaVagaField.getText().length() == 0)
+            erro += "Nome Inválido!\n";
+        if(valorRemuneracaoField.getText() == null ||valorRemuneracaoField.getText().length() == 0 )
+            erro += "Remuneração Inválida!\n";
+        if(descricaoVagaArea.getText() == null || descricaoVagaArea.getText().length() == 0)
+            erro += "Descrição Inválida!\n";
+        if(regimeContratacao.getSelectionModel().getSelectedItem() == null )
+            erro += "Descrição Inválida!\n";
+
+        if(erro.length() != 0) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erro na criação da vaga");
+            alert.setHeaderText("Existem campos inválidos.");
+            alert.setContentText(erro);
+            alert.show();
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    @FXML
+     public void onCadastrarVagaBtnaction(ActionEvent event) throws ElementoJaExistenteException {
+        if(verificar())
+            criarVaga();
     }
 
     public void onvoltarTelaBTaction(ActionEvent event) throws IOException{
