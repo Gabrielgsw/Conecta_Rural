@@ -33,6 +33,12 @@ public class ControllerVaga {
 
     }
 
+    public Vaga recuperarVaga(Integer codigo) throws ElementoNaoExistenteException {
+
+        return repositorioVaga.recuperarVaga(codigo);
+
+    }
+
     public void excluirVaga(Vaga vaga) throws ElementoNaoExistenteException {
         repositorioVaga.remover(vaga);
     }

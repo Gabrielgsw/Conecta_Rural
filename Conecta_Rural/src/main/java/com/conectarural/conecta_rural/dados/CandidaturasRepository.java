@@ -81,4 +81,9 @@ public class CandidaturasRepository implements IRepository<Candidatura> {
 
     }
 
+    @Override
+    public Candidatura recuperarVaga(Integer codigo) throws ElementoNaoExistenteException {
+        return null;
+    }
+
 }

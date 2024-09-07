@@ -13,4 +13,5 @@ public interface IRepository<T> {
     void atualizar(T antigo, T novo) throws ElementoNaoExistenteException, ElementosNaoIguaisException;
 
 
+    T recuperarVaga(Integer codigo) throws ElementoNaoExistenteException;
 }

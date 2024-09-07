@@ -48,6 +48,11 @@ public class UsuarioRepository implements IRepository<Usuario>{
         }
     }
 
+    @Override
+    public Usuario recuperarVaga(Integer codigo) throws ElementoNaoExistenteException {
+        return null;
+    }
+
     public List<Usuario> listar() {
         List<Usuario> listaUsuarios = new ArrayList<>();
         for (Usuario usuario:usuarios) {

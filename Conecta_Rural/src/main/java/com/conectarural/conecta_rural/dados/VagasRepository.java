@@ -3,6 +3,10 @@ import com.conectarural.conecta_rural.models.Vaga;
 import com.conectarural.conecta_rural.exceptions.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+
+import static java.lang.Integer.parseInt;
+import static java.lang.Integer.valueOf;
 
 public class VagasRepository implements IRepository<Vaga> {
 
@@ -77,7 +81,20 @@ public class VagasRepository implements IRepository<Vaga> {
 
                 for (Vaga vaga : listaDeVagas) {
                     if (vaga.getCodigoVaga() == antigo.getCodigoVaga()) {
-                        vaga = novo;
+
+
+                        vaga.setCodigoVaga(novo.getCodigoVaga());
+                        vaga.setNomeVaga(novo.getNomeVaga());
+                        vaga.setDescricaoVaga(novo.getDescricaoVaga());
+                        vaga.setEmpresa(novo.getEmpresa());
+                        vaga.setCandidaturas(novo.getCandidaturas());
+                        vaga.setStatusVaga(novo.getStatusVaga());
+                        vaga.setRemuneracao(novo.getRemuneracao());
+                        vaga.setRegimeContratacao(novo.getRegimeContratacao());
+                        vaga.setQuantidadeCandidatos(novo.getQuantidadeCandidatos());
+                        vaga.setQuantidadeVagas(novo.getQuantidadeVagas());
+                        vaga.setEmpresa(novo.getEmpresa());
+
                         //substitui a vaga antiga pela nova
                     }
                 }
@@ -95,6 +112,28 @@ public class VagasRepository implements IRepository<Vaga> {
             throw new ElementosNaoIguaisException();
         }
 
+    }
+
+    public Vaga recuperarVaga(Integer codigo) throws ElementoNaoExistenteException {
+
+        boolean existe = false;
+
+        for(Vaga vaga : listaDeVagas){
+
+            if(codigo == vaga.getCodigoVaga()) {
+
+                return vaga;
+
+            }
+        }
+
+        if(!existe){
+
+            throw new ElementoNaoExistenteException();
+
+        }
+
+        return null;
     }
 
 }

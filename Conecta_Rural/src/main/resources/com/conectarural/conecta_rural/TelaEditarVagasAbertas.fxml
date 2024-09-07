@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.ControllerEditarVaga">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.EditarVagasController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -18,14 +18,14 @@
                </font>
             </Label>
             <Label layoutX="127.0" layoutY="116.0" text="Digite o código da vaga: " />
-            <TextField layoutX="271.0" layoutY="112.0" />
-            <Button fx:id="buscarVagaBT" layoutX="445.0" layoutY="112.0" mnemonicParsing="false" onAction="#onbuscarVagaBTaction" text="Buscar" />
+            <TextField fx:id="codigoDaVagaField" layoutX="271.0" layoutY="112.0" />
+            <Button fx:id="buscarVagaBT" layoutX="445.0" layoutY="112.0" mnemonicParsing="false" onAction="#onBuscarVagaBTaction" text="Buscar" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
             <TableView fx:id="tableVagas" layoutX="7.0" layoutY="-35.0" prefHeight="200.0" prefWidth="586.0" />
-            <Button fx:id="voltarTelaBT" layoutX="14.0" layoutY="174.0" mnemonicParsing="false" onAction="#onvoltarTelaBTaction" text="Voltar" />
+            <Button fx:id="voltarTelaBT" layoutX="14.0" layoutY="174.0" mnemonicParsing="false" onAction="#voltarTela" text="Voltar" />
          </children>
       </AnchorPane>
    </children>

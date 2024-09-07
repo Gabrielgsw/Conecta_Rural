@@ -41,6 +41,11 @@ public class ControllerEditarVaga {
     @FXML
     public void onbuscarVagaBTaction(ActionEvent event) throws IOException {
         System.out.println("test");
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaEdicaoDeVaga.fxml"));
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }
