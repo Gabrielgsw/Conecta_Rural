@@ -4,6 +4,8 @@ package com.conectarural.conecta_rural;
 import com.conectarural.conecta_rural.exceptions.ElementoJaExistenteException;
 import com.conectarural.conecta_rural.models.Empresa;
 import com.conectarural.conecta_rural.models.Estudante;
+import com.conectarural.conecta_rural.models.RegimeContratacao;
+import com.conectarural.conecta_rural.models.Curso;
 import com.conectarural.conecta_rural.models.Usuario;
 import com.conectarural.conecta_rural.negocio.ControllerUsuario;
 import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
@@ -44,6 +46,12 @@ public class CadastroController {
     @FXML
     private TextField cnpjField;
     @FXML
+    private TextField periodoAtual;
+    @FXML
+    private TextField dataNascimento;
+    @FXML
+    private ChoiceBox<Curso> escolhaCursos;
+    @FXML
     private TextField telefoneField;
     @FXML
     private TextField enderecoField;
@@ -76,6 +84,15 @@ public class CadastroController {
     public void initialize() {
         escolhaPerfil.getItems().add("Estudante");
         escolhaPerfil.getItems().add("Empresa");
+
+        escolhaCursos.getItems().add(Curso.CienciaDaComputacao);
+        escolhaCursos.getItems().add(Curso.LicenciaturaEmComputacao);
+        escolhaCursos.getItems().add(Curso.MedicinaVeterinaria);
+        escolhaCursos.getItems().add(Curso.Gastronomia);
+        escolhaCursos.getItems().add(Curso.CienciasBiologias);
+        escolhaCursos.getItems().add(Curso.LicenciaturaFisica);
+        escolhaCursos.getItems().add(Curso.LicenciaturaMatematica);
+        escolhaCursos.getItems().add(Curso.SistemasDeInformacao);
     }
 
     @FXML

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
@@ -11,32 +13,17 @@
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="585.0">
          <children>
-            <TextField fx:id="nomeEstudanteCurriculo" editable="false" layoutX="84.0" layoutY="99.0" prefHeight="34.0" prefWidth="503.0">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </TextField>
             <Button fx:id="BotaoGerarCurriculo" layoutX="484.0" layoutY="340.0" mnemonicParsing="false" onAction="#acaoBotaoGerarCurriculo" prefHeight="28.0" prefWidth="102.0" text="Gerar currículo">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <TextField fx:id="resumoEstudanteCurriculo" layoutX="85.0" layoutY="154.0" prefHeight="28.0" prefWidth="503.0">
+            <TextField fx:id="resumoEstudanteCurriculo" layoutX="124.0" layoutY="77.0" prefHeight="28.0" prefWidth="431.0">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="periodoAtualCurriculo" layoutX="113.0" layoutY="194.0" prefHeight="28.0" prefWidth="187.0">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="cursoEstudanteCurriculo" layoutX="85.0" layoutY="233.0" prefHeight="28.0" prefWidth="468.0">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="atividadesEstudanteCurriculo" layoutX="85.0" layoutY="273.0" prefHeight="28.0" prefWidth="468.0">
+            <TextField fx:id="periodoAtualCurriculo" layoutX="124.0" layoutY="108.0" prefHeight="28.0" prefWidth="62.0">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
@@ -46,27 +33,22 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="29.0" layoutY="106.0" text="Nome:">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </Label>
-            <Label layoutX="21.0" layoutY="158.0" text="Resumo:">
+            <Label layoutX="66.0" layoutY="81.0" text="Resumo:">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="7.0" layoutY="199.0" text="Período atual: ">
+            <Label alignment="CENTER_RIGHT" layoutX="32.0" layoutY="112.0" text="Período atual: ">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="238.0" text="Curso: ">
+            <Label layoutX="77.0" layoutY="143.0" text="Curso: ">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="13.0" layoutY="278.0" text="Atividades: ">
+            <Label layoutX="49.0" layoutY="175.0" text="Atividades: ">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
                </font>
@@ -76,6 +58,8 @@
                   <Font name="System Bold Italic" size="25.0" />
                </font>
             </Label>
+            <ChoiceBox fx:id="opcaoCurso" layoutX="124.0" layoutY="140.0" prefHeight="25.0" prefWidth="108.0" />
+            <TextArea fx:id="atividadesEstudanteCurriculo" layoutX="124.0" layoutY="175.0" prefHeight="106.0" prefWidth="431.0" />
          </children>
       </AnchorPane>
    </children>

@@ -2,11 +2,12 @@ package com.conectarural.conecta_rural;
 
 import com.conectarural.conecta_rural.exceptions.ElementoJaExistenteException;
 import com.conectarural.conecta_rural.models.Empresa;
+
+import javafx.event.ActionEvent;
 import com.conectarural.conecta_rural.models.Estudante;
 import com.conectarural.conecta_rural.models.Usuario;
 import com.conectarural.conecta_rural.negocio.ControllerUsuario;
 import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -64,6 +65,11 @@ public class PrincipalEstudanteController {
 
     public void displayImage(){
         fotoGenerica.setImage(image);
+    }
+
+    //recebendo
+    public void setDadosEstudante(String nome) {
+        nomeEstudante.setText(nome);
     }
 
     @FXML

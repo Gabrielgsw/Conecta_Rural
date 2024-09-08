@@ -1,6 +1,8 @@
 package com.conectarural.conecta_rural;
 
 import com.conectarural.conecta_rural.models.*;
+import com.conectarural.conecta_rural.models.Estudante;
+import com.conectarural.conecta_rural.models.Usuario;
 import com.conectarural.conecta_rural.negocio.ControllerCandidatura;
 import com.conectarural.conecta_rural.negocio.ControllerUsuario;
 import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;

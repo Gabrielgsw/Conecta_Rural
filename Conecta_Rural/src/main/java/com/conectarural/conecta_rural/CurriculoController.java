@@ -7,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -30,13 +32,8 @@ public class CurriculoController {
     private Button BotaoVoltar;
 
     @FXML
-    private ImageView imagemEstudanteCurriculo;
-
-    @FXML
     private AnchorPane curriculoAnchorPane;
 
-    @FXML
-    private TextField nomeEstudanteCurriculo;
 
     @FXML
     private TextField ResumoEstudanteCurriculo;
@@ -45,10 +42,10 @@ public class CurriculoController {
     private TextField periodoAtualEstudanteCurriculo;
 
     @FXML
-    private TextField cursoEstudanteCurriculo;
+    private ChoiceBox<?> opcaoCurso;
 
     @FXML
-    private TextField atividadesEstudanteCurriculo;
+    private TextArea atividadesEstudanteCurriculo;
 
     @FXML
     public void acaoBotaoGerarCurriculo(ActionEvent event) throws IOException {

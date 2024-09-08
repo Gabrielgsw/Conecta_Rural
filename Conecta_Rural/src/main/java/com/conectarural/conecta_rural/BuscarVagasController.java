@@ -107,8 +107,21 @@ public class BuscarVagasController {
     @FXML
     public void acaoBotaoVoltar(ActionEvent event) throws IOException{
         System.out.println("acaoBotaoVoltar");
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaPrincipalEstudante.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        // Variável local para controladorSessao
+        ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
+
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("TelaPrincipalEstudante.fxml"));
+        Parent root = loader.load();
+        PrincipalEstudanteController principalEstudanteController = loader.getController();
+        Usuario usuarioLogado = controladorSessao.getUsuarioLogado();
+
+        if (usuarioLogado instanceof Estudante) {
+            Estudante estudante = (Estudante) usuarioLogado;
+            // Passando os dados do estudante para o controller da TelaPrincipalEstudante
+            principalEstudanteController.setDadosEstudante(estudante.getNome());
+        }
+
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
