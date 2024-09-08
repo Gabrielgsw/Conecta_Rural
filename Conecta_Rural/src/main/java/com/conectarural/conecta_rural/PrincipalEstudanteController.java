@@ -23,6 +23,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.conectarural.conecta_rural.HelloApplication.controllerUsuarioSessao;
+
 public class PrincipalEstudanteController {
 
     @FXML
@@ -95,6 +97,7 @@ public class PrincipalEstudanteController {
 
     @FXML
     void acaoBotaoSairEstudante(ActionEvent event) throws IOException{
+        controllerUsuarioSessao.setUsuarioLogado(null);
         System.out.println("acaoBotaoSairEstudante");
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
