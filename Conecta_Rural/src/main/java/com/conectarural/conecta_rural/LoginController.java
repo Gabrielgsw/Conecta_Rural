@@ -96,11 +96,11 @@ public class LoginController {
             }
 
 
-            if (controladorSessao.getUsuarioLogado() instanceof Estudante) {
+           /* if (controladorSessao.getUsuarioLogado() instanceof Estudante) {
                 root = FXMLLoader.load(getClass().getResource("TelaPrincipalEstudante.fxml"));
             } else {
                 root = FXMLLoader.load(getClass().getResource("TelaPrincipalEmpresa.fxml"));
-            }
+            }*/
 
             //if (u.getEmail().equals(emailField.getText()) && u.getSenha().equals(senhaField.getText())) {
             //  controladorSessao.setUsuarioLogado(u);

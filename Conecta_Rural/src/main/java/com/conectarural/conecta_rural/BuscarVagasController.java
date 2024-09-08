@@ -118,15 +118,38 @@ public class BuscarVagasController {
     public void oncandidatarBTaction(ActionEvent event) throws IOException, ElementoJaExistenteException {
         //Empresa e2 = new Empresa("Teste","teste@gmail.com",32423423L,"Rua Manoel de Medeiros","teste123","12321-2121",20,"Tecnologia","teste");
         //Estudante e1 = new Estudante("Gabriel","ggermanow279@gmail.com", "8123","Rua das mocas,77","teste","11357", LocalDate.of(2003,01,26),new Curriculo("Teste descrição",3, Curso.CienciaDaComputacao));
+        int candidatou = 1;
+
         Usuario u = controllerUsuarioSessao.getUsuarioLogado();
         Estudante e1 = (Estudante)u;
         Candidatura c1 = new Candidatura(e1,LocalDateTime.now(),vaga);
-        controllerCandidatura.adicionar(c1);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Candidatura realizada com sucesso!");
-        alert.setHeaderText("Sua candidatura foi realizada.");
-        alert.setContentText("confirmation");
-        alert.show();
+        //controllerCandidatura.adicionar(c1);
+
+            for(Candidatura c : controllerCandidatura.Listar()){
+              if(c1.getVaga().getCodigoVaga() == c.getVaga().getCodigoVaga()){
+                  candidatou = 0;
+                  Alert alert = new Alert(Alert.AlertType.ERROR);
+                  alert.setTitle("Falha na candidatura!");
+                  alert.setHeaderText("Candidatura não realizada!");
+                  alert.setContentText("error");
+                  alert.showAndWait();
+                  break;
+              }
+
+            //candidatou = 1;
+
+        }
+
+        if(candidatou == 1){
+            controllerCandidatura.adicionar(c1);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Candidatura realizada com sucesso!");
+            alert.setHeaderText("Sua candidatura foi realizada.");
+            alert.setContentText("confirmation");
+            alert.show();
+        }
+
+
     }
 
 

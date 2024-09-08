@@ -71,7 +71,7 @@ public class BuscarEstudantesEmpresaController {
 
 
 
-        for(Usuario e : controllerUsuarioSessao.listar()){
+        for(Usuario e : controllerUsuario.listar()){
             if(e.getClass() == Estudante.class){
                 Estudante estudante = (Estudante)e;
                 tableBuscarEstudantes.getItems().add(estudante);

@@ -97,29 +97,52 @@ public class CadastroController {
         String quantidadeFuncionarios = quantidadeDeFuncionariosField.getText();
         String areaDaEmpresa = areaDaEmpresaField.getText();
         String descricao = descricaoArea.getText();
+        int cadastrado = 0;
 
+        Usuario usuarioLogado = null;
 
-        Usuario usuarioLogado;
+        if(escolha.equals("Estudante") &&  (!quantidadeFuncionarios.isBlank()  || !areaDaEmpresa.isBlank()  || !descricao.isBlank()) ){
+            System.out.println("teste");
+            System.out.println(quantidadeFuncionarios);
+            System.out.println(areaDaEmpresa);
+            System.out.println(descricao);
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText("Campos preenchidos incorretamente! .");
+            alerta.setContentText("Tente novamente.");
+            alerta.showAndWait();
 
-        if(escolha.equals("Estudante")){
+        }
+        /*if(escolha.equals("Empresa") &&  (quantidadeFuncionarios != null  || areaDaEmpresa != null  || descricao != null) ){
+
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText("Campos preenchidos incorretamente! .");
+            alerta.setContentText("Tente novamente.");
+            alerta.showAndWait();
+
+        }*/
+
+        else if(escolha.equals("Estudante")){
             Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj);
             controladorSessao.setUsuarioLogado(estudante);
             controladorUsuario.adicionar(estudante);
             usuarioLogado = estudante;
+            cadastrado = 1;
         }else{
             Empresa empresa = new Empresa(nome,email,telefone,endereco,password,cnpj, quantidadeFuncionarios, areaDaEmpresa, descricao);
             controladorSessao.setUsuarioLogado(empresa);
             controladorUsuario.adicionar(empresa);
             usuarioLogado = empresa;
+            cadastrado = 1;
         }
 
+        if(cadastrado == 1){
         controladorSessao.setUsuarioLogado(usuarioLogado);
 
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("CadastroRealizado.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();
+        stage.show();}
     }
 
     @FXML
