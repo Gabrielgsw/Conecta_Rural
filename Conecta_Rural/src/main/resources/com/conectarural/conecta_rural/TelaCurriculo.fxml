@@ -18,11 +18,6 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <TextField fx:id="resumoEstudanteCurriculo" layoutX="124.0" layoutY="77.0" prefHeight="28.0" prefWidth="431.0">
-               <font>
-                  <Font name="System Bold Italic" size="13.0" />
-               </font>
-            </TextField>
             <TextField fx:id="periodoAtualCurriculo" layoutX="124.0" layoutY="108.0" prefHeight="28.0" prefWidth="62.0">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
@@ -33,7 +28,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
-            <Label layoutX="66.0" layoutY="81.0" text="Resumo:">
+            <Label layoutX="57.0" layoutY="211.0" text="Resumo:">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
@@ -58,8 +53,9 @@
                   <Font name="System Bold Italic" size="25.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="opcaoCurso" layoutX="124.0" layoutY="140.0" prefHeight="25.0" prefWidth="108.0" />
-            <TextArea fx:id="atividadesEstudanteCurriculo" layoutX="124.0" layoutY="175.0" prefHeight="106.0" prefWidth="431.0" />
+            <ChoiceBox fx:id="atividadesEstudanteCurriculo" layoutX="124.0" layoutY="172.0" prefWidth="150.0" />
+            <TextField fx:id="opcaoCurso" layoutX="125.0" layoutY="140.0" prefHeight="25.0" prefWidth="221.0" />
+            <TextArea fx:id="ResumoEstudanteCurriculo" layoutX="122.0" layoutY="211.0" prefHeight="131.0" prefWidth="332.0" />
          </children>
       </AnchorPane>
    </children>

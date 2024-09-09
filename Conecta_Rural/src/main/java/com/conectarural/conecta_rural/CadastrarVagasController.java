@@ -81,8 +81,6 @@ public class CadastrarVagasController {
         regimeContratacao.getItems().add(RegimeContratacao.CLT);
         regimeContratacao.getItems().add(RegimeContratacao.PessoaJuridica);
         regimeContratacao.getItems().add(RegimeContratacao.Temporario);
-
-
     }
 
     //@FXML

@@ -42,12 +42,7 @@ public class CadastroController {
     private TextField emailField;
     @FXML
     private TextField cnpjField;
-    @FXML
-    private TextField periodoAtual;
-    @FXML
-    private DatePicker dataNascimento;
-    @FXML
-    private ChoiceBox<Curso> escolhaCursos;
+
     @FXML
     private TextField telefoneField;
     @FXML
@@ -62,6 +57,12 @@ public class CadastroController {
     private TextField quantidadeDeFuncionariosField;
     @FXML
     private ChoiceBox<String> escolhaPerfil = new ChoiceBox<>();
+    @FXML
+    private TextField periodoAtual;
+    @FXML
+    private DatePicker dataNascimento;
+    @FXML
+    private ChoiceBox<Curso> escolhaCursos= new ChoiceBox<>();
     @FXML
     private Button voltarBT;
 
@@ -81,7 +82,13 @@ public class CadastroController {
     public void initialize() {
         escolhaPerfil.getItems().add("Estudante");
         escolhaPerfil.getItems().add("Empresa");
-
+        escolhaCursos.getItems().add(Curso.CienciaDaComputacao) ;
+        escolhaCursos.getItems().add(Curso.LicenciaturaEmComputacao) ;
+        escolhaCursos.getItems().add(Curso.MedicinaVeterinaria) ;
+        escolhaCursos.getItems().add(Curso.Gastronomia) ;
+        escolhaCursos.getItems().add(Curso.CienciasBiologias) ;
+        escolhaCursos.getItems().add(Curso.LicenciaturaFisica) ;
+        escolhaCursos.getItems().add(Curso.SistemasDeInformacao) ;
     }
 
     @FXML
@@ -103,6 +110,9 @@ public class CadastroController {
         String quantidadeFuncionarios = quantidadeDeFuncionariosField.getText();
         String areaDaEmpresa = areaDaEmpresaField.getText();
         String descricao = descricaoArea.getText();
+        String PeriodoAtual= periodoAtual.getText();
+        Curso Cs = escolhaCursos.getSelectionModel().getSelectedItem();
+        LocalDate dataNasc = dataNascimento.getValue();
 
 
         int cadastrado = 0;
@@ -120,17 +130,17 @@ public class CadastroController {
             alerta.showAndWait();
 
         }
-        /*if(escolha.equals("Empresa") &&  (quantidadeFuncionarios != null  || areaDaEmpresa != null  || descricao != null) ){
+        else if(escolha.equals("Empresa") &&  ((!PeriodoAtual.isBlank()) || (Cs != null) || (dataNasc != null))){
 
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText("Campos preenchidos incorretamente! .");
             alerta.setContentText("Tente novamente.");
             alerta.showAndWait();
 
-        }*/
+        }
 
         else if(escolha.equals("Estudante")){
-            Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj);
+            Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,Cs);
             controladorSessao.setUsuarioLogado(estudante);
             controladorUsuario.adicionar(estudante);
             usuarioLogado = estudante;
