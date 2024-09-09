@@ -26,11 +26,12 @@ public class Estudante extends Usuario {
 
     //construtor para cadastro
 
-    public Estudante(String nome, String email, String telefone, String endereco, String senha,String cpf, LocalDate dataNascimento,Curso curso) {
+    public Estudante(String nome, String email, String telefone, String endereco, String senha,String cpf, LocalDate dataNascimento,Curso curso, String periodo) {
         super(nome, email, telefone, endereco, senha);
         this.cpf = cpf;
         this.curso=curso;
         this.dataNascimento = dataNascimento;
+        this.periodoAtual=periodo;
     }
 
 

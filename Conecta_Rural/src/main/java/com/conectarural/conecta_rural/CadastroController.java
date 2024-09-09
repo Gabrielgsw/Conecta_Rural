@@ -140,7 +140,7 @@ public class CadastroController {
         }
 
         else if(escolha.equals("Estudante")){
-            Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,Cs);
+            Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,Cs,PeriodoAtual);
             controladorSessao.setUsuarioLogado(estudante);
             controladorUsuario.adicionar(estudante);
             usuarioLogado = estudante;

@@ -1,9 +1,6 @@
 package com.conectarural.conecta_rural;
 
-import com.conectarural.conecta_rural.models.Atividade;
-import com.conectarural.conecta_rural.models.Estudante;
-import com.conectarural.conecta_rural.models.RegimeContratacao;
-import com.conectarural.conecta_rural.models.Usuario;
+import com.conectarural.conecta_rural.models.*;
 import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 
 public class CurriculoController {
@@ -50,6 +48,11 @@ public class CurriculoController {
 
     ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
 
+    public void setDadosCurriculo(Curso curso, String periodo) {
+        periodoAtualCurriculo.setText(periodo);
+        opcaoCurso.setText(curso.toString());
+    }
+
     @FXML
     public void initialize(){
         atividadesEstudanteCurriculo.getItems().add("Estágio");
@@ -77,7 +80,7 @@ public class CurriculoController {
 
         if (usuarioLogado instanceof Estudante) {
             Estudante estudante = (Estudante) usuarioLogado;
-            perfilEstudanteController.setDadosEstudante(estudante.getNome(), estudante.getEmail(), estudante.getTelefone(),estudante.getCpf(),estudante.getDataNascimento(),estudante.getCurso());
+            perfilEstudanteController.setDadosEstudante(estudante.getNome(), estudante.getEmail(), estudante.getTelefone(),estudante.getCpf(),estudante.getDataNascimento(),estudante.getCurso(),estudante.getPeriodoAtual());
         }
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

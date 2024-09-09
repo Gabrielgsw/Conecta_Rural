@@ -60,6 +60,7 @@ public class PerfilEstudanteController {
     @FXML
     private TextField telefoneEstudante;
 
+
     Image image= new Image(getClass().getResourceAsStream("fotoAnonima.jpg"));
 
     public void displayImage(){
@@ -67,20 +68,31 @@ public class PerfilEstudanteController {
     }
 
     //recebendo
-    public void setDadosEstudante(String nome, String email, String telefone, String Cnpj, LocalDate dataNascimento,Curso curso) {
+    public void setDadosEstudante(String nome, String email, String telefone, String Cnpj, LocalDate dataNascimento,Curso curso,String periodo) {
         nomeEstudante.setText(nome);
         emailEstudante.setText(email);
         telefoneEstudante.setText(telefone);
         CPFestudante.setText(Cnpj);
         idadeEstudante.setText(dataNascimento.toString());
         cursoEstudante.setText(curso.toString());
-
+        periodoEstudante.setText(periodo);
     }
 
     @FXML
     void acaoBotaoCurriculo(ActionEvent event) throws IOException {
         System.out.println("acaoBotaoCurriculo");
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaCurriculo.fxml"));
+
+        ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("TelaCurriculo.fxml"));
+        Parent root = loader.load();
+        CurriculoController curriculoController = loader.getController();
+        Usuario usuarioLogado = controladorSessao.getUsuarioLogado();
+
+        if (usuarioLogado instanceof Estudante) {
+            Estudante estudante = (Estudante) usuarioLogado;
+            // Passando os dados do estudante para o controller da TelaPrincipalEstudante
+            curriculoController.setDadosCurriculo(estudante.getCurso(),estudante.getPeriodoAtual());
+        }
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
