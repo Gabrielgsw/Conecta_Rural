@@ -1,5 +1,10 @@
 package com.conectarural.conecta_rural;
 
+import com.conectarural.conecta_rural.models.Atividade;
+import com.conectarural.conecta_rural.models.Estudante;
+import com.conectarural.conecta_rural.models.RegimeContratacao;
+import com.conectarural.conecta_rural.models.Usuario;
+import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,20 +37,25 @@ public class CurriculoController {
     private Button BotaoVoltar;
 
     @FXML
-    private AnchorPane curriculoAnchorPane;
-
-
-    @FXML
-    private TextField ResumoEstudanteCurriculo;
+    private TextArea ResumoEstudanteCurriculo;
 
     @FXML
-    private TextField periodoAtualEstudanteCurriculo;
+    private ChoiceBox<String> atividadesEstudanteCurriculo;
 
     @FXML
-    private ChoiceBox<?> opcaoCurso;
+    private TextField opcaoCurso;
 
     @FXML
-    private TextArea atividadesEstudanteCurriculo;
+    private TextField periodoAtualCurriculo;
+
+    ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
+
+    @FXML
+    public void initialize(){
+        atividadesEstudanteCurriculo.getItems().add("Estágio");
+        atividadesEstudanteCurriculo.getItems().add("Projeto");
+        atividadesEstudanteCurriculo.getItems().add("Trabalho");
+    }
 
     @FXML
     public void acaoBotaoGerarCurriculo(ActionEvent event) throws IOException {
@@ -60,8 +70,16 @@ public class CurriculoController {
     @FXML
     public void acaoBotaoVoltar(ActionEvent event) throws IOException{
         System.out.println("acaoBotaoVoltar");
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("PerfilEstudante.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("PerfilEstudante.fxml"));
+        Parent root = loader.load();
+        PerfilEstudanteController perfilEstudanteController = loader.getController();
+        Usuario usuarioLogado = controladorSessao.getUsuarioLogado();
+
+        if (usuarioLogado instanceof Estudante) {
+            Estudante estudante = (Estudante) usuarioLogado;
+            perfilEstudanteController.setDadosEstudante(estudante.getNome(), estudante.getEmail(), estudante.getTelefone(),estudante.getCpf(),estudante.getDataNascimento(),estudante.getCurso());
+        }
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

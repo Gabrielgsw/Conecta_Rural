@@ -67,11 +67,13 @@ public class PerfilEstudanteController {
     }
 
     //recebendo
-    public void setDadosEstudante(String nome, String email, String telefone, String Cnpj) {
+    public void setDadosEstudante(String nome, String email, String telefone, String Cnpj, LocalDate dataNascimento,Curso curso) {
         nomeEstudante.setText(nome);
         emailEstudante.setText(email);
         telefoneEstudante.setText(telefone);
         CPFestudante.setText(Cnpj);
+        idadeEstudante.setText(dataNascimento.toString());
+        cursoEstudante.setText(curso.toString());
 
     }
 

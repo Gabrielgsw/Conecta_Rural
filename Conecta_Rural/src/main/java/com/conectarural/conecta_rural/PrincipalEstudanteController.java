@@ -116,7 +116,7 @@ public class PrincipalEstudanteController {
 
         if (usuarioLogado instanceof Estudante) {
             Estudante estudante = (Estudante) usuarioLogado;
-            perfilEstudanteController.setDadosEstudante(estudante.getNome(), estudante.getEmail(), estudante.getTelefone(),estudante.getCpf());
+            perfilEstudanteController.setDadosEstudante(estudante.getNome(), estudante.getEmail(), estudante.getTelefone(),estudante.getCpf(),estudante.getDataNascimento(),estudante.getCurso());
         }
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
