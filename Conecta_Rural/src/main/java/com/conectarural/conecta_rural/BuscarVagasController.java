@@ -138,8 +138,8 @@ public class BuscarVagasController {
         Candidatura c1 = new Candidatura(e1,LocalDateTime.now(),vaga);
         //controllerCandidatura.adicionar(c1);
 
-            for(Candidatura c : controllerCandidatura.Listar()){
-              if(c1.getVaga().getCodigoVaga() == c.getVaga().getCodigoVaga()){
+            for(Candidatura c : vaga.getCandidaturas()){
+              if(c1.equals(c)){
                   candidatou = 0;
                   Alert alert = new Alert(Alert.AlertType.ERROR);
                   alert.setTitle("Falha na candidatura!");
@@ -155,11 +155,14 @@ public class BuscarVagasController {
 
         if(candidatou == 1){
             controllerCandidatura.adicionar(c1);
+            vaga.setCandidaturas(c1);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Candidatura realizada com sucesso!");
             alert.setHeaderText("Sua candidatura foi realizada.");
             alert.setContentText("confirmation");
             alert.show();
+            vaga.setQuantidadeCandidatos(vaga.getQuantidadeCandidatos()+1);
+            System.out.println(vaga.getQuantidadeCandidatos());
         }
 
 

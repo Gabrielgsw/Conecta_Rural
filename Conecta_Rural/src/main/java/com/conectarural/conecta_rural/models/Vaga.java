@@ -93,8 +93,8 @@ public class Vaga {
         return candidaturas;
     }
 
-    public void setCandidaturas(List<Candidatura> candidaturas) {
-        this.candidaturas = candidaturas;
+    public void setCandidaturas(Candidatura candidatura) {
+        this.candidaturas.add(candidatura);
     }
 
     @Override

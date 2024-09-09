@@ -1,5 +1,6 @@
 package com.conectarural.conecta_rural.models;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Candidatura {
 
@@ -44,4 +45,12 @@ public class Candidatura {
                 ", vaga='" + vaga + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Candidatura that)) return false;
+        return Objects.equals(candidato, that.candidato) && Objects.equals(vaga, that.vaga);
+    }
+
 }

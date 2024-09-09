@@ -1,4 +1,5 @@
 package com.conectarural.conecta_rural.dados;
+import com.conectarural.conecta_rural.models.Candidatura;
 import com.conectarural.conecta_rural.models.Vaga;
 import com.conectarural.conecta_rural.exceptions.*;
 import java.util.ArrayList;
@@ -87,7 +88,6 @@ public class VagasRepository implements IRepository<Vaga> {
                         vaga.setNomeVaga(novo.getNomeVaga());
                         vaga.setDescricaoVaga(novo.getDescricaoVaga());
                         vaga.setEmpresa(novo.getEmpresa());
-                        vaga.setCandidaturas(novo.getCandidaturas());
                         vaga.setStatusVaga(novo.getStatusVaga());
                         vaga.setRemuneracao(novo.getRemuneracao());
                         vaga.setRegimeContratacao(novo.getRegimeContratacao());

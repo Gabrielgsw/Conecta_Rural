@@ -1,6 +1,7 @@
 package com.conectarural.conecta_rural.models;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Estudante extends Usuario {
     private String cpf;
@@ -69,5 +70,12 @@ public class Estudante extends Usuario {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Estudante estudante)) return false;
+        if (!super.equals(o)) return false;
+        return Objects.equals(cpf, estudante.cpf);
+    }
 
 }

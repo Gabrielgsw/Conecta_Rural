@@ -116,7 +116,7 @@ public void onSalvarButtonAction(ActionEvent event) throws IOException, Elemento
             nova.setDescricaoVaga(descricao);
             nova.setQuantidadeVagas(quantidade);
             nova.setRemuneracao(remuneracao);
-            nova.setCandidaturas(vagaAntiga.getCandidaturas());
+            //nova.setCandidaturas(vagaAntiga.getCandidaturas());
             nova.setEmpresa(vagaAntiga.getEmpresa());
             nova.setQuantidadeCandidatos(vagaAntiga.getQuantidadeCandidatos());
             nova.setStatusVaga(statusVaga.getSelectionModel().getSelectedItem());
