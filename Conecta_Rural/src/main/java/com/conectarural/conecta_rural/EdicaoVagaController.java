@@ -4,6 +4,7 @@ package com.conectarural.conecta_rural;
 import com.conectarural.conecta_rural.exceptions.ElementoJaExistenteException;
 import com.conectarural.conecta_rural.exceptions.ElementoNaoExistenteException;
 import com.conectarural.conecta_rural.exceptions.ElementosNaoIguaisException;
+import com.conectarural.conecta_rural.models.StatusVaga;
 import com.conectarural.conecta_rural.models.Vaga;
 import com.conectarural.conecta_rural.negocio.ControllerVaga;
 import javafx.event.ActionEvent;
@@ -29,6 +30,9 @@ public class EdicaoVagaController {
 
     @FXML
     private Scene scene;
+
+    @FXML
+    private ChoiceBox<StatusVaga> statusVaga;
 
     @FXML
     private TextField nomeVagaField;
@@ -89,6 +93,10 @@ public class EdicaoVagaController {
         remuneracaoField.setText(Double.toString(vagaAntiga.getRemuneracao()));
         nomeVagaField.setText(vagaAntiga.getNomeVaga());
 
+        statusVaga.getItems().add(StatusVaga.Aberta);
+        statusVaga.getItems().add(StatusVaga.EmAndamento);
+        statusVaga.getItems().add(StatusVaga.Encerrada);
+
     }
 
 public void onSalvarButtonAction(ActionEvent event) throws IOException, ElementoNaoExistenteException, ElementosNaoIguaisException, ElementoJaExistenteException {
@@ -111,6 +119,7 @@ public void onSalvarButtonAction(ActionEvent event) throws IOException, Elemento
             nova.setCandidaturas(vagaAntiga.getCandidaturas());
             nova.setEmpresa(vagaAntiga.getEmpresa());
             nova.setQuantidadeCandidatos(vagaAntiga.getQuantidadeCandidatos());
+            nova.setStatusVaga(statusVaga.getSelectionModel().getSelectedItem());
 
 
             controladorVaga.atualizarVaga(vagaAntiga, nova);
