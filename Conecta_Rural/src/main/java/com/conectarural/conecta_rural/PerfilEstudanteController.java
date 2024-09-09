@@ -2,6 +2,7 @@ package com.conectarural.conecta_rural;
 
 import com.conectarural.conecta_rural.models.Estudante;
 import com.conectarural.conecta_rural.models.Usuario;
+import com.conectarural.conecta_rural.models.Curso;
 import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class PerfilEstudanteController {
 
@@ -70,6 +72,7 @@ public class PerfilEstudanteController {
         emailEstudante.setText(email);
         telefoneEstudante.setText(telefone);
         CPFestudante.setText(Cnpj);
+
     }
 
     @FXML

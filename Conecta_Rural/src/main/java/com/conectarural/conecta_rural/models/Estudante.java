@@ -6,6 +6,8 @@ public class Estudante extends Usuario {
     private String cpf;
     private LocalDate dataNascimento;
     private Curriculo curriculoEstudante;
+    private Curso curso;
+    private String periodoAtual;
 
 
     public Estudante() {
@@ -17,6 +19,7 @@ public class Estudante extends Usuario {
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.curriculoEstudante = curriculoEstudante;
+
 
     }
 
@@ -40,6 +43,22 @@ public class Estudante extends Usuario {
     public Curriculo getCurriculoEstudante() { return curriculoEstudante; }
 
     public void setCurriculoEstudante(Curriculo curriculoEstudnate) { this.curriculoEstudante = curriculoEstudante; }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    public String getPeriodoAtual() {
+        return periodoAtual;
+    }
+
+    public void setPeriodoAtual(Integer periodoAtual) {
+        this.periodoAtual = String.valueOf(periodoAtual);
+    }
 
     @Override
     public String toString() {

@@ -2,11 +2,7 @@ package com.conectarural.conecta_rural;
 
 
 import com.conectarural.conecta_rural.exceptions.ElementoJaExistenteException;
-import com.conectarural.conecta_rural.models.Empresa;
-import com.conectarural.conecta_rural.models.Estudante;
-import com.conectarural.conecta_rural.models.RegimeContratacao;
-import com.conectarural.conecta_rural.models.Curso;
-import com.conectarural.conecta_rural.models.Usuario;
+import com.conectarural.conecta_rural.models.*;
 import com.conectarural.conecta_rural.negocio.ControllerUsuario;
 import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
 import javafx.event.ActionEvent;
@@ -25,6 +21,7 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class CadastroController {
@@ -48,7 +45,7 @@ public class CadastroController {
     @FXML
     private TextField periodoAtual;
     @FXML
-    private TextField dataNascimento;
+    private DatePicker dataNascimento;
     @FXML
     private ChoiceBox<Curso> escolhaCursos;
     @FXML
@@ -85,14 +82,6 @@ public class CadastroController {
         escolhaPerfil.getItems().add("Estudante");
         escolhaPerfil.getItems().add("Empresa");
 
-        escolhaCursos.getItems().add(Curso.CienciaDaComputacao);
-        escolhaCursos.getItems().add(Curso.LicenciaturaEmComputacao);
-        escolhaCursos.getItems().add(Curso.MedicinaVeterinaria);
-        escolhaCursos.getItems().add(Curso.Gastronomia);
-        escolhaCursos.getItems().add(Curso.CienciasBiologias);
-        escolhaCursos.getItems().add(Curso.LicenciaturaFisica);
-        escolhaCursos.getItems().add(Curso.LicenciaturaMatematica);
-        escolhaCursos.getItems().add(Curso.SistemasDeInformacao);
     }
 
     @FXML
@@ -114,6 +103,8 @@ public class CadastroController {
         String quantidadeFuncionarios = quantidadeDeFuncionariosField.getText();
         String areaDaEmpresa = areaDaEmpresaField.getText();
         String descricao = descricaoArea.getText();
+
+
         int cadastrado = 0;
 
         Usuario usuarioLogado = null;
