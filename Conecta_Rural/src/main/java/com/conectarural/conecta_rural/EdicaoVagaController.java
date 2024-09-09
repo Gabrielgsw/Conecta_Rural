@@ -34,7 +34,7 @@ public class EdicaoVagaController {
     private TextField nomeVagaField;
 
     @FXML
-    private TextField codigoField;
+    private Label codigoField;
 
     @FXML
     private TextArea descricaoArea;

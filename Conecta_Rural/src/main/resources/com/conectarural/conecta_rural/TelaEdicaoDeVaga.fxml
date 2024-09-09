@@ -24,10 +24,9 @@
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" stroke="BLACK" strokeType="INSIDE" width="631.0" />
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="32.0" layoutY="378.0" stroke="BLACK" strokeType="INSIDE" width="631.0" />
-                              <TextField fx:id="codigoField" layoutX="131.0" layoutY="42.0" prefHeight="25.0" prefWidth="193.0" />
                               <TextField fx:id="remuneracaoField" layoutX="131.0" layoutY="88.0" prefHeight="25.0" prefWidth="193.0" />
                               <TextField fx:id="quantidadeVagasField" layoutX="131.0" layoutY="135.0" prefHeight="25.0" prefWidth="194.0" />
-                              <Label layoutX="41.0" layoutY="46.0" text="Código da Vaga" />
+                              <Label layoutX="41.0" layoutY="46.0" text="Código da Vaga:" />
                               <Label layoutX="54.0" layoutY="92.0" text="Remuneração" />
                               <Label layoutX="13.0" layoutY="139.0" text="Quantidade de Vagas" />
                               <MenuButton fx:id="statusMenu" layoutX="363.0" layoutY="135.0" mnemonicParsing="false" text="Status da Vaga">
@@ -42,6 +41,7 @@
                               <Button fx:id="salvarButton" layoutX="363.0" layoutY="345.0" mnemonicParsing="false" onAction="#onSalvarButtonAction" text="Salvar" />
                               <Label layoutX="373.0" layoutY="46.0" text="Nome da Vaga" />
                               <TextField fx:id="nomeVagaField" layoutX="462.0" layoutY="42.0" />
+                              <Label fx:id="codigoField" layoutX="132.0" layoutY="46.0" prefHeight="17.0" prefWidth="191.0" text="Label" />
                            </children>
                         </AnchorPane>
                   </content>
