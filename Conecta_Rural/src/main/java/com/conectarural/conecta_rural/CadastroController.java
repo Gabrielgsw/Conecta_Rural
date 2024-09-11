@@ -58,7 +58,7 @@ public class CadastroController {
     @FXML
     private ChoiceBox<String> escolhaPerfil = new ChoiceBox<>();
     @FXML
-    private TextField periodoAtual;
+    private TextField periodoatual;
     @FXML
     private DatePicker dataNascimento;
     @FXML
@@ -110,12 +110,31 @@ public class CadastroController {
         String quantidadeFuncionarios = quantidadeDeFuncionariosField.getText();
         String areaDaEmpresa = areaDaEmpresaField.getText();
         String descricao = descricaoArea.getText();
-        String PeriodoAtual= periodoAtual.getText();
-        Curso Cs = escolhaCursos.getSelectionModel().getSelectedItem();
+        String periodoAtual= periodoatual.getText();
+        Curso cs = escolhaCursos.getSelectionModel().getSelectedItem();
         LocalDate dataNasc = dataNascimento.getValue();
 
-
         int cadastrado = 0;
+
+        try{
+
+        if(nome.isBlank() || email.isBlank() || cnpj.isBlank() || telefone.isBlank() || endereco.isBlank() || password.isBlank() || escolha.isBlank()){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText("Campos necessários não preenchidos .");
+            alerta.setContentText("Tente novamente.");
+            alerta.showAndWait();
+        }
+
+        if((escolha.equals("Empresa")) && (!periodoAtual.isBlank() || cs != null || dataNasc != null)){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText("Campos preenchidos incorretamente .");
+            alerta.setContentText("Tente novamente.");
+            alerta.showAndWait();
+
+        }
+
+
+
 
         Usuario usuarioLogado = null;
 
@@ -130,7 +149,7 @@ public class CadastroController {
             alerta.showAndWait();
 
         }
-        else if(escolha.equals("Empresa") &&  ((!PeriodoAtual.isBlank()) || (Cs != null) || (dataNasc != null))){
+        else if(escolha.equals("Empresa") &&  ((!periodoAtual.isBlank()) || (cs != null) || (dataNasc != null))){
 
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText("Campos preenchidos incorretamente! .");
@@ -139,19 +158,58 @@ public class CadastroController {
 
         }
 
-        else if(escolha.equals("Estudante")){
-            Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,Cs,PeriodoAtual);
-            controladorSessao.setUsuarioLogado(estudante);
-            controladorUsuario.adicionar(estudante);
-            usuarioLogado = estudante;
-            cadastrado = 1;
-        }else{
+
+
+        else if((escolha.equals("Estudante")) && (!nome.isBlank() && !email.isBlank() && !cnpj.isBlank() && !telefone.isBlank() && !endereco.isBlank() && !password.isBlank() && !escolha.isBlank())){
+            Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,cs,periodoAtual);
+            boolean result = true;
+            for(Usuario u : controladorUsuario.listar()){
+                if(u.getEmail().equals(estudante.getEmail())){
+                    result = false;
+
+                }
+            }
+
+            if(!result){
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setHeaderText("O usuário já existe! .");
+                alerta.setContentText("Tente novamente.");
+                alerta.showAndWait();
+            }else{
+                controladorSessao.setUsuarioLogado(estudante);
+                controladorUsuario.adicionar(estudante);
+                usuarioLogado = estudante;
+                cadastrado = 1;
+            }
+
+
+
+
+        }else if((escolha.equals("Empresa")) && (!nome.isBlank() && !email.isBlank() && !cnpj.isBlank() && !telefone.isBlank() && !endereco.isBlank() && !password.isBlank() && !escolha.isBlank())){
             Empresa empresa = new Empresa(nome,email,telefone,endereco,password,cnpj, quantidadeFuncionarios, areaDaEmpresa, descricao);
-            controladorSessao.setUsuarioLogado(empresa);
-            controladorUsuario.adicionar(empresa);
-            usuarioLogado = empresa;
-            cadastrado = 1;
+            boolean result = true;
+            for(Usuario u : controladorUsuario.listar()){
+                if(u.getEmail().equals(empresa.getEmail())){
+                    result = false;
+
+                }
+            }
+
+            if(!result){
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setHeaderText("O usuário já existe! .");
+                alerta.setContentText("Tente novamente.");
+                alerta.showAndWait();
+            }else{
+                controladorSessao.setUsuarioLogado(empresa);
+                controladorUsuario.adicionar(empresa);
+                usuarioLogado = empresa;
+                cadastrado = 1;
+            }
+
         }
+
+
 
         if(cadastrado == 1){
         controladorSessao.setUsuarioLogado(usuarioLogado);
@@ -161,6 +219,13 @@ public class CadastroController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();}
+        }catch(ElementoJaExistenteException e){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText("O usuário já existe! .");
+            alerta.setContentText("Tente novamente.");
+            alerta.showAndWait();
+            throw new ElementoJaExistenteException();
+        }
     }
 
     @FXML
