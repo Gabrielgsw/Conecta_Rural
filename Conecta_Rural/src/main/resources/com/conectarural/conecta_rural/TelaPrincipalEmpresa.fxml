@@ -24,7 +24,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="meuPerfilBtn" layoutX="425.0" layoutY="110.0" mnemonicParsing="false" onAction="#onMeuPerfilBtnAction" prefHeight="25.0" prefWidth="148.0" text="Meu Perfil" />
+            <Button fx:id="cadastrarNovaVagaBtn" layoutX="425.0" layoutY="81.0" mnemonicParsing="false" onAction="#onCadastrarNovaVagaBtnBtnAction" prefHeight="30.0" prefWidth="148.0" text="Cadastrar Nova Vaga" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="216.0" prefWidth="600.0">
@@ -33,13 +33,13 @@
             <Button fx:id="visualizarMinhasVagasBtn" layoutX="425.0" layoutY="47.0" mnemonicParsing="false" onAction="#onVisualizarMinhasVagasBtnAction" prefHeight="25.0" prefWidth="148.0" text="Visualizar Minhas Vagas" />
             <Button fx:id="paginaAnteriorBtn" layoutX="425.0" layoutY="127.0" mnemonicParsing="false" onAction="#onPaginaAnteriorBtnAction" prefHeight="25.0" prefWidth="148.0" text="Página Anterior" />
             <Button fx:id="buscarEstudantesBtn" layoutX="425.0" layoutY="9.0" mnemonicParsing="false" onAction="#onBuscarEstudantesBtnAction" prefHeight="25.0" prefWidth="148.0" text="Buscar Estudantes" />
-            <Button fx:id="cadastrarNovaVagaBtn" layoutX="425.0" layoutY="-70.0" mnemonicParsing="false" onAction="#onCadastrarNovaVagaBtnBtnAction" prefHeight="30.0" prefWidth="148.0" text="Cadastrar Nova Vaga" />
             <Button fx:id="visualizarCandidaturasBtn" layoutX="425.0" layoutY="84.0" mnemonicParsing="false" onAction="#onVisualizarCandidaturasBtnAction" prefHeight="25.0" prefWidth="148.0" text="Visualizar Candidaturas" />
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="94.0" layoutY="-15.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@fotoAnonima.jpg" />
                </image>
             </ImageView>
+            <Button fx:id="meuPerfilBtn" layoutX="101.0" layoutY="147.0" mnemonicParsing="false" onAction="#onMeuPerfilBtnAction" prefHeight="25.0" prefWidth="148.0" text="Meu Perfil" />
          </children>
       </AnchorPane>
    </children>
