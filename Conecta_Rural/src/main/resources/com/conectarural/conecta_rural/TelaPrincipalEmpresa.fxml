@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.PrincipalEmpresaController">
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.PrincipalEmpresaController">
    <children>
       <AnchorPane prefHeight="194.0" prefWidth="600.0">
          <children>
@@ -19,7 +19,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="nomeDaEmpresaLabel" layoutX="202.0" layoutY="66.0" prefHeight="30.0" prefWidth="175.0" text="nomeDaEmpresa">
+            <Label fx:id="nomeDaEmpresaLabel" layoutX="202.0" layoutY="66.0" prefHeight="30.0" prefWidth="175.0">
                <font>
                   <Font size="15.0" />
                </font>

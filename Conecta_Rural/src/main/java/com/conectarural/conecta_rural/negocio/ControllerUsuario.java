@@ -46,6 +46,18 @@ public class ControllerUsuario {
         return empresas;
     }
 
+    public List<Estudante> listarPorCurso(Curso curso){
+        List<Estudante> estudantes = new ArrayList<>();
+        for(Usuario u:listar()){
+            if(u instanceof Estudante){
+                if(curso.equals(((Estudante) u).getCurso())){
+                    estudantes.add((Estudante) u);
+                }
+            }
+        }
+        return estudantes;
+    }
+
     public void adicionar(Usuario u) throws ElementoJaExistenteException{
         repositorioUsuario.adicionar(u);
     }

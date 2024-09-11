@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
@@ -34,6 +35,8 @@ public class BuscarEstudantesEmpresaController {
     private TableView<Estudante> tableBuscarEstudantes;
     @FXML
     private Button buscarEstudantesBT;
+    @FXML
+    private ChoiceBox<Curso> cursos = new ChoiceBox<>();
 
     ControllerUsuarioSessao controllerUsuarioSessao = ControllerUsuarioSessao.getInstance();
     ControllerVaga controllerVaga = ControllerVaga.getInstance();
@@ -52,6 +55,13 @@ public class BuscarEstudantesEmpresaController {
 
 
     @FXML void initialize() throws IOException {
+        cursos.getItems().add(Curso.CienciaDaComputacao) ;
+        cursos.getItems().add(Curso.LicenciaturaEmComputacao) ;
+        cursos.getItems().add(Curso.MedicinaVeterinaria) ;
+        cursos.getItems().add(Curso.Gastronomia) ;
+        cursos.getItems().add(Curso.CienciasBiologias) ;
+        cursos.getItems().add(Curso.LicenciaturaFisica) ;
+        cursos.getItems().add(Curso.SistemasDeInformacao) ;
         TableColumn<Estudante, String> colEstudante = new TableColumn<>("Estudante");
         colEstudante.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNome()));
 
@@ -59,27 +69,37 @@ public class BuscarEstudantesEmpresaController {
         colEmail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEmail()));
 
         TableColumn<Estudante, String> colTelefone = new TableColumn<>("Telefone");
-        colTelefone.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTelefone().toString()));
+        colTelefone.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTelefone()));
 
         TableColumn<Estudante, String> colCurso = new TableColumn<>("Curso");
-        colCurso.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCurriculoEstudante().getCurso().toString()));
+        colCurso.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCurso().toString()));
 
         tableBuscarEstudantes.getColumns().addAll(colEstudante,colEmail,colTelefone,colCurso);
-        Empresa e2 = new Empresa("Teste","teste@gmail.com","32423423","Rua Manoel de Medeiros","teste123","12321-2121","20","Tecnologia","teste");
-        Estudante e1 = new Estudante("Gabriel","ggermanow279@gmail.com", "8123","Rua das mocas,77","teste","11357", LocalDate.of(2003,01,26),new Curriculo("Teste descrição",3, Curso.CienciaDaComputacao));
-        tableBuscarEstudantes.getItems().add(e1);
+        //Empresa e2 = new Empresa("Teste","teste@gmail.com","32423423","Rua Manoel de Medeiros","teste123","12321-2121","20","Tecnologia","teste");
+        //Estudante e1 = new Estudante("Gabriel","ggermanow279@gmail.com", "8123","Rua das mocas,77","teste","11357", LocalDate.of(2003,01,26),new Curriculo("Teste descrição",3, Curso.CienciaDaComputacao));
+        //tableBuscarEstudantes.getItems().add(e1);
 
 
 
-        for(Usuario e : controllerUsuario.listar()){
-            if(e.getClass() == Estudante.class){
+      //  for(Usuario e : controllerUsuario.listar()){
+       //     if(e.getClass() == Estudante.class){
+       //         Estudante estudante = (Estudante)e;
+       //         tableBuscarEstudantes.getItems().add(estudante);
+      //      }
+       // }
+
+
+
+
+
+    }
+    @FXML
+    public void onbuscarEstudantesBTaction(ActionEvent event) throws IOException{
+        for(Usuario e : controllerUsuario.listarPorCurso(cursos.getSelectionModel().getSelectedItem())){
+            if(e instanceof Estudante){
                 Estudante estudante = (Estudante)e;
                 tableBuscarEstudantes.getItems().add(estudante);
             }
         }
-
-
-
-
     }
 }

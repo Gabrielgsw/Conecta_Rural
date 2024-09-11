@@ -24,6 +24,8 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+import static com.conectarural.conecta_rural.HelloApplication.controllerUsuarioSessao;
+
 public class CadastroController {
     @FXML
     private Button cadastrarBT;
@@ -164,13 +166,18 @@ public class CadastroController {
 
         else if((escolha.equals("Estudante")) && (!nome.isBlank() && !email.isBlank() && !cnpj.isBlank() && !telefone.isBlank() && !endereco.isBlank() && !password.isBlank() && !escolha.isBlank() && dataNasc != null && cs != null && periodoatual != null)){
             Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,cs,periodoAtual);
+            Estudante e;
             boolean result = true;
             for(Usuario u : controladorUsuario.listar()){
-                 Estudante e = (Estudante)u;
-                if(e.getEmail().equals(estudante.getEmail()) || e.getCpf().equals(estudante.getCpf())){
-                    result = false;
+                if(u instanceof Estudante){
+                     e = (Estudante)u;
+                    if(e.getEmail().equals(estudante.getEmail()) || e.getCpf().equals(estudante.getCpf())){
+                        result = false;
 
+                    }
                 }
+
+
             }
 
             if(!result){
@@ -190,14 +197,18 @@ public class CadastroController {
 
         }else if((escolha.equals("Empresa")) && (!nome.isBlank() && !email.isBlank() && !cnpj.isBlank() && !telefone.isBlank() && !endereco.isBlank() && !password.isBlank() && !escolha.isBlank()  )){
             Empresa empresa = new Empresa(nome,email,telefone,endereco,password,cnpj, quantidadeFuncionarios, areaDaEmpresa, descricao);
-
+            Empresa e;
             boolean result = true;
             for(Usuario u : controladorUsuario.listar()){
-                Empresa e = (Empresa)u;
-                if(e.getEmail().equals(empresa.getEmail()) || e.getCnpj().equals(empresa.getCnpj())){
-                    result = false;
+                if(u instanceof Empresa){
+                   e = (Empresa)u;
+                    if(e.getEmail().equals(empresa.getEmail()) || e.getCnpj().equals(empresa.getCnpj())){
+                        result = false;
 
+                    }
                 }
+
+
             }
 
             if(!result){
@@ -235,6 +246,7 @@ public class CadastroController {
 
     @FXML
     public void redirecionarLoginOnAction(ActionEvent event) throws IOException{
+        controllerUsuarioSessao.setUsuarioLogado(null);
 //        Parent parent = FXMLLoader.load(getClass().getResource("Login.fxml"));
 
         //Scene mscene = new Scene(parent, 600, 400 );
