@@ -126,6 +126,9 @@ public class CadastroController {
         }
 
         if((escolha.equals("Empresa")) && (!periodoAtual.isBlank() || cs != null || dataNasc != null)){
+            System.out.println(periodoAtual);
+            System.out.println(cs);
+            System.out.println(dataNasc);
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText("Campos preenchidos incorretamente .");
             alerta.setContentText("Tente novamente.");
@@ -133,12 +136,18 @@ public class CadastroController {
 
         }
 
+        if((escolha.equals("Estudante")) && ((dataNasc == null || cs == null || periodoatual == null)) ){
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText("Campos obrigatórios não preenchidos .");
+            alerta.setContentText("Tente novamente.");
+            alerta.showAndWait();
+        }
 
 
 
         Usuario usuarioLogado = null;
 
-        if(escolha.equals("Estudante") &&  (!quantidadeFuncionarios.isBlank()  || !areaDaEmpresa.isBlank()  || !descricao.isBlank()) ){
+        if(escolha.equals("Estudante") &&  (!quantidadeFuncionarios.isBlank()  || !areaDaEmpresa.isBlank()  || !descricao.isBlank())){
             System.out.println("teste");
             System.out.println(quantidadeFuncionarios);
             System.out.println(areaDaEmpresa);
@@ -149,22 +158,16 @@ public class CadastroController {
             alerta.showAndWait();
 
         }
-        else if(escolha.equals("Empresa") &&  ((!periodoAtual.isBlank()) || (cs != null) || (dataNasc != null))){
-
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setHeaderText("Campos preenchidos incorretamente! .");
-            alerta.setContentText("Tente novamente.");
-            alerta.showAndWait();
-
-        }
 
 
 
-        else if((escolha.equals("Estudante")) && (!nome.isBlank() && !email.isBlank() && !cnpj.isBlank() && !telefone.isBlank() && !endereco.isBlank() && !password.isBlank() && !escolha.isBlank())){
+
+        else if((escolha.equals("Estudante")) && (!nome.isBlank() && !email.isBlank() && !cnpj.isBlank() && !telefone.isBlank() && !endereco.isBlank() && !password.isBlank() && !escolha.isBlank() && dataNasc != null && cs != null && periodoatual != null)){
             Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,cs,periodoAtual);
             boolean result = true;
             for(Usuario u : controladorUsuario.listar()){
-                if(u.getEmail().equals(estudante.getEmail())){
+                 Estudante e = (Estudante)u;
+                if(e.getEmail().equals(estudante.getEmail()) || e.getCpf().equals(estudante.getCpf())){
                     result = false;
 
                 }
@@ -185,11 +188,13 @@ public class CadastroController {
 
 
 
-        }else if((escolha.equals("Empresa")) && (!nome.isBlank() && !email.isBlank() && !cnpj.isBlank() && !telefone.isBlank() && !endereco.isBlank() && !password.isBlank() && !escolha.isBlank())){
+        }else if((escolha.equals("Empresa")) && (!nome.isBlank() && !email.isBlank() && !cnpj.isBlank() && !telefone.isBlank() && !endereco.isBlank() && !password.isBlank() && !escolha.isBlank()  )){
             Empresa empresa = new Empresa(nome,email,telefone,endereco,password,cnpj, quantidadeFuncionarios, areaDaEmpresa, descricao);
+
             boolean result = true;
             for(Usuario u : controladorUsuario.listar()){
-                if(u.getEmail().equals(empresa.getEmail())){
+                Empresa e = (Empresa)u;
+                if(e.getEmail().equals(empresa.getEmail()) || e.getCnpj().equals(empresa.getCnpj())){
                     result = false;
 
                 }
@@ -212,13 +217,13 @@ public class CadastroController {
 
 
         if(cadastrado == 1){
-        controladorSessao.setUsuarioLogado(usuarioLogado);
+            controladorSessao.setUsuarioLogado(usuarioLogado);
 
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("CadastroRealizado.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();}
+            Parent root = FXMLLoader.load(HelloApplication.class.getResource("CadastroRealizado.fxml"));
+            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();}
         }catch(ElementoJaExistenteException e){
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText("O usuário já existe! .");
