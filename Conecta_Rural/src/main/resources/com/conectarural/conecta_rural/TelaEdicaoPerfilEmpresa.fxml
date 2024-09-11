@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-
-<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.TelaEdicaoPerfilEmpresa">
+<VBox xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.TelaEdicaoPerfilEmpresaController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -23,8 +22,8 @@
             <TextField fx:id="areaField" layoutX="168.0" layoutY="114.0" />
             <TextField fx:id="quantidadeDeFuncionariosField" layoutX="168.0" layoutY="154.0" />
             <TextArea fx:id="descricaoArea" layoutX="166.0" layoutY="192.0" prefHeight="175.0" prefWidth="274.0" />
-            <Button fx:id="salvarBtn" layoutX="463.0" layoutY="255.0" mnemonicParsing="false" text="Salvar" />
-            <Button fx:id="voltarBtn" layoutX="463.0" layoutY="305.0" mnemonicParsing="false" text="Voltar" />
+            <Button fx:id="salvarBtn" layoutX="463.0" layoutY="255.0" mnemonicParsing="false" onAction="#salvarBtnOnaction" text="Salvar" />
+            <Button fx:id="voltarBtn" layoutX="463.0" layoutY="305.0" mnemonicParsing="false" onAction="#voltarBtnOnaction" text="Voltar" />
          </children>
       </AnchorPane>
    </children>

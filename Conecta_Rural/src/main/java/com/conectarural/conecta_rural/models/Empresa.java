@@ -38,15 +38,15 @@ public class Empresa extends Usuario{
 
     public String getQuantidadeFuncionarios() { return quantidadeFuncionarios; }
 
-    public void setQuantidadeFuncionarios() { this.quantidadeFuncionarios = quantidadeFuncionarios; }
+    public void setQuantidadeFuncionarios(String quantidadeFuncionarios) { this.quantidadeFuncionarios = quantidadeFuncionarios; }
 
     public String getAreaAtuacao() { return areaAtuacao; }
 
-    public void setAreaAtuacao() { this.areaAtuacao = areaAtuacao; }
+    public void setAreaAtuacao(String areaAtuacao) { this.areaAtuacao = areaAtuacao; }
 
     public String getDescricao() { return descricao; }
 
-    public void setDescricao() { this.descricao = descricao; }
+    public void setDescricao(String descricao) { this.descricao = descricao; }
 
     @Override
     public String toString() {
