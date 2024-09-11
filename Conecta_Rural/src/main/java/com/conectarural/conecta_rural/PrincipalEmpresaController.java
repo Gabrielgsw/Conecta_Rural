@@ -57,6 +57,7 @@ public class PrincipalEmpresaController {
 
     Empresa e1 = (Empresa) u;
 
+
     public void displayImage(){
         fotoGenerica.setImage(image);
     }
@@ -64,7 +65,7 @@ public class PrincipalEmpresaController {
     @FXML
     public void initialize(){
 
-        //nomeDaEmpresaLabel.setText(e1.getNome());
+        nomeDaEmpresaLabel.setText(e1.getNome());
 
     }
 

@@ -21,6 +21,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static com.conectarural.conecta_rural.HelloApplication.controllerUsuarioSessao;
+
 public class EscolherPerfilController {
 
     @FXML
@@ -41,6 +43,7 @@ public class EscolherPerfilController {
 
     @FXML
     public void onVoltarBTaction(ActionEvent event) throws IOException {
+        controllerUsuarioSessao.setUsuarioLogado(null);
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
