@@ -3,7 +3,6 @@ package com.conectarural.conecta_rural;
 
 import com.conectarural.conecta_rural.exceptions.ElementoJaExistenteException;
 import com.conectarural.conecta_rural.models.*;
-
 import com.conectarural.conecta_rural.negocio.ControllerUsuario;
 import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
 import javafx.event.ActionEvent;
@@ -69,8 +68,6 @@ public class CadastroController {
     @FXML
     private Button voltarBT;
 
-    //public Curso cs;
-
     @FXML
     public void onvoltarBTaction(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("Login.fxml"));
@@ -103,7 +100,7 @@ public class CadastroController {
         //Scene mscene = new Scene(parent, 600, 400 );
         //Stage nstage = new Stage();
         //nstage.setScene(mscene);
-       // nstage.show();
+        // nstage.show();
 
         String nome = nameField.getText();
         String email = emailField.getText();
@@ -115,11 +112,7 @@ public class CadastroController {
         String quantidadeFuncionarios = quantidadeDeFuncionariosField.getText();
         String areaDaEmpresa = areaDaEmpresaField.getText();
         String descricao = descricaoArea.getText();
-<<<<<<< HEAD
-        String PeriodoAtual= periodoAtual.getText();
-=======
         String periodoAtual= periodoatual.getText();
->>>>>>> 6b07f01cb6282854e9700c1f1171ac353416e999
         Curso cs = escolhaCursos.getSelectionModel().getSelectedItem();
         LocalDate dataNasc = dataNascimento.getValue();
 
@@ -127,135 +120,121 @@ public class CadastroController {
 
         try{
 
-        if(nome.isBlank() || email.isBlank() || cnpj.isBlank() || telefone.isBlank() || endereco.isBlank() || password.isBlank() || escolha.isBlank()){
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setHeaderText("Campos necessários não preenchidos .");
-            alerta.setContentText("Tente novamente.");
-            alerta.showAndWait();
-        }
+            if(nome.isBlank() || email.isBlank() || cnpj.isBlank() || telefone.isBlank() || endereco.isBlank() || password.isBlank() || escolha.isBlank()){
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setHeaderText("Campos necessários não preenchidos .");
+                alerta.setContentText("Tente novamente.");
+                alerta.showAndWait();
+            }
 
-        if((escolha.equals("Empresa")) && (!periodoAtual.isBlank() || cs != null || dataNasc != null)){
-            System.out.println(periodoAtual);
-            System.out.println(cs);
-            System.out.println(dataNasc);
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setHeaderText("Campos preenchidos incorretamente .");
-            alerta.setContentText("Tente novamente.");
-            alerta.showAndWait();
+            if((escolha.equals("Empresa")) && (!periodoAtual.isBlank() || cs != null || dataNasc != null)){
+                System.out.println(periodoAtual);
+                System.out.println(cs);
+                System.out.println(dataNasc);
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setHeaderText("Campos preenchidos incorretamente .");
+                alerta.setContentText("Tente novamente.");
+                alerta.showAndWait();
 
-        }
+            }
 
-        if((escolha.equals("Estudante")) && ((dataNasc == null || cs == null || periodoatual == null)) ){
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setHeaderText("Campos obrigatórios não preenchidos .");
-            alerta.setContentText("Tente novamente.");
-            alerta.showAndWait();
-        }
-
-
-
-        Usuario usuarioLogado = null;
-
-        if(escolha.equals("Estudante") &&  (!quantidadeFuncionarios.isBlank()  || !areaDaEmpresa.isBlank()  || !descricao.isBlank())){
-            System.out.println("teste");
-            System.out.println(quantidadeFuncionarios);
-            System.out.println(areaDaEmpresa);
-            System.out.println(descricao);
-            Alert alerta = new Alert(Alert.AlertType.ERROR);
-            alerta.setHeaderText("Campos preenchidos incorretamente! .");
-            alerta.setContentText("Tente novamente.");
-            alerta.showAndWait();
-
-        }
-<<<<<<< HEAD
-        else if(escolha.equals("Empresa") &&  ((!PeriodoAtual.isBlank()) || (cs != null) || (dataNasc != null))){
-=======
->>>>>>> 6b07f01cb6282854e9700c1f1171ac353416e999
+            if((escolha.equals("Estudante")) && ((dataNasc == null || cs == null || periodoatual == null)) ){
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setHeaderText("Campos obrigatórios não preenchidos .");
+                alerta.setContentText("Tente novamente.");
+                alerta.showAndWait();
+            }
 
 
 
-<<<<<<< HEAD
-        else if(escolha.equals("Estudante")){
-            Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,cs,PeriodoAtual);
-            controladorSessao.setUsuarioLogado(estudante);
-            controladorUsuario.adicionar(estudante);
-            usuarioLogado = estudante;
-            cadastrado = 1;
-        }else{
-=======
+            Usuario usuarioLogado = null;
 
-        else if((escolha.equals("Estudante")) && (!nome.isBlank() && !email.isBlank() && !cnpj.isBlank() && !telefone.isBlank() && !endereco.isBlank() && !password.isBlank() && !escolha.isBlank() && dataNasc != null && cs != null && periodoatual != null)){
-            Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,cs,periodoAtual);
-            Estudante e;
-            boolean result = true;
-            for(Usuario u : controladorUsuario.listar()){
-                if(u instanceof Estudante){
-                     e = (Estudante)u;
-                    if(e.getEmail().equals(estudante.getEmail()) || e.getCpf().equals(estudante.getCpf())){
-                        result = false;
+            if(escolha.equals("Estudante") &&  (!quantidadeFuncionarios.isBlank()  || !areaDaEmpresa.isBlank()  || !descricao.isBlank())){
+                System.out.println("teste");
+                System.out.println(quantidadeFuncionarios);
+                System.out.println(areaDaEmpresa);
+                System.out.println(descricao);
+                Alert alerta = new Alert(Alert.AlertType.ERROR);
+                alerta.setHeaderText("Campos preenchidos incorretamente! .");
+                alerta.setContentText("Tente novamente.");
+                alerta.showAndWait();
 
+            }
+
+
+
+
+            else if((escolha.equals("Estudante")) && (!nome.isBlank() && !email.isBlank() && !cnpj.isBlank() && !telefone.isBlank() && !endereco.isBlank() && !password.isBlank() && !escolha.isBlank() && dataNasc != null && cs != null && periodoatual != null)){
+                Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,cs,periodoAtual);
+                Estudante e;
+                boolean result = true;
+                for(Usuario u : controladorUsuario.listar()){
+                    if(u instanceof Estudante){
+                        e = (Estudante)u;
+                        if(e.getEmail().equals(estudante.getEmail()) || e.getCpf().equals(estudante.getCpf())){
+                            result = false;
+
+                        }
                     }
+
+
+                }
+
+                if(!result){
+                    Alert alerta = new Alert(Alert.AlertType.ERROR);
+                    alerta.setHeaderText("O usuário já existe! .");
+                    alerta.setContentText("Tente novamente.");
+                    alerta.showAndWait();
+                }else{
+                    controladorSessao.setUsuarioLogado(estudante);
+                    controladorUsuario.adicionar(estudante);
+                    usuarioLogado = estudante;
+                    cadastrado = 1;
                 }
 
 
-            }
-
-            if(!result){
-                Alert alerta = new Alert(Alert.AlertType.ERROR);
-                alerta.setHeaderText("O usuário já existe! .");
-                alerta.setContentText("Tente novamente.");
-                alerta.showAndWait();
-            }else{
-                controladorSessao.setUsuarioLogado(estudante);
-                controladorUsuario.adicionar(estudante);
-                usuarioLogado = estudante;
-                cadastrado = 1;
-            }
 
 
+            }else if((escolha.equals("Empresa")) && (!nome.isBlank() && !email.isBlank() && !cnpj.isBlank() && !telefone.isBlank() && !endereco.isBlank() && !password.isBlank() && !escolha.isBlank()  )){
+                Empresa empresa = new Empresa(nome,email,telefone,endereco,password,cnpj, quantidadeFuncionarios, areaDaEmpresa, descricao);
+                Empresa e;
+                boolean result = true;
+                for(Usuario u : controladorUsuario.listar()){
+                    if(u instanceof Empresa){
+                        e = (Empresa)u;
+                        if(e.getEmail().equals(empresa.getEmail()) || e.getCnpj().equals(empresa.getCnpj())){
+                            result = false;
 
-
-        }else if((escolha.equals("Empresa")) && (!nome.isBlank() && !email.isBlank() && !cnpj.isBlank() && !telefone.isBlank() && !endereco.isBlank() && !password.isBlank() && !escolha.isBlank()  )){
->>>>>>> 6b07f01cb6282854e9700c1f1171ac353416e999
-            Empresa empresa = new Empresa(nome,email,telefone,endereco,password,cnpj, quantidadeFuncionarios, areaDaEmpresa, descricao);
-            Empresa e;
-            boolean result = true;
-            for(Usuario u : controladorUsuario.listar()){
-                if(u instanceof Empresa){
-                   e = (Empresa)u;
-                    if(e.getEmail().equals(empresa.getEmail()) || e.getCnpj().equals(empresa.getCnpj())){
-                        result = false;
-
+                        }
                     }
+
+
                 }
 
+                if(!result){
+                    Alert alerta = new Alert(Alert.AlertType.ERROR);
+                    alerta.setHeaderText("O usuário já existe! .");
+                    alerta.setContentText("Tente novamente.");
+                    alerta.showAndWait();
+                }else{
+                    controladorSessao.setUsuarioLogado(empresa);
+                    controladorUsuario.adicionar(empresa);
+                    usuarioLogado = empresa;
+                    cadastrado = 1;
+                }
 
             }
 
-            if(!result){
-                Alert alerta = new Alert(Alert.AlertType.ERROR);
-                alerta.setHeaderText("O usuário já existe! .");
-                alerta.setContentText("Tente novamente.");
-                alerta.showAndWait();
-            }else{
-                controladorSessao.setUsuarioLogado(empresa);
-                controladorUsuario.adicionar(empresa);
-                usuarioLogado = empresa;
-                cadastrado = 1;
-            }
-
-        }
 
 
+            if(cadastrado == 1){
+                controladorSessao.setUsuarioLogado(usuarioLogado);
 
-        if(cadastrado == 1){
-            controladorSessao.setUsuarioLogado(usuarioLogado);
-
-            Parent root = FXMLLoader.load(HelloApplication.class.getResource("CadastroRealizado.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();}
+                Parent root = FXMLLoader.load(HelloApplication.class.getResource("CadastroRealizado.fxml"));
+                stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();}
         }catch(ElementoJaExistenteException e){
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText("O usuário já existe! .");
@@ -273,7 +252,7 @@ public class CadastroController {
         //Scene mscene = new Scene(parent, 600, 400 );
         //Stage nstage = new Stage();
         //nstage.setScene(mscene);
-       // nstage.show();
+        // nstage.show();
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("Login.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -282,7 +261,6 @@ public class CadastroController {
 
 
     }
-
 
     //@Override
 
