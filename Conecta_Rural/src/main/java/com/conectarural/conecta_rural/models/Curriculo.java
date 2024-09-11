@@ -53,6 +53,9 @@ public class Curriculo {
         this.curso = curso;
     }
 
+
+
+
     @Override
     public String toString() {
         return "Curriculo{" +

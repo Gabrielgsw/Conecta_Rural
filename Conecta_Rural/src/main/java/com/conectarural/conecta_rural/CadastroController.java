@@ -3,6 +3,7 @@ package com.conectarural.conecta_rural;
 
 import com.conectarural.conecta_rural.exceptions.ElementoJaExistenteException;
 import com.conectarural.conecta_rural.models.*;
+
 import com.conectarural.conecta_rural.negocio.ControllerUsuario;
 import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
 import javafx.event.ActionEvent;
@@ -66,6 +67,8 @@ public class CadastroController {
     @FXML
     private Button voltarBT;
 
+    //public Curso cs;
+
     @FXML
     public void onvoltarBTaction(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("Login.fxml"));
@@ -111,7 +114,7 @@ public class CadastroController {
         String areaDaEmpresa = areaDaEmpresaField.getText();
         String descricao = descricaoArea.getText();
         String PeriodoAtual= periodoAtual.getText();
-        Curso Cs = escolhaCursos.getSelectionModel().getSelectedItem();
+        Curso cs = escolhaCursos.getSelectionModel().getSelectedItem();
         LocalDate dataNasc = dataNascimento.getValue();
 
 
@@ -130,7 +133,7 @@ public class CadastroController {
             alerta.showAndWait();
 
         }
-        else if(escolha.equals("Empresa") &&  ((!PeriodoAtual.isBlank()) || (Cs != null) || (dataNasc != null))){
+        else if(escolha.equals("Empresa") &&  ((!PeriodoAtual.isBlank()) || (cs != null) || (dataNasc != null))){
 
             Alert alerta = new Alert(Alert.AlertType.ERROR);
             alerta.setHeaderText("Campos preenchidos incorretamente! .");
@@ -140,7 +143,7 @@ public class CadastroController {
         }
 
         else if(escolha.equals("Estudante")){
-            Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,Cs,PeriodoAtual);
+            Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,cs,PeriodoAtual);
             controladorSessao.setUsuarioLogado(estudante);
             controladorUsuario.adicionar(estudante);
             usuarioLogado = estudante;
@@ -179,6 +182,7 @@ public class CadastroController {
 
 
     }
+
 
     //@Override
 
