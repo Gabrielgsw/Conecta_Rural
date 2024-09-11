@@ -9,7 +9,8 @@ public class Curriculo {
     private Integer periodoAtual;
     private File curriculoArquivo;
     private Curso curso;
-    private List<Atividade> atividades;
+    private String nomeCurso;
+    public List<Atividade> atividades;
 
     public Curriculo(){
     }
@@ -20,7 +21,23 @@ public class Curriculo {
         this.curso=curso;
         this.atividades = new ArrayList<>();
     }
-    
+
+    // Construtor alternativo
+    public Curriculo(String resumo, Integer periodoAtual, String nomeCurso){
+        this.resumo = resumo;
+        this.periodoAtual = periodoAtual;
+        this.nomeCurso = nomeCurso;
+        this.atividades = new ArrayList<>();
+    }
+
+    public String getNomeCurso() {
+        return nomeCurso;
+    }
+
+    public void setNomeCurso(String nomeCurso) {
+        this.nomeCurso = nomeCurso;
+    }
+
     public String getResumo() {
         return resumo;
     }
@@ -53,8 +70,13 @@ public class Curriculo {
         this.curso = curso;
     }
 
+    public List<Atividade> getAtividades() {
+        return atividades;
+    }
 
-
+    public void setAtividades(Atividade a) {
+        this.atividades.add(a);
+    }
 
     @Override
     public String toString() {

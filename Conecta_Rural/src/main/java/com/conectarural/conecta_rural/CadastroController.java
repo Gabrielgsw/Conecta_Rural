@@ -165,7 +165,7 @@ public class CadastroController {
 
 
             else if((escolha.equals("Estudante")) && (!nome.isBlank() && !email.isBlank() && !cnpj.isBlank() && !telefone.isBlank() && !endereco.isBlank() && !password.isBlank() && !escolha.isBlank() && dataNasc != null && cs != null && periodoatual != null)){
-                Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,cs,periodoAtual);
+                Estudante estudante = new Estudante(nome,email,telefone,endereco,password,cnpj,dataNasc,cs,periodoAtual,null);
                 Estudante e;
                 boolean result = true;
                 for(Usuario u : controladorUsuario.listar()){

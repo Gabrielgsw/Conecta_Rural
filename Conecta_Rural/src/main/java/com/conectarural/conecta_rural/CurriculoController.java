@@ -1,5 +1,12 @@
 package com.conectarural.conecta_rural;
 
+
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
+
+import java.io.FileNotFoundException;
 import com.conectarural.conecta_rural.models.*;
 import com.conectarural.conecta_rural.negocio.ControllerUsuarioSessao;
 import javafx.event.ActionEvent;
@@ -21,6 +28,8 @@ import static java.lang.Integer.parseInt;
 
 public class CurriculoController {
 
+    private int quantidadeAtividades = 0;
+
     @FXML
     private Stage stage;
 
@@ -28,13 +37,13 @@ public class CurriculoController {
     private Scene scene;
 
     @FXML
-    private Button BotaoGerarCurriculo;
+    private Button botaoGerarCurriculo;
 
     @FXML
-    private Button BotaoVoltar;
+    private Button botaoVoltar;
 
     @FXML
-    private TextArea ResumoEstudanteCurriculo;
+    private TextArea resumoEstudanteCurriculo;
 
     @FXML
     private TextField areaAtividade;
@@ -43,7 +52,7 @@ public class CurriculoController {
     private TextField atividadeNome;
 
     @FXML
-    private ChoiceBox<String> atividadesEstudanteCurriculo;
+    private ChoiceBox<String> atividadesEstudanteCurriculo = new ChoiceBox<>();
 
     @FXML
     private DatePicker dataFimAtividade;
@@ -51,8 +60,8 @@ public class CurriculoController {
     @FXML
     private DatePicker dataInicioAtividade;
 
-    @FXML
-    private ChoiceBox<Curso> opcaoCurso;
+   @FXML
+   private TextField txtCurso;
 
     @FXML
     private TextField periodoAtualCurriculo;
@@ -69,9 +78,12 @@ public class CurriculoController {
     @FXML
     private TextField tecnologiaAtividade;
 
-    Curriculo curriculo;
+
+    //Curriculo curriculo;
 
     ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
+
+    Estudante e = (Estudante)controladorSessao.getUsuarioLogado();
 
     public void setDadosCurriculo(Curso curso, String periodo) {
         periodoAtualCurriculo.setText(periodo);
@@ -82,16 +94,16 @@ public class CurriculoController {
         atividadesEstudanteCurriculo.getItems().add("Estágio");
         atividadesEstudanteCurriculo.getItems().add("Projeto");
         atividadesEstudanteCurriculo.getItems().add("Trabalho");
-        opcaoCurso.getItems().add(Curso.CienciaDaComputacao) ;
+        /*opcaoCurso.getItems().add(Curso.CienciaDaComputacao) ;
         opcaoCurso.getItems().add(Curso.LicenciaturaEmComputacao) ;
         opcaoCurso.getItems().add(Curso.MedicinaVeterinaria) ;
         opcaoCurso.getItems().add(Curso.Gastronomia) ;
         opcaoCurso.getItems().add(Curso.CienciasBiologias) ;
         opcaoCurso.getItems().add(Curso.LicenciaturaFisica) ;
-        opcaoCurso.getItems().add(Curso.SistemasDeInformacao) ;
+        opcaoCurso.getItems().add(Curso.SistemasDeInformacao) ;*/
     }
 
-    @FXML
+    /*@FXML
     public void acaoBotaoGerarCurriculo(ActionEvent event) throws IOException {
         System.out.println("acaoBotaoGerarCurriculo");
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaCurriculo.fxml"));
@@ -99,7 +111,7 @@ public class CurriculoController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
+    }*/
 
     @FXML
     public void acaoBotaoVoltar(ActionEvent event) throws IOException{
@@ -119,9 +131,10 @@ public class CurriculoController {
         stage.show();
     }
     @FXML
-    void acaoSalvar(ActionEvent event) {
-        Estudante e = (Estudante)controladorSessao.getUsuarioLogado();
-        if(e.getCurriculoEstudante() == null){
+    void acaoSalvar(ActionEvent event) throws IOException {
+        //Estudante e = (Estudante)controladorSessao.getUsuarioLogado();
+
+        if(e == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erro ao cadastrar atividades");
             alert.setHeaderText("Currículo não existente");
@@ -129,6 +142,25 @@ public class CurriculoController {
             alert.show();
         }else{
             //curriculo.
+            Atividade a = null;
+            System.out.println(atividadesEstudanteCurriculo.getSelectionModel().getSelectedItem());
+            if(atividadesEstudanteCurriculo.getSelectionModel().getSelectedItem().equals("Estágio")){
+                a = new Estagio(atividadeNome.getText(),resumoCurriculo.getText(),areaAtividade.getText(),tecnologiaAtividade.getText(),dataInicioAtividade.getValue(),dataFimAtividade.getValue());
+            }
+            if (atividadesEstudanteCurriculo.getSelectionModel().getSelectedItem().equals("Projeto")){
+                a = new Projeto(atividadeNome.getText(),resumoCurriculo.getText(),areaAtividade.getText(),tecnologiaAtividade.getText(),dataInicioAtividade.getValue(),dataFimAtividade.getValue());
+            }
+
+            if(atividadesEstudanteCurriculo.getSelectionModel().getSelectedItem().equals("Trabalho")){
+                a = new Projeto(atividadeNome.getText(),resumoCurriculo.getText(),areaAtividade.getText(),tecnologiaAtividade.getText(),dataInicioAtividade.getValue(),dataFimAtividade.getValue());
+            }
+            quantidadeAtividades++;
+            e.getCurriculoEstudante().setAtividades(a);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Atividades cadastradas no curriculo");
+            alert.setHeaderText("Sucesso ao cadastrar atividades");
+            alert.setContentText("Sucesso");
+            alert.show();
         }
 
     }
@@ -136,11 +168,59 @@ public class CurriculoController {
 
 
     @FXML
-    public void acaoBotaoSalvarCurrículo(ActionEvent event) {
-        curriculo = new Curriculo( resumoCurriculo.getText(), parseInt(periodoAtualCurriculo.getText()),opcaoCurso.getSelectionModel().getSelectedItem());
-        Estudante e = (Estudante)controladorSessao.getUsuarioLogado();
+    public void acaoBotaoSalvarCurrículo(ActionEvent event) throws IOException {
+        Curriculo curriculo = new Curriculo( resumoEstudanteCurriculo.getText(), parseInt(periodoAtualCurriculo.getText()),txtCurso.getText());
+        //Estudante e = (Estudante)controladorSessao.getUsuarioLogado();
+        System.out.println(curriculo);
         e.setCurriculoEstudante(curriculo);
+        System.out.println(e.getCurriculoEstudante());
+        System.out.println("curriculo criado");
 
+    }
+
+    @FXML
+    public void acaoBotaoGerarCurriculo(ActionEvent event) throws IOException{
+        String caminhoArquivo = "documento.pdf";
+
+        try {
+            // Cria o PdfWriter e o PdfDocument
+            PdfWriter writer = new PdfWriter(caminhoArquivo);
+            PdfDocument pdfDoc = new PdfDocument(writer);
+
+            // Cria um documento
+            Document documento = new Document(pdfDoc);
+
+            // Adiciona um parágrafo de texto ao documento
+            int i = 0;
+
+                documento.add(new Paragraph(e.getNome()));
+                documento.add(new Paragraph("E-mail: "+e.getEmail()));
+                documento.add(new Paragraph("Telefone: "+e.getTelefone()));
+                documento.add(new Paragraph("Curso: "+e.getCurso()));
+                documento.add(new Paragraph("Periodo: "+e.getPeriodoAtual()));
+                documento.add(new Paragraph("Data de Nascimento: "+e.getDataNascimento()));
+                documento.add(new Paragraph("Resumo: "+e.getCurriculoEstudante().getResumo()));
+                documento.add(new Paragraph("Atividades: \n"));
+                for(Atividade a : e.getCurriculoEstudante().getAtividades()){
+                    documento.add(new Paragraph(a.getNome()));
+                    documento.add(new Paragraph("\n"));
+                    documento.add(new Paragraph(a.getResumo()));
+                    documento.add(new Paragraph("\n"));
+                    documento.add(new Paragraph(a.getArea()));
+                    documento.add(new Paragraph(a.getTecnologias()));
+                    documento.add(new Paragraph(a.getData().toString()));
+                    documento.add(new Paragraph(a.getDataFinal().toString()));
+
+                }
+
+
+            // Fecha o documento
+            documento.close();
+
+            System.out.println("PDF gerado com sucesso!");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 }

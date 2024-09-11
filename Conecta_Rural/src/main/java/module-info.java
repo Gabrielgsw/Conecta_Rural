@@ -6,6 +6,8 @@ module com.conectarural.conecta_rural {
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires java.desktop;
+    requires layout;
+    requires kernel;
     // requires org.kordamp.bootstrapfx.core;
 
     opens com.conectarural.conecta_rural to javafx.fxml;

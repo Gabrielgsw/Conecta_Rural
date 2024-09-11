@@ -11,6 +11,7 @@ public class Estudante extends Usuario {
     private String periodoAtual;
 
 
+
     public Estudante() {
         super();
     }
@@ -26,13 +27,15 @@ public class Estudante extends Usuario {
 
     //construtor para cadastro
 
-    public Estudante(String nome, String email, String telefone, String endereco, String senha,String cpf, LocalDate dataNascimento,Curso curso, String periodo) {
+    public Estudante(String nome, String email, String telefone, String endereco, String senha,String cpf, LocalDate dataNascimento,Curso curso, String periodo, Curriculo curriculoEstudante) {
         super(nome, email, telefone, endereco, senha);
         this.cpf = cpf;
         this.curso=curso;
         this.dataNascimento = dataNascimento;
         this.periodoAtual=periodo;
+        this.curriculoEstudante=curriculoEstudante;
     }
+
 
 
 
@@ -46,7 +49,7 @@ public class Estudante extends Usuario {
 
     public Curriculo getCurriculoEstudante() { return curriculoEstudante; }
 
-    public void setCurriculoEstudante(Curriculo curriculoEstudnate) { this.curriculoEstudante = curriculoEstudante; }
+    public void setCurriculoEstudante(Curriculo curriculoEstudante) { this.curriculoEstudante = curriculoEstudante; }
 
     public Curso getCurso() {
         return curso;

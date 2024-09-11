@@ -1,5 +1,6 @@
 package com.conectarural.conecta_rural.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public abstract class Atividade {
@@ -8,14 +9,24 @@ public abstract class Atividade {
     private String resumo;
     private String area;
     private String tecnologias;
-    private LocalDateTime data;
+    private LocalDate data;
+    private LocalDate dataFinal;
 
-    public Atividade(String nome, String resumo, String area, String tecnologias, LocalDateTime data) {
+    public Atividade(String nome, String resumo, String area, String tecnologias, LocalDate data, LocalDate dataFinal) {
         this.nome = nome;
         this.resumo = resumo;
         this.area = area;
         this.tecnologias = tecnologias;
         this.data = data;
+        this.dataFinal = dataFinal;
+    }
+
+    public LocalDate getDataFinal() {
+        return dataFinal;
+    }
+
+    public void setDataFinal(LocalDate dataFinal) {
+        this.dataFinal = dataFinal;
     }
 
     public String getNome() {
@@ -50,11 +61,11 @@ public abstract class Atividade {
         this.tecnologias = tecnologias;
     }
 
-    public LocalDateTime getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(LocalDateTime data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
