@@ -21,10 +21,13 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
+import javafx.scene.control.TextField;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class VerCandidaturaController {
@@ -41,9 +44,7 @@ public class VerCandidaturaController {
     @FXML
     private Button botaoVoltar;
 
-    ControllerUsuarioSessao controllerUsuarioSessao = ControllerUsuarioSessao.getInstance();
-    ControllerVaga controllerVaga = ControllerVaga.getInstance();
-    ControllerUsuario controllerUsuario = ControllerUsuario.getInstance();
+
     ControllerCandidatura controllerCandidatura = ControllerCandidatura.getInstance();
 
     @FXML void initialize(){
@@ -85,31 +86,29 @@ public class VerCandidaturaController {
     @FXML
     void acaoBotaoVoltar(ActionEvent event)throws IOException {
         System.out.println("acaoBotaoVoltar");
-        // Variável local para controladorSessao
-       // ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
+        ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
 
-        /*FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("TelaPrincipalEstudante.fxml"));
+        FXMLLoader loader = new FXMLLoader(HelloApplication.class.getResource("TelaPrincipalEstudante.fxml"));
         Parent root = loader.load();
         PrincipalEstudanteController principalEstudanteController = loader.getController();
         Usuario usuarioLogado = controladorSessao.getUsuarioLogado();
 
         if (usuarioLogado instanceof Estudante) {
             Estudante estudante = (Estudante) usuarioLogado;
-            // Passando os dados do estudante para o controller da TelaPrincipalEstudante
             principalEstudanteController.setDadosEstudante(estudante.getNome());
         }
 
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();*/
+        stage.show();
 
 
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaPrincipalEstudante.fxml"));
+        /*Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaPrincipalEstudante.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();
+        stage.show(); */
     }
 
 }

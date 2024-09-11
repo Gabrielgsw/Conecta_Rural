@@ -128,7 +128,7 @@ public class PrincipalEstudanteController {
     @FXML
     void acaoBotaoVerVagasAbertas(ActionEvent event) throws IOException{
         System.out.println("acaoBotaoVerVagasAbertas");
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaBuscarVagas.fxml"));
+        Parent root = FXMLLoader.load(HelloApplication.class.getResource("telaBuscarVagasAbertasEstudante.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -26,7 +26,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
-public class BuscarVagasController {
+public class BuscarVagasAbertasEstudanteController {
 
     @FXML
     private Stage stage;
@@ -35,19 +35,17 @@ public class BuscarVagasController {
     private Scene scene;
 
     @FXML
-    private Button botaoBuscar;
+    private Button botaoCandidatar;
 
     @FXML
     private Button botaoVoltar;
 
     @FXML
-    private TableView<Vaga> table;
+    private TableView<Vaga> tabelaVagaAberta;
 
     @FXML
-    private Button candidatarBT;
+    private AnchorPane telaVagasAbertas;
 
-    @FXML
-    private AnchorPane BuscarVagasAnchorPane;
 
     ControllerUsuarioSessao controllerUsuarioSessao = ControllerUsuarioSessao.getInstance();
     ControllerVaga controllerVaga = ControllerVaga.getInstance();
@@ -55,8 +53,6 @@ public class BuscarVagasController {
     ControllerCandidatura controllerCandidatura = ControllerCandidatura.getInstance();
 
     @FXML void initialize(){
-        //coluna data
-        ;//fim da coluna Data
         TableColumn<Vaga, String> colNomeVaga = new TableColumn<>("Nome");
         colNomeVaga.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNomeVaga()));
 
@@ -67,14 +63,21 @@ public class BuscarVagasController {
         colRemuneracao.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRemuneracao().toString()));
         TableColumn<Vaga, String> colDescricao = new TableColumn<>("Descrição");
         colDescricao.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescricaoVaga()));
+        TableColumn<Vaga, String> colStatus = new TableColumn<>("Status");
+        colStatus.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getStatusVaga().toString()));
 
-        table.getColumns().addAll(colNomeVaga,colEmpresa,colRemuneracao,colDescricao);
-        for(Vaga v : controllerVaga.listar()){
-            table.getItems().add(v);
+        tabelaVagaAberta.getColumns().addAll(colNomeVaga,colEmpresa,colRemuneracao,colDescricao,colStatus);
+
+        // Filtra as vagas com status "aberta" (comparação de String)
+        for (Vaga v : controllerVaga.listar()) {
+            if ("aberta".equalsIgnoreCase(v.getStatusVaga().toString())) {
+                tabelaVagaAberta.getItems().add(v);
+            }
         }
+
         Estudante e1 = new Estudante("Gabriel","ggermanow279@gmail.com", "8123","Rua das mocas,77","teste","11357", LocalDate.of(2003,01,26),new Curriculo("Teste descrição",3, Curso.CienciaDaComputacao));
         Empresa e2 = new Empresa("Teste","teste@gmail.com","32423423","Rua Manoel de Medeiros","teste123","12321-2121","20","Tecnologia","teste");
-        table.getItems().add(new Vaga("Estágio em Desenvolvimento de sistemas","teste",0,1250D,2,e2,001, RegimeContratacao.Estagio, StatusVaga.Aberta));
+        tabelaVagaAberta.getItems().add(new Vaga("Estágio em Desenvolvimento de sistemas","teste",0,1250D,2,e2,001, RegimeContratacao.Estagio, StatusVaga.Aberta));
         //Empresa e2 = new Empresa("Teste","teste@gmail.com",32423423L,"Rua Manoel de Medeiros","teste123","12321-2121",20,"Tecnologia","teste");
         //Estudante e1 = new Estudante("Gabriel","ggermanow279@gmail.com", 8123L,"Rua das mocas,77","teste",11357L, LocalDate.of(2003,01,26),new Curriculo("Teste descrição",3, Curso.CienciaDaComputacao));
         //tabelaCandidatura.getItems().add(new Candidatura(e1,LocalDateTime.now(),new Vaga("Estágio em Desenvolvimento de sistemas","teste",0,1250,2,e2,001,RegimeContratacao.Estagio,StatusVaga.Aberta)));
@@ -84,26 +87,51 @@ public class BuscarVagasController {
     @FXML
     public void clickItem(MouseEvent event) {
         if (event.getClickCount() == 2){
-            System.out.println(table.getSelectionModel().getSelectedItem());
-            vaga = table.getSelectionModel().getSelectedItem();
+            System.out.println(tabelaVagaAberta.getSelectionModel().getSelectedItem());
+            vaga = tabelaVagaAberta.getSelectionModel().getSelectedItem();
         }
     }
 
-
     @FXML
-    public void acaoBotaoBuscarVagas(ActionEvent event) throws IOException {
+    public void acaoBotaoCandidatar(ActionEvent event) throws IOException, ElementoJaExistenteException {
+        int candidatou = 1;
 
+        Usuario u = controllerUsuarioSessao.getUsuarioLogado();
+        Estudante e1 = (Estudante)u;
+        Candidatura c1 = new Candidatura(e1, LocalDateTime.now(),vaga);
+        //controllerCandidatura.adicionar(c1);
 
-        System.out.println("acaoBotaoBuscarVagas");
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaBuscarVagas.fxml"));
-        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        for(Candidatura c : vaga.getCandidaturas()){
+            if(c1.equals(c)){
+                candidatou = 0;
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Falha na candidatura!");
+                alert.setHeaderText("Candidatura não realizada!");
+                alert.setContentText("error");
+                alert.showAndWait();
+                break;
+            }
+
+            //candidatou = 1;
+
+        }
+
+        if(candidatou == 1){
+            controllerCandidatura.adicionar(c1);
+            vaga.setCandidaturas(c1);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Candidatura realizada com sucesso!");
+            alert.setHeaderText("Sua candidatura foi realizada.");
+            alert.setContentText("confirmation");
+            alert.show();
+            vaga.setQuantidadeCandidatos(vaga.getQuantidadeCandidatos()+1);
+            System.out.println(vaga.getQuantidadeCandidatos());
+        }
+
     }
 
     @FXML
-    public void acaoBotaoVoltar(ActionEvent event) throws IOException{
+    void acoaBotaoVoltar(ActionEvent event) throws IOException{
         System.out.println("acaoBotaoVoltar");
         // Variável local para controladorSessao
         ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
@@ -124,48 +152,4 @@ public class BuscarVagasController {
         stage.setScene(scene);
         stage.show();
     }
-
-    @FXML
-    public void oncandidatarBTaction(ActionEvent event) throws IOException, ElementoJaExistenteException {
-        //Empresa e2 = new Empresa("Teste","teste@gmail.com",32423423L,"Rua Manoel de Medeiros","teste123","12321-2121",20,"Tecnologia","teste");
-        //Estudante e1 = new Estudante("Gabriel","ggermanow279@gmail.com", "8123","Rua das mocas,77","teste","11357", LocalDate.of(2003,01,26),new Curriculo("Teste descrição",3, Curso.CienciaDaComputacao));
-        int candidatou = 1;
-
-        Usuario u = controllerUsuarioSessao.getUsuarioLogado();
-        Estudante e1 = (Estudante)u;
-        Candidatura c1 = new Candidatura(e1,LocalDateTime.now(),vaga);
-        //controllerCandidatura.adicionar(c1);
-
-            for(Candidatura c : vaga.getCandidaturas()){
-              if(c1.equals(c)){
-                  candidatou = 0;
-                  Alert alert = new Alert(Alert.AlertType.ERROR);
-                  alert.setTitle("Falha na candidatura!");
-                  alert.setHeaderText("Candidatura não realizada!");
-                  alert.setContentText("error");
-                  alert.showAndWait();
-                  break;
-              }
-
-            //candidatou = 1;
-
-        }
-
-        if(candidatou == 1){
-            controllerCandidatura.adicionar(c1);
-            vaga.setCandidaturas(c1);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Candidatura realizada com sucesso!");
-            alert.setHeaderText("Sua candidatura foi realizada.");
-            alert.setContentText("confirmation");
-            alert.show();
-            vaga.setQuantidadeCandidatos(vaga.getQuantidadeCandidatos()+1);
-            System.out.println(vaga.getQuantidadeCandidatos());
-        }
-
-
-    }
-
-
-
 }
