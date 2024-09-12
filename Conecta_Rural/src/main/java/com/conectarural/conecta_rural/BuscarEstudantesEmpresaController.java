@@ -12,15 +12,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URI;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
+import static com.conectarural.conecta_rural.CurriculoController.qtdCurriculos;
 
 public class BuscarEstudantesEmpresaController {
 
@@ -36,6 +37,8 @@ public class BuscarEstudantesEmpresaController {
     @FXML
     private Button buscarEstudantesBT;
     @FXML
+    private Button visualizarCurriculoBT;
+    @FXML
     private ChoiceBox<Curso> cursos = new ChoiceBox<>();
 
     ControllerUsuarioSessao controllerUsuarioSessao = ControllerUsuarioSessao.getInstance();
@@ -44,6 +47,7 @@ public class BuscarEstudantesEmpresaController {
     ControllerCandidatura controllerCandidatura = ControllerCandidatura.getInstance();
 
 
+    Estudante est;
     @FXML
     public void onvoltarTelaBTaction(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("TelaPrincipalEmpresa.fxml"));
@@ -102,4 +106,38 @@ public class BuscarEstudantesEmpresaController {
             }
         }
     }
+
+    @FXML
+    public void clickItem(MouseEvent event) {
+        if (event.getClickCount() == 2) {
+            System.out.println(tableBuscarEstudantes.getSelectionModel().getSelectedItem());
+            est = tableBuscarEstudantes.getSelectionModel().getSelectedItem();
+        }
+    }
+
+
+    @FXML
+    public void onvisualizarCurriculoBTaction(ActionEvent event) throws IOException{
+
+        try{
+        if(est != null){
+            int i = tableBuscarEstudantes.getSelectionModel().getSelectedIndex();
+
+            java.awt.Desktop.getDesktop().browse(URI.create("file:///C:/Users/Gabriel%20Germano/Desktop/proj%20ultimo%20commit/Conecta_Rural/Conecta_Rural/documento"+(i+1)+".pdf"));
+
+
+
+
+
+        }else{
+            Alert alerta = new Alert(Alert.AlertType.ERROR);
+            alerta.setHeaderText("Erro ao acessar o currículo! .");
+            alerta.setContentText("Tente novamente.");
+            alerta.showAndWait();
+        }}catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
 }

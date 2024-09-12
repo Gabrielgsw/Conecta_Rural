@@ -31,7 +31,7 @@
                     </cursor>
                 </Button>
                 <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="35.0" layoutY="165.0" stroke="TRANSPARENT" strokeType="INSIDE" width="600.0" />
-                <TextField fx:id="emailField" layoutX="200.0" layoutY="2.0" text="Email">
+                <TextField fx:id="emailField" layoutX="200.0" layoutY="2.0">
                     <cursor>
                         <Cursor fx:constant="DEFAULT" />
                     </cursor>

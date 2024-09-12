@@ -85,6 +85,9 @@ public class CurriculoController {
 
     Estudante e = (Estudante)controladorSessao.getUsuarioLogado();
 
+    public static int qtdCurriculos = 0;
+
+
     public void setDadosCurriculo(Curso curso, String periodo) {
         periodoAtualCurriculo.setText(periodo);
     }
@@ -161,6 +164,13 @@ public class CurriculoController {
             alert.setHeaderText("Sucesso ao cadastrar atividades");
             alert.setContentText("Sucesso");
             alert.show();
+           atividadeNome.setText("");
+           resumoCurriculo.setText("");
+           areaAtividade.setText("");
+           tecnologiaAtividade.setText("");
+           dataInicioAtividade.setValue(null);
+           dataFimAtividade.setValue(null);
+           quantidadeAtividades = 0;
         }
 
     }
@@ -175,12 +185,14 @@ public class CurriculoController {
         e.setCurriculoEstudante(curriculo);
         System.out.println(e.getCurriculoEstudante());
         System.out.println("curriculo criado");
+        qtdCurriculos++;
+        System.out.println(qtdCurriculos);
 
     }
 
     @FXML
     public void acaoBotaoGerarCurriculo(ActionEvent event) throws IOException{
-        String caminhoArquivo = "documento.pdf";
+        String caminhoArquivo = "documento"+qtdCurriculos+".pdf";
 
         try {
             // Cria o PdfWriter e o PdfDocument
@@ -193,25 +205,25 @@ public class CurriculoController {
             // Adiciona um parágrafo de texto ao documento
             int i = 0;
 
-                documento.add(new Paragraph(e.getNome()));
-                documento.add(new Paragraph("E-mail: "+e.getEmail()));
-                documento.add(new Paragraph("Telefone: "+e.getTelefone()));
-                documento.add(new Paragraph("Curso: "+e.getCurso()));
-                documento.add(new Paragraph("Periodo: "+e.getPeriodoAtual()));
-                documento.add(new Paragraph("Data de Nascimento: "+e.getDataNascimento()));
-                documento.add(new Paragraph("Resumo: "+e.getCurriculoEstudante().getResumo()));
-                documento.add(new Paragraph("Atividades: \n"));
-                for(Atividade a : e.getCurriculoEstudante().getAtividades()){
-                    documento.add(new Paragraph(a.getNome()));
-                    documento.add(new Paragraph("\n"));
-                    documento.add(new Paragraph(a.getResumo()));
-                    documento.add(new Paragraph("\n"));
-                    documento.add(new Paragraph(a.getArea()));
-                    documento.add(new Paragraph(a.getTecnologias()));
-                    documento.add(new Paragraph(a.getData().toString()));
-                    documento.add(new Paragraph(a.getDataFinal().toString()));
+            documento.add(new Paragraph(e.getNome()));
+            documento.add(new Paragraph("E-mail: "+e.getEmail()));
+            documento.add(new Paragraph("Telefone: "+e.getTelefone()));
+            documento.add(new Paragraph("Curso: "+e.getCurso()));
+            documento.add(new Paragraph("Periodo: "+e.getPeriodoAtual()));
+            documento.add(new Paragraph("Data de Nascimento: "+e.getDataNascimento()));
+            documento.add(new Paragraph("Resumo: "+e.getCurriculoEstudante().getResumo()));
+            documento.add(new Paragraph("Atividades: \n"));
+            for(Atividade a : e.getCurriculoEstudante().getAtividades()){
+                documento.add(new Paragraph("Nome da atividade: "+a.getNome()));
+                //documento.add(new Paragraph("\n"));
+                documento.add(new Paragraph("Resumo atividade: "+a.getResumo()));
+                //documento.add(new Paragraph("\n"));
+                documento.add(new Paragraph("Area: "+a.getArea()));
+                documento.add(new Paragraph("Tecnologias: "+a.getTecnologias()));
+                documento.add(new Paragraph("Data inicial: "+a.getData().toString()));
+                documento.add(new Paragraph("Data final: "+a.getDataFinal().toString()));
 
-                }
+            }
 
 
             // Fecha o documento
