@@ -7,11 +7,13 @@ public class Candidatura {
     private Estudante candidato;
     private LocalDateTime dataCandidatura;
     private Vaga vaga;
+    private String aprovado;
 
     public Candidatura(Estudante candidato, LocalDateTime dataCandidatura, Vaga vaga) {
         this.candidato = candidato;
         this.dataCandidatura = dataCandidatura;
         this.vaga = vaga;
+        this.aprovado = "Em andamento";
     }
 
     public Estudante getCandidato() {
@@ -37,6 +39,15 @@ public class Candidatura {
     public void setVaga(Vaga vaga) {
         this.vaga = vaga;
     }
+
+    public String getAprovado() {
+        return aprovado;
+    }
+
+    public void setAprovado(String aprovado) {
+        this.aprovado = aprovado;
+    }
+
     @Override
     public String toString(){
         return "Candidatura{" +

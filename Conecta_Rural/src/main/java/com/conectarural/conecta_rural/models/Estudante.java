@@ -12,6 +12,7 @@ public class Estudante extends Usuario {
 
 
 
+
     public Estudante() {
         super();
     }
@@ -66,6 +67,13 @@ public class Estudante extends Usuario {
     public void setPeriodoAtual(Integer periodoAtual) {
         this.periodoAtual = String.valueOf(periodoAtual);
     }
+
+
+    public void setPeriodoAtual(String periodoAtual) {
+        this.periodoAtual = periodoAtual;
+    }
+
+
 
     @Override
     public String toString() {

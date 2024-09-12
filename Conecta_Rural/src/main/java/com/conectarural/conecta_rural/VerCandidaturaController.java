@@ -14,14 +14,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import java.io.IOException;
-import javafx.scene.control.TextField;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -46,6 +42,7 @@ public class VerCandidaturaController {
 
 
     ControllerCandidatura controllerCandidatura = ControllerCandidatura.getInstance();
+    ControllerUsuarioSessao controladorSessao = ControllerUsuarioSessao.getInstance();
 
     @FXML void initialize(){
         //coluna data
@@ -74,11 +71,16 @@ public class VerCandidaturaController {
         TableColumn<Candidatura, String> colStatus = new TableColumn<>("Status");
         colStatus.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getVaga().getStatusVaga().toString()));
 
-        tabelaCandidatura.getColumns().addAll(colData,colEmpresa,colCandidatura,colStatus);
+        TableColumn<Candidatura, String> colAprovado = new TableColumn<>("Aprovado");
+        colAprovado.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAprovado()));
+
+
+        tabelaCandidatura.getColumns().addAll(colData,colEmpresa,colCandidatura,colStatus,colAprovado);
         //Empresa e2 = new Empresa("Teste","teste@gmail.com","32423423","Rua Manoel de Medeiros","teste123","12321-2121","20","Tecnologia","teste");
         //Estudante e1 = new Estudante("Gabriel","ggermanow279@gmail.com", "8123","Rua das mocas,77","teste","11357", LocalDate.of(2003,01,26),new Curriculo("Teste descrição",3, Curso.CienciaDaComputacao));
         //tabelaCandidatura.getItems().add(new Candidatura(e1,LocalDateTime.now(),new Vaga("Estágio em Desenvolvimento de sistemas","teste",0,1250D,2,e2,001,RegimeContratacao.Estagio,StatusVaga.Aberta)));
         for(Candidatura c : controllerCandidatura.Listar() ){
+            if(c.getCandidato().equals(controladorSessao.getUsuarioLogado()))
             tabelaCandidatura.getItems().add(c);
         }
     }

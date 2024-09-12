@@ -64,7 +64,6 @@ public class PerfilEstudanteController {
     @FXML
     private TextField telefoneEstudante;
 
-
     Image image= new Image(getClass().getResourceAsStream("fotoAnonima.jpg"));
 
     public void displayImage(){
@@ -146,4 +145,5 @@ public class PerfilEstudanteController {
         stage.setScene(scene);
         stage.show();
     }
+
 }

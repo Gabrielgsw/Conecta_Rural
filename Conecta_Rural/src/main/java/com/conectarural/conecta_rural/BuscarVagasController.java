@@ -141,7 +141,7 @@ public class BuscarVagasController {
             //controllerCandidatura.adicionar(c1);
 
             for (Candidatura c : vaga.getCandidaturas()) {
-                if (c1.getVaga().equals(c.getVaga())) {
+                if (c1.getCandidato().getCpf().equals(c.getCandidato().getCpf())) {
                     c1 = null;
                     candidatou = 0;
                     Alert alert = new Alert(Alert.AlertType.ERROR);

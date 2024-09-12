@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -74,6 +75,8 @@ public class PrincipalEstudanteController {
         nomeEstudante.setText(nome);
     }
 
+
+
     @FXML
     void acaoBotaoBuscarVagas(ActionEvent event) throws IOException {
         System.out.println("acaoBotaoBuscarVagas");
@@ -82,11 +85,11 @@ public class PrincipalEstudanteController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
     }
 
     @FXML
     void acaoBotaoCandidaturas(ActionEvent event) throws IOException{
-        controladorSessao.setUsuarioLogado(null);
         System.out.println("acaoBotaoCandidaturas");
         Parent root = FXMLLoader.load(HelloApplication.class.getResource("VisualizarCandidaturas.fxml"));
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

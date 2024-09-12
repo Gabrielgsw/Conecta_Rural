@@ -12,9 +12,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,11 +33,14 @@ public class VisualizarCandidaturasEmpresaController {
     private Button voltarTelaBT;
     @FXML
     private TableView<Candidatura> tableCandidaturas;
+    @FXML
+    private Button aprovarCandidatoBT;
 
     ControllerUsuarioSessao controllerUsuarioSessao = ControllerUsuarioSessao.getInstance();
     ControllerVaga controllerVaga = ControllerVaga.getInstance();
     ControllerUsuario controllerUsuario = ControllerUsuario.getInstance();
     ControllerCandidatura controllerCandidatura = ControllerCandidatura.getInstance();
+    public static int aprovado = 0;
 
     @FXML
     public void onvoltarTelaBTaction(ActionEvent event) throws IOException {
@@ -65,5 +70,26 @@ public class VisualizarCandidaturasEmpresaController {
         for(Candidatura c : controllerCandidatura.Listar()){
             tableCandidaturas.getItems().add(c);
         }
+    }
+
+    Candidatura c;
+    Estudante e;
+    @FXML
+    public void clickItem(MouseEvent event) {
+        if (event.getClickCount() == 2) {
+            System.out.println(tableCandidaturas.getSelectionModel().getSelectedItem());
+            c = tableCandidaturas.getSelectionModel().getSelectedItem();
+            e = c.getCandidato();
+        }
+    }
+
+    @FXML
+    public void onaprovarCandidatoBTaction(ActionEvent event) throws IOException {
+        c.setAprovado("Sim");
+        Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+        alerta.setHeaderText("O candidato selecionado foi aprovado na referida vaga! ");
+        alerta.setContentText("Candidato aprovado!");
+        alerta.showAndWait();
+        aprovado = 1;
     }
 }
