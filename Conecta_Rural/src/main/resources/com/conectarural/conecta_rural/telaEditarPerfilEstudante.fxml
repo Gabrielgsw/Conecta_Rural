@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.conectarural.conecta_rural.EditarPerfilEstudanteController">
    <children>
       <TextField fx:id="editarCPF" layoutX="217.0" layoutY="168.0" />
@@ -16,8 +15,8 @@
       <TextField fx:id="editarIdade" layoutX="217.0" layoutY="135.0" />
       <TextField fx:id="editarNome" layoutX="217.0" layoutY="102.0" />
       <TextField fx:id="editarEmail" layoutX="217.0" layoutY="303.0" />
-      <Button fx:id="botaoVoltar" layoutX="54.0" layoutY="346.0" mnemonicParsing="false" onAction="#acaoBotaoVoltar" text="Voltar" />
-      <Button fx:id="botaoSalvar" layoutX="266.0" layoutY="346.0" mnemonicParsing="false" onAction="#acaoBotaoSalvar" text="Salvar" />
+      <Button fx:id="botaoSalvar" layoutX="268.0" layoutY="346.0" mnemonicParsing="false" onAction="#acaoBotaoSalvar" text="Salvar" />
+      <Button fx:id="botaoVoltar" layoutX="41.0" layoutY="346.0" mnemonicParsing="false" onAction="#acaoBotaoVoltar" text="Voltar" />
       <Label layoutX="175.0" layoutY="106.0" text="Nome:" />
       <Label layoutX="179.0" layoutY="139.0" text="Idade:" />
       <Label layoutX="176.0" layoutY="204.0" text="Curso:" />
