@@ -41,6 +41,7 @@
             <Label alignment="CENTER_RIGHT" layoutX="163.0" layoutY="285.0" prefHeight="17.0" prefWidth="139.0" text="Clique aqui para ver o " />
             <Label layoutX="180.0" layoutY="302.0" text="o currículo deste perfil:" />
             <Button fx:id="botaoCurriculo" layoutX="308.0" layoutY="298.0" mnemonicParsing="false" onAction="#acaoBotaoCurriculo" text="Curriculo" />
+            <Button fx:id="botaoEditar" layoutX="392.0" layoutY="298.0" mnemonicParsing="false" onAction="#acaoBotaoEditar" text="Editar" />
          </children></AnchorPane>
   </content>
 </ScrollPane>
