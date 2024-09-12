@@ -21,7 +21,7 @@ Conecta Rural é um sistema com o intuito de conectar os estudantes da UFRPE com
  * **REQ5** - O sistema deve permitir que o usuário empresa insira suas informações e possa gerenciá-las.
  * **REQ6** - O sistema deve permitir que o usuário estudante insira suas atividades e currículo bem como o gerenciamento delas(atualizar,excluir).
  * **REQ7** - O sistema deve permitir que o usuário do tipo estudante possa verificar a situação das suas candidaturas. 
- * **REQ8** - O sistema deve permitir que o usuário do tipo empresa visualize os candidatos iscritos nas vagas oferecidas. 
+ * **REQ8** - O sistema deve permitir que o usuário do tipo empresa visualize os candidatos inscritos nas vagas oferecidas. 
 
   ## Cronograma de MVPs com seleção de requisitos
 
